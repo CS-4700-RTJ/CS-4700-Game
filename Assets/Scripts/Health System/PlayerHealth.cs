@@ -12,7 +12,7 @@ public class PlayerHealth : Damageable
     [SerializeField, Min(0)]
     private float flashFrequency = 1f;
     [SerializeField, Min(0)]
-    private float flashDuration = 2f;
+    private int numFlashes = 2;
     
     private MeshRenderer renderer;
 
@@ -35,8 +35,7 @@ public class PlayerHealth : Damageable
     protected override void Death()
     {
         // Play the death sound
-        AudioClip deathSound = deathSounds[Random.Range(0, deathSounds.Length)];
-        audioSource.PlayOneShot(deathSound);
+        PlayDeathSound();
 
         // Disable inputs
         // TODO - after player input is implemented
@@ -49,29 +48,46 @@ public class PlayerHealth : Damageable
     private IEnumerator DamageFlash()
     {
         float startTime = Time.time;
-        float flashTimer = flashFrequency;
+        float flashTimer = 0;
+
+        bool goingToRed = true;
 
         var playerMat = renderer.material;
         var originalColor = playerMat.color;
 
-        while (Time.time - startTime <= flashDuration)
+
+        int remainingFlashes = numFlashes;
+        while (remainingFlashes > 0)
         {
             // Lerp the player's mesh color between its normal color and red
             playerMat.color = Color.Lerp(originalColor, Color.red, flashTimer);
 
-            flashTimer += Time.deltaTime / flashDuration;
-            
+            if (goingToRed)
+            {
+                flashTimer += Time.deltaTime / flashFrequency;
+                if (flashTimer >= 1) goingToRed = false;
+            }
+            else
+            {
+                flashTimer -= Time.deltaTime / flashFrequency;
+                if (flashTimer <= 0)
+                {
+                    goingToRed = true;
+                    remainingFlashes--;
+                }
+            }
+
             yield return null;
         }
         
         playerMat.color = originalColor;
     }
     
-    private IEnumerator ApplyDamageInvulnerability(float invulnerableTime)
+    private IEnumerator ApplyDamageInvulnerability(float time)
     {
         isInvulnerable = true;
 
-        yield return new WaitForSeconds(invulnerableTime);
+        yield return new WaitForSeconds(time);
 
         isInvulnerable = false;
     }

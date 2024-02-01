@@ -49,8 +49,26 @@ public abstract class Damageable : MonoBehaviour
     /// </summary>
     protected void PlayDamagedSound()
     {
+        if (damageSounds.Length == 0)
+        {
+            Debug.LogWarning(this + " has no damage sounds!", this);
+            return;
+        }
+        
         AudioClip clipToPlay = damageSounds[Random.Range(0, damageSounds.Length)];
 
         if (clipToPlay) audioSource.PlayOneShot(clipToPlay);
+    }
+
+    protected void PlayDeathSound()
+    {
+        if (deathSounds.Length == 0)
+        {
+            Debug.LogWarning(this + " has no death sounds!", this);
+            return;
+        }
+        
+        AudioClip deathSound = deathSounds[Random.Range(0, deathSounds.Length)];
+        audioSource.PlayOneShot(deathSound);
     }
 }
