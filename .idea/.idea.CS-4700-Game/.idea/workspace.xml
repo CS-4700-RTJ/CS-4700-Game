@@ -8,7 +8,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spell.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spell System/Fireball.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spell System/ICastable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpellHandler.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -88,7 +89,7 @@
       <updated>1706736111104</updated>
       <workItem from="1706736122681" duration="782000" />
       <workItem from="1706810532684" duration="4071000" />
-      <workItem from="1706820716362" duration="12790000" />
+      <workItem from="1706820716362" duration="19172000" />
     </task>
     <servers />
   </component>

@@ -19,4 +19,6 @@ public class Spell : ScriptableObject
     public Sprite spellIcon;
     [Tooltip("A description of what this spell does")]
     public string description;
+    [Tooltip("Spell GameObject that is instantiated on cast")]
+    public GameObject spellPrefab;
 }
