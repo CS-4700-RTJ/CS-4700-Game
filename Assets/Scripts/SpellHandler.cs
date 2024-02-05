@@ -76,7 +76,6 @@ public class SpellHandler : MonoBehaviour
         
         canCastSpell = availableSpells[currentSpellIndex].manaCost <= currentMana;
         currentSpellImage.color = canCastSpell ? Color.white : disabledColor;
-        print(currentSpellImage.color);
     }
 
     private void OnCycleSpell(InputAction.CallbackContext context)

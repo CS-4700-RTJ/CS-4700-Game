@@ -1,9 +1,12 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : Damageable
 {
+    [Header("UI")] public Slider healthBar;
+
     [Header("Damage Invincibility")]
     [SerializeField]
     private float invulnerableTime = 1f;
@@ -20,6 +23,8 @@ public class PlayerHealth : Damageable
     {
         base.Start();
         renderer = GetComponent<MeshRenderer>();
+        
+        healthBar.value = 1;
     }
 
     public override void ApplyDamage(float amount)
@@ -29,6 +34,8 @@ public class PlayerHealth : Damageable
             base.ApplyDamage(amount);
             StartCoroutine(ApplyDamageInvulnerability(invulnerableTime));
             StartCoroutine(DamageFlash());
+
+            healthBar.value = currentHealth / maxHealth;
         }
     }
 
@@ -43,6 +50,8 @@ public class PlayerHealth : Damageable
         // Disable PlayerController
         var controller = GetComponent<PlayerController>();
         controller.enabled = false;
+
+        healthBar.value = 0;
     }
 
     private IEnumerator DamageFlash()
