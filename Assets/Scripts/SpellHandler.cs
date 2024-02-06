@@ -29,13 +29,14 @@ public class SpellHandler : MonoBehaviour
 
     private int currentSpellIndex;
 
+    private bool castingDisabled;
+    private bool canCastSpell;
     private bool readyToCast;
     private Spell spellBeingCast;
     private Coroutine currentCast;
 
     private AudioSource audioSource;
 
-    private bool canCastSpell;
 
     private void Awake()
     {
@@ -66,6 +67,7 @@ public class SpellHandler : MonoBehaviour
         currentSpellIndex = 0;
         currentCast = null;
         canCastSpell = true;
+        castingDisabled = false;
         
         spellChargeVfx.SetActive(false);
     }
@@ -82,7 +84,7 @@ public class SpellHandler : MonoBehaviour
 
     private void OnCycleSpell(InputAction.CallbackContext context)
     {
-        if (currentCast != null) return;
+        if (currentCast != null || castingDisabled) return;
         
         bool scrollForward = context.ReadValueAsButton();
 
@@ -102,7 +104,7 @@ public class SpellHandler : MonoBehaviour
 
     private void CastSpellCanceled(InputAction.CallbackContext context)
     {
-        if (!canCastSpell || currentCast == null) return;
+        if (!canCastSpell || currentCast == null || castingDisabled) return;
         
         if (readyToCast)
         {
@@ -124,13 +126,13 @@ public class SpellHandler : MonoBehaviour
                 
             // Create spell projectile
             GameObject spellObject = Instantiate(availableSpells[currentSpellIndex].spellPrefab);
-            Projectile spellProjectile = spellObject.GetComponent<Projectile>();
+            ICastable spellCastable = spellObject.GetComponent<ICastable>();
 
             spellObject.transform.SetPositionAndRotation(wandTransform.position + Vector3.up,
                 wandTransform.rotation);
 
             // Change with direction player is looking/aiming
-            spellProjectile.Launch(wandTransform.forward);
+            spellCastable.Cast(wandTransform.forward, wandTransform);
         }
         else
         {
@@ -144,7 +146,7 @@ public class SpellHandler : MonoBehaviour
 
     private void CastSpellStarted(InputAction.CallbackContext context)
     {
-        if (canCastSpell) currentCast = StartCoroutine(CastSpell(availableSpells[currentSpellIndex]));
+        if (canCastSpell && !castingDisabled) currentCast = StartCoroutine(CastSpell(availableSpells[currentSpellIndex]));
     }
 
     private IEnumerator CastSpell(Spell spell)
@@ -170,5 +172,14 @@ public class SpellHandler : MonoBehaviour
         spellChargeVfx.SetActive(false);
 
         readyToCast = true;
+    }
+
+    public IEnumerator DisableCastingForTime(float time)
+    {
+        castingDisabled = true;
+
+        yield return new WaitForSeconds(time);
+
+        castingDisabled = false;
     }
 }
