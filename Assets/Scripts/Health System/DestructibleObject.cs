@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DestructibleObject : Damageable
@@ -7,10 +8,10 @@ public class DestructibleObject : Damageable
     public GameObject createOnDestroy;
 
     // DestructibleObject's don't have health but instead die on any hit
-    public override void ApplyDamage(float amount)
-    {
-        Death();
-    }
+    //public override void ApplyDamage(float amount)
+    //{
+    //    Death();
+    //}
 
     protected override void Death()
     {
@@ -35,6 +36,8 @@ public class DestructibleObject : Damageable
 
     private IEnumerator DestroyAfterSFX()
     {
+        this.enabled = false;
+        this.GetComponent<Renderer>().enabled = false;
         AudioClip deathClip = deathSounds[Random.Range(0, deathSounds.Length)];
         
         audioSource.PlayOneShot(deathClip);

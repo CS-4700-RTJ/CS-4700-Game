@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90313b956230353499b31a58b5147a0d, type: 3}
   m_Name: Poison
   m_EditorClassIdentifier: 
-  spellName: Poison
+  spellName: Poison Dart
   castTime: 2
-  manaCost: 20
+  manaCost: 1
   castVfx: {fileID: 0}
-  castSfx: {fileID: 0}
+  castSfx: {fileID: 8300000, guid: 228f6cd6125071e4c86cd1893e041074, type: 3}
   spellIcon: {fileID: 21300000, guid: 43932b67c71640244a46b122a525ad3a, type: 3}
   description: Launches a toxic missile that poisons anything it touches, applying
     damage over time.
+  spellPrefab: {fileID: 945356163866209238, guid: 04ae5f3442877a045896a65e1f95b546, type: 3}

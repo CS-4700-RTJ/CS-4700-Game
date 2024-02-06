@@ -9611,14 +9611,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
+  launchSpeed: 15
+  lifetime: 5
+  launchMode: 2
+  impactVfx: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
+  impactSfx: {fileID: 8300000, guid: c3c9402e4a690e946b00f668c687f403, type: 3}
   explosionRadius: 2.5
   explosionLayerMask:
     serializedVersion: 2
     m_Bits: 129
-  moveSpeed: 20
-  lifetime: 5
-  explosionVfx: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
-  explosionSfx: {fileID: 0}
 --- !u!135 &6904319770500615465
 SphereCollider:
   m_ObjectHideFlags: 0

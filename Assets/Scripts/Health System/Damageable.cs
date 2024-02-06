@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public abstract class Damageable : MonoBehaviour
@@ -11,12 +12,12 @@ public abstract class Damageable : MonoBehaviour
     public AudioClip[] deathSounds;
     
     protected AudioSource audioSource;
-
+    
     protected virtual void Start()
     {
         audioSource = GetComponent<AudioSource>();
 
-        if (audioSource == null)
+        if (audioSource == null && (damageSounds.Length > 0 || deathSounds.Length > 0))
         {
             Debug.LogWarning("There is no audio source, adding one!", this);
             audioSource = gameObject.AddComponent<AudioSource>();
@@ -51,7 +52,6 @@ public abstract class Damageable : MonoBehaviour
     {
         if (damageSounds.Length == 0)
         {
-            Debug.LogWarning(this + " has no damage sounds!", this);
             return;
         }
         
@@ -64,11 +64,46 @@ public abstract class Damageable : MonoBehaviour
     {
         if (deathSounds.Length == 0)
         {
-            Debug.LogWarning(this + " has no death sounds!", this);
             return;
         }
         
         AudioClip deathSound = deathSounds[Random.Range(0, deathSounds.Length)];
         audioSource.PlayOneShot(deathSound);
+    }
+    
+    public static IEnumerator FlashColor(Renderer renderer, Color color, int numFlashes = 1, float flashFrequency = 0.2f)
+    {
+        float flashTimer = 0;
+
+        bool goingToColor = true;
+
+        var material = renderer.material;
+        var originalColor = material.color;
+        
+        int remainingFlashes = numFlashes;
+        while (remainingFlashes > 0)
+        {
+            // Lerp the player's mesh color between its normal color and red
+            material.color = Color.Lerp(originalColor, color, flashTimer);
+
+            if (goingToColor)
+            {
+                flashTimer += Time.deltaTime / flashFrequency;
+                if (flashTimer >= 1) goingToColor = false;
+            }
+            else
+            {
+                flashTimer -= Time.deltaTime / flashFrequency;
+                if (flashTimer <= 0)
+                {
+                    goingToColor = true;
+                    remainingFlashes--;
+                }
+            }
+
+            yield return null;
+        }
+        
+        material.color = originalColor;
     }
 }

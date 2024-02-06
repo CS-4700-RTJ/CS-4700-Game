@@ -17,8 +17,10 @@ public class SpellHandler : MonoBehaviour
     [Header("Mana")] public int maxMana = 30;
     private float currentMana;
 
+    [Header("Effects")]
     public Transform wandTransform;
     public GameObject spellChargeVfx;
+    public AudioSource wandAudioSource;
 
     // Input                                                                         
     private PlayerInput playerInput;
@@ -80,6 +82,8 @@ public class SpellHandler : MonoBehaviour
 
     private void OnCycleSpell(InputAction.CallbackContext context)
     {
+        if (currentCast != null) return;
+        
         bool scrollForward = context.ReadValueAsButton();
 
         int newSpellIndex;
@@ -120,13 +124,13 @@ public class SpellHandler : MonoBehaviour
                 
             // Create spell projectile
             GameObject spellObject = Instantiate(availableSpells[currentSpellIndex].spellPrefab);
-            ICastable spellCastable = spellObject.GetComponent<ICastable>();
+            Projectile spellProjectile = spellObject.GetComponent<Projectile>();
 
             spellObject.transform.SetPositionAndRotation(wandTransform.position + Vector3.up,
                 wandTransform.rotation);
 
             // Change with direction player is looking/aiming
-            spellCastable.Cast(wandTransform.forward);
+            spellProjectile.Launch(wandTransform.forward);
         }
         else
         {
@@ -134,6 +138,8 @@ public class SpellHandler : MonoBehaviour
         }
 
         StopCoroutine(currentCast);
+        currentCast = null;
+        wandAudioSource.Stop();
     }
 
     private void CastSpellStarted(InputAction.CallbackContext context)
@@ -147,8 +153,17 @@ public class SpellHandler : MonoBehaviour
         readyToCast = false;
 
         spellChargeVfx.SetActive(true);
+        wandAudioSource.Play();
+        
+        // use pitch to change playback speed
+        // This makes the spell charge SFX last as long as the spell cast time
+        float clipLength = wandAudioSource.clip.length;
+        float pitch = clipLength / spell.castTime;
+
+        wandAudioSource.pitch = pitch;
 
         yield return new WaitForSeconds(spell.castTime);
+        wandAudioSource.Stop();
         print("Ready to cast!");
         
         // Destroy the charging Vfx to signify that the spell can be cast

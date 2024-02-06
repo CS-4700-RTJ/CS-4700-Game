@@ -3,16 +3,27 @@
   <component name="ChangeListManager">
     <list default="true" id="5b58bc5a-9854-41f7-93a6-01b6f2801b4c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Wood Particle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Wood Particle.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/DebrisParticle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/DebrisParticle.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Goop Effects/Materials/GoopPoolParticle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Goop Effects/Materials/GoopPoolParticle.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Goop Effects/Materials/GoopSplashParticle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Goop Effects/Materials/GoopSplashParticle.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Goop Effects/Materials/GoopSplatParticle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Goop Effects/Materials/GoopSplatParticle.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/SmokeLight.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/SmokeLight.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/SmokeySteam02.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/SmokeySteam02.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Water Effects/Materials/WaterDropSmall.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Water Effects/Materials/WaterDropSmall.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Broken Box.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Broken Box.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Fireball.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Fireball.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spells/Fireball.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Spells/Fireball.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Health System/Damageable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Health System/Damageable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Health System/DestructibleObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Health System/DestructibleObject.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Health System/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Health System/PlayerHealth.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spell System/Fireball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spell System/Fireball.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spell System/ICastable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spell System/ICastable.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpellHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SpellHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells/Fireball.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spells/Fireball.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells/Poison.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spells/Poison.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells/Reflect.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spells/Reflect.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +32,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spell System/Fireball.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spell System/ICastable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spell System/PoisonDart.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spell System/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpellHandler.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -103,7 +115,7 @@
       <workItem from="1706810532684" duration="4071000" />
       <workItem from="1706820716362" duration="19172000" />
       <workItem from="1707007627506" duration="1277000" />
-      <workItem from="1707172223629" duration="1987000" />
+      <workItem from="1707172223629" duration="9639000" />
     </task>
     <servers />
   </component>
