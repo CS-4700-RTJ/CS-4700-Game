@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,9 @@ public class SpellHandler : MonoBehaviour
 
     public Spell[] availableSpells;
 
-    [Header("Mana")] public int maxMana = 30;
+    [Header("Mana")] 
+    public int maxMana = 30;
+    public float manaRegenRate = 2f;
     private float currentMana;
 
     [Header("Effects")]
@@ -72,14 +75,20 @@ public class SpellHandler : MonoBehaviour
         spellChargeVfx.SetActive(false);
     }
 
+    private void Update()
+    {
+        currentMana = Math.Min(currentMana + manaRegenRate * Time.deltaTime, maxMana);
+        manaSlider.value = currentMana / maxMana;
+        
+        canCastSpell = availableSpells[currentSpellIndex].manaCost <= currentMana;
+        currentSpellImage.color = canCastSpell ? Color.white : disabledColor;
+    }
+
     private void SetSelectedSpell(int spellIndex)
     {
         currentSpellIndex = spellIndex;
 
         currentSpellImage.sprite = availableSpells[currentSpellIndex].spellIcon;
-        
-        canCastSpell = availableSpells[currentSpellIndex].manaCost <= currentMana;
-        currentSpellImage.color = canCastSpell ? Color.white : disabledColor;
     }
 
     private void OnCycleSpell(InputAction.CallbackContext context)

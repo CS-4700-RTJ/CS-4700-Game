@@ -36,7 +36,7 @@ public abstract class Projectile : MonoBehaviour, ICastable
     /// Change launchSpeed to increase the speed of the projectile.
     /// </summary>
     /// <param name="castDirection">The direction in which the spell is cast</param>
-    public void Cast(Vector3 castDirection, Transform casterTransform)
+    public virtual void Cast(Vector3 castDirection, Transform casterTransform)
     {
         rb.AddForce(castDirection.normalized * launchSpeed, launchMode);
         

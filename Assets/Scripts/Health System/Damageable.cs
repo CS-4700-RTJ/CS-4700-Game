@@ -106,4 +106,18 @@ public abstract class Damageable : MonoBehaviour
         
         material.color = originalColor;
     }
+    
+    /// <summary>
+    /// Destroys this GameObject after any playing sound effects finish.
+    /// In the meantime, it will be "soft" destroyed, with rendering and collisions disabled.
+    /// </summary>
+    protected virtual IEnumerator DestroyAfterSfx()
+    {
+        GetComponent<Renderer>().enabled = false;
+        enabled = false;
+        
+        while (audioSource.isPlaying) yield return null;
+        
+        Destroy(gameObject);
+    }
 }

@@ -15,7 +15,11 @@ public class DestructibleObject : Damageable
 
     protected override void Death()
     {
-        if (deathSounds.Length > 0) StartCoroutine(DestroyAfterSFX());
+        if (deathSounds.Length > 0)
+        {
+            PlayDeathSound();
+            StartCoroutine(DestroyAfterSfx());
+        }
         else Destroy();
     }
 
@@ -34,15 +38,13 @@ public class DestructibleObject : Damageable
         Destroy(gameObject);
     }
 
-    private IEnumerator DestroyAfterSFX()
+    protected override IEnumerator DestroyAfterSfx()
     {
-        this.enabled = false;
-        this.GetComponent<Renderer>().enabled = false;
         AudioClip deathClip = deathSounds[Random.Range(0, deathSounds.Length)];
         
         audioSource.PlayOneShot(deathClip);
 
-        yield return new WaitForSeconds(deathClip.length);
+        yield return StartCoroutine(base.DestroyAfterSfx());
 
         Destroy();
     }

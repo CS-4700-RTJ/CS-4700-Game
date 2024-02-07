@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90313b956230353499b31a58b5147a0d, type: 3}
-  m_Name: Homing Missile
+  m_Name: Ice Shard
   m_EditorClassIdentifier: 
-  spellName: Homing Missile
-  castTime: 1.5
+  spellName: Ice Shard
+  castTime: 1
   manaCost: 15
   castVfx: {fileID: 0}
   castSfx: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: d70dd1b9c6ae54448923db5c4924edd5, type: 3}
-  description: Shoots a missile that homes towards the nearest enemy.
-  spellPrefab: {fileID: 4815718332176778537, guid: 1237ef6e240e99b4b8599b2827c0e484, type: 3}
+  spellIcon: {fileID: 21300000, guid: 0d1dc8ade7e63d14da6ea8a209621906, type: 3}
+  description: Shoot a shard of ice that freezes whatever it hits.
+  spellPrefab: {fileID: 0}
