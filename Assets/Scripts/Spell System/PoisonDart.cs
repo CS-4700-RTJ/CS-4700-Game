@@ -20,6 +20,7 @@ public class PoisonDart : Projectile
             damageable.ApplyDamage(damage);
 
             if (damageable is Enemy) damageable.StartCoroutine(PoisonDamageable(damageable));
+            else if (damageable is PlayerHealth) damageable.StartCoroutine(PoisonDamageable(damageable));
         }
     }
 

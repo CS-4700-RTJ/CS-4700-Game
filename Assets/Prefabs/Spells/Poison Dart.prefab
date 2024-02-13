@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5932383332301092514}
   - component: {fileID: 9136695106743310957}
   - component: {fileID: 6963553144508210208}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Poison Dart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,6 +122,7 @@ MonoBehaviour:
   damage: 0
   launchSpeed: 17.5
   lifetime: 5
+  impactAfterLifetime: 1
   launchMode: 1
   impactVfx: {fileID: 3877779924558189461, guid: dea09f9284e24654e9ce82f8f5d49b47, type: 3}
   impactSfx: {fileID: 0}

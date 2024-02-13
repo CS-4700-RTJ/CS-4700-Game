@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 883376209104765408}
   - component: {fileID: 7880105047236698241}
   - component: {fileID: 3160399051584492868}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ice Shard Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 4525327122316072066}
   - component: {fileID: 7086058422437013761}
   - component: {fileID: 2312531932136501262}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ice Shard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
