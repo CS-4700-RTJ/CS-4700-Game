@@ -16,7 +16,7 @@ public abstract class Damageable : MonoBehaviour
     protected virtual void Start()
     {
         audioSource = GetComponent<AudioSource>();
-
+        
         if (audioSource == null && (damageSounds.Length > 0 || deathSounds.Length > 0))
         {
             Debug.LogWarning("There is no audio source, adding one!", this);
@@ -113,6 +113,12 @@ public abstract class Damageable : MonoBehaviour
     /// </summary>
     protected virtual IEnumerator DestroyAfterSfx()
     {
+        if (!audioSource.isPlaying)
+        {
+            Destroy(gameObject);
+            yield break;
+        }
+        
         GetComponent<Renderer>().enabled = false;
         enabled = false;
         

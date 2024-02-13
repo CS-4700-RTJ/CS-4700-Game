@@ -11,6 +11,8 @@ public abstract class Projectile : MonoBehaviour, ICastable
     [Header("Launch")]
     public float launchSpeed = 3f;
     public float lifetime = 5f;
+    [Tooltip("If true, the projectile will run its OnImpact code when the lifetime expires as if it hit something. If false, it will simply destroy itself")]
+    public bool impactAfterLifetime = true;
     public ForceMode launchMode = ForceMode.Impulse;
     
     [Header("Effects")]
@@ -40,13 +42,30 @@ public abstract class Projectile : MonoBehaviour, ICastable
     {
         rb.AddForce(castDirection.normalized * launchSpeed, launchMode);
         
-        Destroy(gameObject, lifetime);
+        //Destroy(gameObject, lifetime);
+        StartCoroutine(SelfDestruct());
     }
 
+    /// <summary>
+    /// Causes the Projectile to destroy itself when its lifetime ends
+    /// </summary>
+    private IEnumerator SelfDestruct()
+    {
+        yield return new WaitForSeconds(lifetime);
+        
+        if (impactAfterLifetime) DoImpactEffects();
+        else Destroy(gameObject);
+    }
+    
     protected void OnCollisionEnter(Collision collision)
     {
         OnImpact(collision);
         
+        DoImpactEffects();
+    }
+
+    private void DoImpactEffects()
+    {
         if (impactVfx)
         {
             var spawnTransform = transform;
@@ -54,9 +73,15 @@ public abstract class Projectile : MonoBehaviour, ICastable
             var vfx = Instantiate(impactVfx, spawnTransform.position, spawnTransform.rotation);
         }
         
-        if (impactSfx) audioSource.PlayOneShot(impactSfx);
-
-        StartCoroutine(DestroyAfterSfx());
+        if (impactSfx)
+        {
+            audioSource.PlayOneShot(impactSfx);
+            StartCoroutine(DestroyAfterSfx());
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     /// <summary>
@@ -66,7 +91,7 @@ public abstract class Projectile : MonoBehaviour, ICastable
     /// <param name="collision"></param>
     protected virtual void OnImpact(Collision collision)
     {
-        
+        if (collision.gameObject.TryGetComponent(out Damageable damageable)) damageable.ApplyDamage(damage);
     }
 
     /// <summary>
@@ -77,7 +102,7 @@ public abstract class Projectile : MonoBehaviour, ICastable
     {
         rb.isKinematic = true;
         rb.detectCollisions = false;
-        GetComponent<Renderer>().enabled = false;
+        GetComponentInChildren<Renderer>().enabled = false;
         enabled = false;
         
         while (audioSource.isPlaying) yield return null;

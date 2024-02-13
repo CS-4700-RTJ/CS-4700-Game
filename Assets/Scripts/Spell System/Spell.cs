@@ -11,8 +11,7 @@ public class Spell : ScriptableObject
     public float castTime;
     [Tooltip("How much mana does it take to cast this spell?"), Min(0)]
     public float manaCost;
-    [Tooltip("Visual Effect to display while charging")]
-    public GameObject castVfx;
+
     [Tooltip("Sound Effect to play when casting the spell")]
     public AudioClip castSfx;
     [Tooltip("The image to display in the UI")]

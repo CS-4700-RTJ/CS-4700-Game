@@ -40,11 +40,6 @@ public class MagicMissile : Projectile
             sqrMinDistance = playerToTarget.sqrMagnitude;
         }
     }
-    
-    protected override void OnImpact(Collision collision)
-    {
-        if (collision.gameObject.TryGetComponent(out Damageable damageable)) damageable.ApplyDamage(damage);
-    }
 
     private void FixedUpdate()
     {

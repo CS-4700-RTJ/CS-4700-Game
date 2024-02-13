@@ -19,8 +19,7 @@ public class PoisonDart : Projectile
         {
             damageable.ApplyDamage(damage);
 
-            // damageable.AddComponent<PoisonDebuff>();
-            damageable.StartCoroutine(PoisonDamageable(damageable));
+            if (damageable is Enemy) damageable.StartCoroutine(PoisonDamageable(damageable));
         }
     }
 

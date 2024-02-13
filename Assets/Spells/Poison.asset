@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Poison Dart
   castTime: 2
-  manaCost: 1
+  manaCost: 15
   castVfx: {fileID: 0}
   castSfx: {fileID: 8300000, guid: 228f6cd6125071e4c86cd1893e041074, type: 3}
   spellIcon: {fileID: 21300000, guid: 43932b67c71640244a46b122a525ad3a, type: 3}
