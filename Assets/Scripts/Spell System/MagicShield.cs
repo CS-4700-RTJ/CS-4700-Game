@@ -49,9 +49,5 @@ public class MagicShield : MonoBehaviour, ICastable
             Vector3 newVelocity = new Vector3(-oldVelocity.x, oldVelocity.y, -oldVelocity.z);
             rb.velocity = newVelocity;
         }
-        else
-        {
-            Debug.LogWarning("Shield hit by something other than a projectile", other);
-        }
     }
 }

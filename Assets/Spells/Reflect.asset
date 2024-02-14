@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: Reflect
   m_EditorClassIdentifier: 
   spellName: Reflect
-  castTime: 0
+  castTime: 0.25
   manaCost: 5
-  castVfx: {fileID: 0}
   castSfx: {fileID: 8300000, guid: d6cd8f97c70ab364e975ebf316cf1a51, type: 3}
   spellIcon: {fileID: 21300000, guid: 1458237dbb3c6d54f8fe9d39c0175d00, type: 3}
   description: Stops any incoming projectiles or spells and launches them back outward,
     if timed correctly.
-  spellPrefab: {fileID: 0}
+  spellPrefab: {fileID: 3849525687566443363, guid: 8a086fb405cca9d45a328633436d4f7b, type: 3}
