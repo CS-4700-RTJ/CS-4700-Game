@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b58bc5a-9854-41f7-93a6-01b6f2801b4c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Spells/Round Magic Shield.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Spells/Round Magic Shield.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spells/Pointed Magic Shield.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Spells/Pointed Magic Shield.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/Flame03.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/Flame03.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/MuzzleFlash01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/MuzzleFlash01.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spell System/MagicShield.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spell System/MagicShield.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spells/Reflect.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spells/Reflect.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +107,8 @@
       <workItem from="1707428586694" duration="4712000" />
       <workItem from="1707789849658" duration="2323000" />
       <workItem from="1707862007316" duration="663000" />
-      <workItem from="1707866181706" duration="1633000" />
+      <workItem from="1707866181706" duration="2220000" />
+      <workItem from="1707890572578" duration="587000" />
     </task>
     <servers />
   </component>
