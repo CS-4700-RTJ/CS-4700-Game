@@ -33,6 +33,7 @@ public abstract class Damageable : MonoBehaviour
     /// <param name="amount">The amount of damage to take</param>
     public virtual void ApplyDamage(float amount)
     {
+        print("damaging " + this.name);
         currentHealth -= amount;
 
         if (currentHealth <= 0f) Death();

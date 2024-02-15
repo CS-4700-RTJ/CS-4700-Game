@@ -175,7 +175,6 @@ public class SpellHandler : MonoBehaviour
 
         yield return new WaitForSeconds(spell.castTime);
         wandAudioSource.Stop();
-        print("Ready to cast!");
         
         // Destroy the charging Vfx to signify that the spell can be cast
         spellChargeVfx.SetActive(false);

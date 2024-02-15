@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b58bc5a-9854-41f7-93a6-01b6f2801b4c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Spell System/LightningBolt.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/Flame03.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/Flame03.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/MuzzleFlash01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/MuzzleFlash01.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Input/Player Controls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/Player Controls.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Input/Player Controls.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/Player Controls.inputactions" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Health System/Damageable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Health System/Damageable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpellHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SpellHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells/Lightning Bolt.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spells/Lightning Bolt.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,7 +19,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../2D Roguelike/Assets/Scripts/Spells/MagicMissileSpell.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spell System/Fireball.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spell System/LightningBolt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spell System/MagicMissile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spell System/MagicWeapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spell System/PoisonDart.cs" root0="FORCE_HIGHLIGHTING" />
@@ -109,6 +115,7 @@
       <workItem from="1707862007316" duration="663000" />
       <workItem from="1707866181706" duration="2220000" />
       <workItem from="1707890572578" duration="587000" />
+      <workItem from="1708036333129" duration="3602000" />
     </task>
     <servers />
   </component>
