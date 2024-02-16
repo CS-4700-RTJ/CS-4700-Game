@@ -22,8 +22,6 @@ public class LightningBolt : Projectile
         // Remove the initially hit collider, if it is in the list
         if (hitColliders.Contains(collision.collider)) hitColliders.Remove(collision.collider);
         
-        hitColliders.ForEach(print);
-        
         // Now determine which ones get hit
         
         var chainedObjects = new List<Collider>();

@@ -4964,11 +4964,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   launchSpeed: 15
-  lifetime: 5
+  lifetime: 3
   impactAfterLifetime: 0
   launchMode: 2
   impactVfx: {fileID: 2965222256817593503, guid: a164e676dbbd6e54587237e619372c98, type: 3}
-  impactSfx: {fileID: 0}
   lightningChainDistance: 4
   lightningChainLayerMask:
     serializedVersion: 2

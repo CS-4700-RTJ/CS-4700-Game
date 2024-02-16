@@ -17,7 +17,7 @@ public abstract class Projectile : MonoBehaviour, ICastable
     
     [Header("Effects")]
     public GameObject impactVfx;
-    public AudioClip impactSfx;
+    // public AudioClip impactSfx;
 
     protected Rigidbody rb;
     protected AudioSource audioSource;
@@ -73,15 +73,15 @@ public abstract class Projectile : MonoBehaviour, ICastable
             var vfx = Instantiate(impactVfx, spawnTransform.position, spawnTransform.rotation);
         }
         
-        if (impactSfx)
-        {
-            audioSource.PlayOneShot(impactSfx);
-            StartCoroutine(DestroyAfterSfx());
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        // if (impactSfx)
+        // {
+        //     audioSource.PlayOneShot(impactSfx);
+        //     StartCoroutine(DestroyAfterSfx());
+        // }
+        // else
+        // {
+        Destroy(gameObject);
+        // }
     }
 
     /// <summary>
