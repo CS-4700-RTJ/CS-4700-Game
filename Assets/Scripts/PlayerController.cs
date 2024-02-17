@@ -28,9 +28,9 @@ public class PlayerController : MonoBehaviour
     private Camera cam;
     private float xRotation = 0f;
     [SerializeField]
-    private float xSensitivity = 10f;
+    private float xSensitivity = 1f;
     [SerializeField]
-    private float ySensitivity = 10f;
+    private float ySensitivity = 1f;
     
     private void Awake()
     {
@@ -76,6 +76,11 @@ public class PlayerController : MonoBehaviour
             playerJumpVelocity += Physics.gravity.y * Time.fixedDeltaTime;
         }
         
+        
+    
+    }
+
+    private void Update(){
         // Process movement and looking
         ProcessMove();
         ProcessLook();
