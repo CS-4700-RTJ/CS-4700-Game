@@ -7,8 +7,13 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")] 
-    public float moveSpeed = 5f;
-    public float jumpStrength = 5f;
+    public float moveSpeed;
+    public float defaultMoveSpeed = 3f;
+    public float moveSpeedMultiplier = 3f;
+
+    public float jumpStrength;
+
+    private bool previouslyGrounded;
     
     // Input variables
     private PlayerInput playerInput;
@@ -23,7 +28,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     [SerializeField]
     private float playerJumpVelocity;
-    
+
     // Look variables
     private Camera cam;
     private float xRotation = 0f;
@@ -54,6 +59,9 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         cam = Camera.main;
+
+        moveSpeed = defaultMoveSpeed;
+        
         
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -76,8 +84,6 @@ public class PlayerController : MonoBehaviour
             playerJumpVelocity += Physics.gravity.y * Time.fixedDeltaTime;
         }
         
-        
-    
     }
 
     private void Update(){
@@ -97,6 +103,17 @@ public class PlayerController : MonoBehaviour
         
         controller.Move(move);
     }
+    private void OnMove(InputAction.CallbackContext context)
+    {
+        if(controller.isGrounded){
+            Vector2 input = context.ReadValue<Vector2>();
+            moveDirection = new Vector3(input.x, 0, input.y);
+        }
+
+    
+    }
+
+
     
     // Rotates the camera according to the mouse movement
     private void ProcessLook()
@@ -112,12 +129,6 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(Vector3.up * (lookVector.x * Time.fixedDeltaTime * xSensitivity));
     }
     
-    private void OnMove(InputAction.CallbackContext context)
-    {
-        Vector2 input = context.ReadValue<Vector2>();
-        moveDirection = new Vector3(input.x, 0, input.y);
-    }
-
     private void OnLook(InputAction.CallbackContext context)
     {
         lookVector = context.ReadValue<Vector2>();
@@ -128,6 +139,16 @@ public class PlayerController : MonoBehaviour
         if (controller.isGrounded)
         {
             playerJumpVelocity = jumpStrength;
+        }
+    }
+
+    private void Sprint(InputAction.CallbackContext context){
+        if (context.performed){
+            Debug.Log("Sprinting!");
+            moveSpeed *= moveSpeedMultiplier;
+        }
+        else if (context.canceled){
+            moveSpeed = defaultMoveSpeed;
         }
     }
 }
