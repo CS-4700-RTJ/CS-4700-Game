@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b58bc5a-9854-41f7-93a6-01b6f2801b4c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/Magic Sounds/lightning-miss.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/Magic Sounds/lightning-miss.ogg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/Magic Sounds/lightning.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/Magic Sounds/lightning.ogg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/Hovl Studio/Magic effects pack/Prefabs/Hits and explosions/Electro hit.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Hovl Studio/Magic effects pack/Prefabs/Hits and explosions/Electro hit.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spells/Lightning Bolt.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Spells/Lightning Bolt.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Health System/Damageable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Health System/Damageable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spell System/LightningBolt.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spell System/LightningBolt.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spell System/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spell System/Projectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spells/Lightning Bolt.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spells/Lightning Bolt.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Water Effects/Prefabs/Poison Spray.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/UnityTechnologies/ParticlePack/EffectExamples/Water Effects/Prefabs/Poison Spray.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Ice.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Ice.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spell System/MagicMissile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spell System/MagicMissile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells/Ice Shard.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spells/Ice Shard.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +113,8 @@
       <workItem from="1707862007316" duration="663000" />
       <workItem from="1707866181706" duration="2220000" />
       <workItem from="1707890572578" duration="587000" />
-      <workItem from="1708036333129" duration="4480000" />
+      <workItem from="1708036333129" duration="4875000" />
+      <workItem from="1708369270074" duration="991000" />
     </task>
     <servers />
   </component>

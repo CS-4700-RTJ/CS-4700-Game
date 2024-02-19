@@ -27,10 +27,7 @@ public class MagicMissile : Projectile
             // See if target is in front of player
             Vector3 playerToTarget = potentialTarget.transform.position - transform.position;
             
-            print("Player to target: " + playerToTarget);
-
             float angle = Vector3.Angle(playerToTarget, transform.forward);
-            print(angle);
 
             if (!(angle <= homingAngleCutoff)) continue; // Skip targets outside the acceptable angle
             if (!(playerToTarget.sqrMagnitude < sqrMinDistance)) continue; // Skip targets farther than the current target
@@ -39,20 +36,20 @@ public class MagicMissile : Projectile
             target = potentialTarget.transform;
             sqrMinDistance = playerToTarget.sqrMagnitude;
         }
+
+        // If no target was found, just shoot in the default direction
+        if (!target)
+        {
+            rb.AddForce(castDirection.normalized * launchSpeed, launchMode);
+        }
     }
 
     private void FixedUpdate()
     {
+        if (!target) return;
+        
         Vector3 toTarget = target.position - transform.position;
-        //toTarget.y = 0;
-        //toTarget.Normalize();
-        
-        //float rotateAmount = Vector3.Cross(toTarget, transform.up).z;
-        
-        //print(rotateAmount);
 
-        //rb.angularVelocity = new Vector3(0, rotateAmount, 0);
-        
         rb.AddForce((transform.forward + toTarget * homingStrength).normalized * launchSpeed, ForceMode.Acceleration);
     }
 }
