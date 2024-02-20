@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public float defaultMoveSpeed = 3f;
     public float sprintMoveSpeed = 5f;
     public float jumpStrength;
+    public float maxSprintTime = 5f;
+    public bool fixedUpdate = true;
     
     // Input variables
     private PlayerInput playerInput;
@@ -27,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private float playerYVelocity;
     private float airbornSpeed;
     private float groundedSpeed;
+    private float availableSprint;
     private bool isSprinting;
 
     // Look variables
@@ -65,8 +68,9 @@ public class PlayerController : MonoBehaviour
         
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-
+        
         groundedSpeed = defaultMoveSpeed;
+        availableSprint = maxSprintTime;
         
         moveAction.performed += OnMove;
         moveAction.canceled += OnMove;
@@ -77,7 +81,7 @@ public class PlayerController : MonoBehaviour
         sprintAction.canceled += SprintReleased;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (controller.isGrounded && playerYVelocity < 0)
         {
@@ -85,12 +89,23 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            playerYVelocity += Physics.gravity.y * Time.fixedDeltaTime;
+            playerYVelocity += Physics.gravity.y * Time.deltaTime;
+        }
+
+        if (isSprinting)
+        {
+            availableSprint -= Time.deltaTime;
+
+            if (availableSprint <= 0)
+            {
+                isSprinting = false;
+            }
+        } else if (controller.isGrounded)
+        {
+            availableSprint += Time.deltaTime;
+            if (availableSprint > maxSprintTime) availableSprint = maxSprintTime;
         }
         
-    }
-
-    private void Update(){
         // Process movement and looking
         ProcessMove();
         ProcessLook();
@@ -99,17 +114,14 @@ public class PlayerController : MonoBehaviour
     // Moves the player according to gravity and player input
     private void ProcessMove()
     {
-        
-        float moveSpeed = controller.isGrounded ? groundedSpeed : airbornSpeed;
+        float moveSpeed = controller.isGrounded ? (isSprinting ? sprintMoveSpeed : defaultMoveSpeed) : airbornSpeed;
         Vector3 moveVector = controller.isGrounded ? moveDirection : airbornMoveDirection;
         
-        //controller.Move(transform.TransformDirection(moveVector) * (moveSpeed * Time.fixedDeltaTime));
-        
         // Make sure you normalize the move vector so that you don't move faster in a diagonal direction (Pythagorean theorem)
-        Vector3 move = transform.TransformDirection(moveVector).normalized * (moveSpeed * Time.fixedDeltaTime);
-        move += Vector3.up * (playerYVelocity * Time.fixedDeltaTime);
-        
+        Vector3 move = transform.TransformDirection(moveVector.normalized) * (moveSpeed * Time.deltaTime);
         controller.Move(move);
+        
+        controller.Move(Vector3.up * (playerYVelocity * Time.deltaTime));
     }
     private void OnMove(InputAction.CallbackContext context)
     {
@@ -148,14 +160,10 @@ public class PlayerController : MonoBehaviour
     }
 
     private void SprintPressed(InputAction.CallbackContext context){
-        if (controller.isGrounded){
-            isSprinting = true;
-            groundedSpeed = sprintMoveSpeed;
-        }
+        isSprinting = true;
     }
     
     private void SprintReleased(InputAction.CallbackContext context){
         isSprinting = false;
-        groundedSpeed = defaultMoveSpeed;
     }
 }
