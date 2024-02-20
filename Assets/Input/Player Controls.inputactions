@@ -33,18 +33,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Sprint Pressed",
+                    "name": "Sprint",
                     "type": "Button",
                     "id": "bf86e02a-a13b-41d7-a7b5-341f6b6710af",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Sprint Released",
-                    "type": "Button",
-                    "id": "c4cabb9b-f6ff-45b6-a17e-a483d0fd7227",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -136,18 +127,7 @@
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "Sprint Pressed",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1e53b85f-3032-444d-b4a3-8e3d399396ac",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "Press(behavior=1)",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Sprint Released",
+                    "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

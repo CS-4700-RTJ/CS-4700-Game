@@ -55,18 +55,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Sprint Pressed"",
+                    ""name"": ""Sprint"",
                     ""type"": ""Button"",
                     ""id"": ""bf86e02a-a13b-41d7-a7b5-341f6b6710af"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Sprint Released"",
-                    ""type"": ""Button"",
-                    ""id"": ""c4cabb9b-f6ff-45b6-a17e-a483d0fd7227"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -158,18 +149,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Sprint Pressed"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1e53b85f-3032-444d-b4a3-8e3d399396ac"",
-                    ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": ""Press(behavior=1)"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Sprint Released"",
+                    ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -183,8 +163,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_OnFoot_Movement = m_OnFoot.FindAction("Movement", throwIfNotFound: true);
         m_OnFoot_Jump = m_OnFoot.FindAction("Jump", throwIfNotFound: true);
         m_OnFoot_Look = m_OnFoot.FindAction("Look", throwIfNotFound: true);
-        m_OnFoot_SprintPressed = m_OnFoot.FindAction("Sprint Pressed", throwIfNotFound: true);
-        m_OnFoot_SprintReleased = m_OnFoot.FindAction("Sprint Released", throwIfNotFound: true);
+        m_OnFoot_Sprint = m_OnFoot.FindAction("Sprint", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -249,8 +228,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_OnFoot_Movement;
     private readonly InputAction m_OnFoot_Jump;
     private readonly InputAction m_OnFoot_Look;
-    private readonly InputAction m_OnFoot_SprintPressed;
-    private readonly InputAction m_OnFoot_SprintReleased;
+    private readonly InputAction m_OnFoot_Sprint;
     public struct OnFootActions
     {
         private @PlayerControls m_Wrapper;
@@ -258,8 +236,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_OnFoot_Movement;
         public InputAction @Jump => m_Wrapper.m_OnFoot_Jump;
         public InputAction @Look => m_Wrapper.m_OnFoot_Look;
-        public InputAction @SprintPressed => m_Wrapper.m_OnFoot_SprintPressed;
-        public InputAction @SprintReleased => m_Wrapper.m_OnFoot_SprintReleased;
+        public InputAction @Sprint => m_Wrapper.m_OnFoot_Sprint;
         public InputActionMap Get() { return m_Wrapper.m_OnFoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -278,12 +255,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
-            @SprintPressed.started += instance.OnSprintPressed;
-            @SprintPressed.performed += instance.OnSprintPressed;
-            @SprintPressed.canceled += instance.OnSprintPressed;
-            @SprintReleased.started += instance.OnSprintReleased;
-            @SprintReleased.performed += instance.OnSprintReleased;
-            @SprintReleased.canceled += instance.OnSprintReleased;
+            @Sprint.started += instance.OnSprint;
+            @Sprint.performed += instance.OnSprint;
+            @Sprint.canceled += instance.OnSprint;
         }
 
         private void UnregisterCallbacks(IOnFootActions instance)
@@ -297,12 +271,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
-            @SprintPressed.started -= instance.OnSprintPressed;
-            @SprintPressed.performed -= instance.OnSprintPressed;
-            @SprintPressed.canceled -= instance.OnSprintPressed;
-            @SprintReleased.started -= instance.OnSprintReleased;
-            @SprintReleased.performed -= instance.OnSprintReleased;
-            @SprintReleased.canceled -= instance.OnSprintReleased;
+            @Sprint.started -= instance.OnSprint;
+            @Sprint.performed -= instance.OnSprint;
+            @Sprint.canceled -= instance.OnSprint;
         }
 
         public void RemoveCallbacks(IOnFootActions instance)
@@ -325,7 +296,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
-        void OnSprintPressed(InputAction.CallbackContext context);
-        void OnSprintReleased(InputAction.CallbackContext context);
+        void OnSprint(InputAction.CallbackContext context);
     }
 }
