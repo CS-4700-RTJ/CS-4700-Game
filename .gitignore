@@ -58,7 +58,11 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Unity layout file
+UserSettings/Layouts/
+
+# IDE files
+*.vsconfig
 .idea/
-.idea
 .vscode
 .vscode/

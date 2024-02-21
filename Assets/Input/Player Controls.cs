@@ -24,31 +24,40 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     ""name"": ""Player Controls"",
     ""maps"": [
         {
-            ""name"": ""Player"",
-            ""id"": ""7e46ee9e-289b-4a7e-92df-e95a3b0109cd"",
+            ""name"": ""OnFoot"",
+            ""id"": ""d3bd472e-9013-4fe6-805b-862c255e8bee"",
             ""actions"": [
                 {
-                    ""name"": ""Cast Spell"",
-                    ""type"": ""Button"",
-                    ""id"": ""02eebc4e-e653-4336-80e5-ad60d8b1da73"",
-                    ""expectedControlType"": ""Button"",
+                    ""name"": ""Movement"",
+                    ""type"": ""Value"",
+                    ""id"": ""ab6f7639-603e-4648-a988-7585490827ce"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
-                    ""interactions"": ""Press"",
+                    ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Next Spell"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""eb1923c0-5e62-48b6-a258-ae7c5a279019"",
-                    ""expectedControlType"": """",
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""99df99d7-53f0-4c13-bf32-e021ec415120"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Cycle Spell"",
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""a2e6676a-484f-4d66-9c52-d7c8fad30c3f"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Sprint"",
                     ""type"": ""Button"",
-                    ""id"": ""ee244721-b238-409e-828a-d78b11b391f5"",
+                    ""id"": ""bf86e02a-a13b-41d7-a7b5-341f6b6710af"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -57,151 +66,104 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""5a06b4eb-25d1-4a02-b1ef-5448874cdd85"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard Mouse"",
-                    ""action"": ""Cast Spell"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3616a487-583c-473c-8813-7563a15f479b"",
-                    ""path"": ""<Mouse>/scroll/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard Mouse"",
-                    ""action"": ""Next Spell"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Scroll Wheel"",
-                    ""id"": ""2410c3d5-2645-4436-a247-34f043573af9"",
-                    ""path"": ""1DAxis"",
+                    ""name"": ""WASD"",
+                    ""id"": ""f62a0d31-734b-47ab-9d9f-ded6bf27d3ec"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Cycle Spell"",
+                    ""action"": ""Movement"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""negative"",
-                    ""id"": ""508a6859-1e9f-4f51-8542-d3b95ec1538f"",
-                    ""path"": ""<Mouse>/scroll/down"",
+                    ""name"": ""up"",
+                    ""id"": ""fba402ba-d827-4b22-9e22-476b69384b6d"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Cycle Spell"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""positive"",
-                    ""id"": ""cfda0a55-016a-4d2b-b63d-d6530478372f"",
-                    ""path"": ""<Mouse>/scroll/up"",
+                    ""name"": ""down"",
+                    ""id"": ""cf228043-f888-4a3b-8694-b48201d4a85a"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Cycle Spell"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Arrow Keys"",
-                    ""id"": ""29e1d439-b891-4239-a09c-f87ded42c3ab"",
-                    ""path"": ""1DAxis"",
+                    ""name"": ""left"",
+                    ""id"": ""2c9141d2-011f-44ee-81da-1f03d033f437"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Cycle Spell"",
-                    ""isComposite"": true,
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""5e435809-e860-46b4-8f93-8e4644a52e43"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c7ad13c-877e-426f-b8a4-2dba3dddf63a"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""negative"",
-                    ""id"": ""92039523-326a-41e5-9c64-91aa8cbdf569"",
-                    ""path"": ""<Keyboard>/downArrow"",
+                    ""name"": """",
+                    ""id"": ""adfde0f2-01c0-4dc9-9c08-0af8ae3a220a"",
+                    ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard Mouse"",
-                    ""action"": ""Cycle Spell"",
+                    ""groups"": """",
+                    ""action"": ""Look"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""positive"",
-                    ""id"": ""735cf2cb-b327-45a8-99db-2e7db920c5d2"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard Mouse"",
-                    ""action"": ""Cycle Spell"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                }
-            ]
-        },
-        {
-            ""name"": ""UI"",
-            ""id"": ""9f2b5c24-7bf4-4362-9413-ee6ddec27213"",
-            ""actions"": [
-                {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
-                    ""id"": ""b4c8178e-9202-4395-b56b-d0a8ed479ad1"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
                     ""name"": """",
-                    ""id"": ""775a3f93-bef0-4c1a-810f-ec2cb34de656"",
-                    ""path"": """",
-                    ""interactions"": """",
+                    ""id"": ""0b241fdb-9b04-4a23-8888-08801052682f"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
-                    ""groups"": ""Keyboard Mouse"",
-                    ""action"": ""New action"",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
             ]
         }
     ],
-    ""controlSchemes"": [
-        {
-            ""name"": ""Keyboard Mouse"",
-            ""bindingGroup"": ""Keyboard Mouse"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<Keyboard>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                },
-                {
-                    ""devicePath"": ""<Mouse>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                }
-            ]
-        }
-    ]
+    ""controlSchemes"": []
 }");
-        // Player
-        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_CastSpell = m_Player.FindAction("Cast Spell", throwIfNotFound: true);
-        m_Player_NextSpell = m_Player.FindAction("Next Spell", throwIfNotFound: true);
-        m_Player_CycleSpell = m_Player.FindAction("Cycle Spell", throwIfNotFound: true);
-        // UI
-        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_Newaction = m_UI.FindAction("New action", throwIfNotFound: true);
+        // OnFoot
+        m_OnFoot = asset.FindActionMap("OnFoot", throwIfNotFound: true);
+        m_OnFoot_Movement = m_OnFoot.FindAction("Movement", throwIfNotFound: true);
+        m_OnFoot_Jump = m_OnFoot.FindAction("Jump", throwIfNotFound: true);
+        m_OnFoot_Look = m_OnFoot.FindAction("Look", throwIfNotFound: true);
+        m_OnFoot_Sprint = m_OnFoot.FindAction("Sprint", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -260,130 +222,80 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Player
-    private readonly InputActionMap m_Player;
-    private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_CastSpell;
-    private readonly InputAction m_Player_NextSpell;
-    private readonly InputAction m_Player_CycleSpell;
-    public struct PlayerActions
+    // OnFoot
+    private readonly InputActionMap m_OnFoot;
+    private List<IOnFootActions> m_OnFootActionsCallbackInterfaces = new List<IOnFootActions>();
+    private readonly InputAction m_OnFoot_Movement;
+    private readonly InputAction m_OnFoot_Jump;
+    private readonly InputAction m_OnFoot_Look;
+    private readonly InputAction m_OnFoot_Sprint;
+    public struct OnFootActions
     {
         private @PlayerControls m_Wrapper;
-        public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @CastSpell => m_Wrapper.m_Player_CastSpell;
-        public InputAction @NextSpell => m_Wrapper.m_Player_NextSpell;
-        public InputAction @CycleSpell => m_Wrapper.m_Player_CycleSpell;
-        public InputActionMap Get() { return m_Wrapper.m_Player; }
+        public OnFootActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_OnFoot_Movement;
+        public InputAction @Jump => m_Wrapper.m_OnFoot_Jump;
+        public InputAction @Look => m_Wrapper.m_OnFoot_Look;
+        public InputAction @Sprint => m_Wrapper.m_OnFoot_Sprint;
+        public InputActionMap Get() { return m_Wrapper.m_OnFoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
-        public void AddCallbacks(IPlayerActions instance)
+        public static implicit operator InputActionMap(OnFootActions set) { return set.Get(); }
+        public void AddCallbacks(IOnFootActions instance)
         {
-            if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @CastSpell.started += instance.OnCastSpell;
-            @CastSpell.performed += instance.OnCastSpell;
-            @CastSpell.canceled += instance.OnCastSpell;
-            @NextSpell.started += instance.OnNextSpell;
-            @NextSpell.performed += instance.OnNextSpell;
-            @NextSpell.canceled += instance.OnNextSpell;
-            @CycleSpell.started += instance.OnCycleSpell;
-            @CycleSpell.performed += instance.OnCycleSpell;
-            @CycleSpell.canceled += instance.OnCycleSpell;
+            if (instance == null || m_Wrapper.m_OnFootActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_OnFootActionsCallbackInterfaces.Add(instance);
+            @Movement.started += instance.OnMovement;
+            @Movement.performed += instance.OnMovement;
+            @Movement.canceled += instance.OnMovement;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+            @Look.started += instance.OnLook;
+            @Look.performed += instance.OnLook;
+            @Look.canceled += instance.OnLook;
+            @Sprint.started += instance.OnSprint;
+            @Sprint.performed += instance.OnSprint;
+            @Sprint.canceled += instance.OnSprint;
         }
 
-        private void UnregisterCallbacks(IPlayerActions instance)
+        private void UnregisterCallbacks(IOnFootActions instance)
         {
-            @CastSpell.started -= instance.OnCastSpell;
-            @CastSpell.performed -= instance.OnCastSpell;
-            @CastSpell.canceled -= instance.OnCastSpell;
-            @NextSpell.started -= instance.OnNextSpell;
-            @NextSpell.performed -= instance.OnNextSpell;
-            @NextSpell.canceled -= instance.OnNextSpell;
-            @CycleSpell.started -= instance.OnCycleSpell;
-            @CycleSpell.performed -= instance.OnCycleSpell;
-            @CycleSpell.canceled -= instance.OnCycleSpell;
+            @Movement.started -= instance.OnMovement;
+            @Movement.performed -= instance.OnMovement;
+            @Movement.canceled -= instance.OnMovement;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
+            @Look.started -= instance.OnLook;
+            @Look.performed -= instance.OnLook;
+            @Look.canceled -= instance.OnLook;
+            @Sprint.started -= instance.OnSprint;
+            @Sprint.performed -= instance.OnSprint;
+            @Sprint.canceled -= instance.OnSprint;
         }
 
-        public void RemoveCallbacks(IPlayerActions instance)
+        public void RemoveCallbacks(IOnFootActions instance)
         {
-            if (m_Wrapper.m_PlayerActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_OnFootActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IPlayerActions instance)
+        public void SetCallbacks(IOnFootActions instance)
         {
-            foreach (var item in m_Wrapper.m_PlayerActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_OnFootActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_PlayerActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_OnFootActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public PlayerActions @Player => new PlayerActions(this);
-
-    // UI
-    private readonly InputActionMap m_UI;
-    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
-    private readonly InputAction m_UI_Newaction;
-    public struct UIActions
+    public OnFootActions @OnFoot => new OnFootActions(this);
+    public interface IOnFootActions
     {
-        private @PlayerControls m_Wrapper;
-        public UIActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_UI_Newaction;
-        public InputActionMap Get() { return m_Wrapper.m_UI; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
-        public void AddCallbacks(IUIActions instance)
-        {
-            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
-        }
-
-        private void UnregisterCallbacks(IUIActions instance)
-        {
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
-        }
-
-        public void RemoveCallbacks(IUIActions instance)
-        {
-            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IUIActions instance)
-        {
-            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public UIActions @UI => new UIActions(this);
-    private int m_KeyboardMouseSchemeIndex = -1;
-    public InputControlScheme KeyboardMouseScheme
-    {
-        get
-        {
-            if (m_KeyboardMouseSchemeIndex == -1) m_KeyboardMouseSchemeIndex = asset.FindControlSchemeIndex("Keyboard Mouse");
-            return asset.controlSchemes[m_KeyboardMouseSchemeIndex];
-        }
-    }
-    public interface IPlayerActions
-    {
-        void OnCastSpell(InputAction.CallbackContext context);
-        void OnNextSpell(InputAction.CallbackContext context);
-        void OnCycleSpell(InputAction.CallbackContext context);
-    }
-    public interface IUIActions
-    {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnMovement(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
+        void OnSprint(InputAction.CallbackContext context);
     }
 }
