@@ -605,8 +605,7 @@ MonoBehaviour:
   sprintMoveSpeed: 5
   jumpStrength: 5
   maxSprintTime: 5
-  fixedUpdate: 1
-  xSensitivity: 1
+  xSensitivity: 4
   ySensitivity: 1
 --- !u!114 &966239457
 MonoBehaviour:

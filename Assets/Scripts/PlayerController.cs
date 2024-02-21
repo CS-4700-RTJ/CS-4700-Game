@@ -11,8 +11,7 @@ public class PlayerController : MonoBehaviour
     public float sprintMoveSpeed = 5f;
     public float jumpStrength;
     public float maxSprintTime = 5f;
-    public bool fixedUpdate = true;
-    
+       
     // Input variables
     private PlayerInput playerInput;
     private InputAction moveAction;
@@ -28,7 +27,6 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private float playerYVelocity;
     private float airbornSpeed;
-    private float groundedSpeed;
     private float availableSprint;
     private bool isSprinting;
 
@@ -69,7 +67,6 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         
-        groundedSpeed = defaultMoveSpeed;
         availableSprint = maxSprintTime;
         
         moveAction.performed += OnMove;
