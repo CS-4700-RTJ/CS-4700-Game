@@ -41,8 +41,8 @@ public class PlayerHealth : Damageable
         // TODO - after player input is implemented
 
         // Disable PlayerController
-        var controller = GetComponent<PlayerController>();
-        controller.enabled = false;
+        //var controller = GetComponent<PlayerController>();
+        //controller.enabled = false;
     }
 
     private IEnumerator DamageFlash()
