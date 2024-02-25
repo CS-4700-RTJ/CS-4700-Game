@@ -2326,6 +2326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9010545598956047064, guid: 605a807552e8b9345aa7e1adf9c932a9, type: 3}
+      propertyPath: AirborneMoveStrength
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

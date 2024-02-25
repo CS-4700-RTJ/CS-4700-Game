@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public float RotationSpeed = 1.0f;
     [Tooltip("Acceleration and deceleration")]
     public float SpeedChangeRate = 10.0f;
+    [Tooltip("How strongly does the input affect player airborne movement?"), Range(0, 1)]
+    public float AirborneMoveStrength = 0f;
 
     [Space(10)]
     [Tooltip("The height the player can jump")]
@@ -136,7 +138,12 @@ public class PlayerController : MonoBehaviour
 		{
 			// world move direction needs to be put in local direction
 			Vector3 localAirborneMove = transform.InverseTransformDirection(_airborneMove);
+
 			targetMove = new Vector2(localAirborneMove.x, localAirborneMove.z);
+			
+			// The actual target move is somewhere between the airborne move and the input move, depending on the AirborneMoveStrength
+			// An AirborneMoveStrength of 0 means that the input is ignored, while an AirborneMoveStrength of 1 means only the input is read
+			targetMove = Vector2.Lerp(targetMove, input.move, AirborneMoveStrength);
 		}
 
 		// Update available sprint time
