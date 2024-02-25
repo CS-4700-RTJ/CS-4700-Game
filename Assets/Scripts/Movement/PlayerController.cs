@@ -62,6 +62,13 @@ public class PlayerController : MonoBehaviour
 
     private float _airborneSpeed;
     private Vector3 _airborneMove;
+
+    // Feather info
+    private bool _isFeathered;
+    private int _maxJumps;
+    private int _availableJumps;
+    private Coroutine _featherRoutine;
+    private float _originalAirborneMoveStrength;
     
     // timeout deltatime
     private float _jumpTimeoutDelta;
@@ -82,6 +89,10 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         
         _availableSprint = MaxSprintTime;
+
+        _availableJumps = 1;
+        _maxJumps = 1;
+        _originalAirborneMoveStrength = AirborneMoveStrength;
     }
 
     
@@ -209,6 +220,9 @@ public class PlayerController : MonoBehaviour
 		{
 			// reset the fall timeout timer
 			_fallTimeoutDelta = FallTimeout;
+			
+			// Reset number of jumps available
+			if (_isFeathered) _availableJumps = _maxJumps;
 
 			// stop our velocity dropping infinitely when grounded
 			if (_verticalVelocity < 0.0f)
@@ -226,6 +240,9 @@ public class PlayerController : MonoBehaviour
 				// Set the airborne movement and speed to current movement and speed
 				_airborneSpeed = input.sprint ? SprintSpeed : MoveSpeed;
 				_airborneMove = transform.TransformDirection(input.move.x, 0, input.move.y);
+
+				_availableJumps--;
+				input.jump = false;
 			} 
 
 			// jump timeout
@@ -246,7 +263,21 @@ public class PlayerController : MonoBehaviour
 			}
 
 			// if we are not grounded, do not jump - this prevents holding the jump button to infinitely jump
-			input.jump = false;
+			if (input.jump && _availableJumps > 0)
+			{
+				_availableJumps--;
+				
+				// the square root of H * -2 * G = how much velocity needed to reach desired height
+				_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+				
+				// Set the airborne movement and speed to current movement and speed
+				_airborneSpeed = input.sprint ? SprintSpeed : MoveSpeed;
+				_airborneMove = transform.TransformDirection(input.move.x, 0, input.move.y);
+
+				input.jump = false;
+				
+				print("Jumping in air! " + _availableJumps + " are still left!");
+			}
 		}
 
 		// apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
@@ -261,6 +292,26 @@ public class PlayerController : MonoBehaviour
 		if (lfAngle < -360f) lfAngle += 360f;
 		if (lfAngle > 360f) lfAngle -= 360f;
 		return Mathf.Clamp(lfAngle, lfMin, lfMax);
+	}
+
+	public void ApplyFeather(float duration, int maxJumps)
+	{
+		if (_featherRoutine != null) StopCoroutine(_featherRoutine);
+
+		_maxJumps = maxJumps;
+		_availableJumps = maxJumps;
+		_featherRoutine = StartCoroutine(FeatherRoutine(duration));
+	}
+	
+	private IEnumerator FeatherRoutine(float duration)
+	{
+		AirborneMoveStrength = 1;
+		_isFeathered = true;
+
+		yield return new WaitForSeconds(duration);
+
+		_isFeathered = false;
+		AirborneMoveStrength = _originalAirborneMoveStrength;
 	}
 
 	private void OnDrawGizmosSelected()
