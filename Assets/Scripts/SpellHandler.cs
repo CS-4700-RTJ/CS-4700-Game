@@ -72,6 +72,8 @@ public class SpellHandler : MonoBehaviour
         canCastSpell = true;
         castingDisabled = false;
         
+        Debug.LogWarning("TODO - Wand attached to player arm, IK arm towards center of screen OR wand fixed pointing towards center, not attached to player");
+        
         spellChargeVfx.SetActive(false);
     }
 
@@ -141,7 +143,8 @@ public class SpellHandler : MonoBehaviour
                 wandTransform.rotation);
 
             // Change with direction player is looking/aiming
-            spellCastable.Cast(wandTransform.forward, wandTransform);
+            var ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.48f, 0f));
+            spellCastable.Cast(ray.direction, wandTransform);
         }
         else
         {

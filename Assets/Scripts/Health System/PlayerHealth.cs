@@ -22,7 +22,7 @@ public class PlayerHealth : Damageable
     protected override void Start()
     {
         base.Start();
-        renderer = GetComponent<MeshRenderer>();
+        renderer = GetComponentInChildren<MeshRenderer>();
         
         healthBar.value = 1;
     }

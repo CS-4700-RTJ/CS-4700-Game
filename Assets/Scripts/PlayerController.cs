@@ -6,25 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-	// Input variables
-    // private PlayerInput playerInput;
-    // private InputAction moveAction;
-    // private InputAction lookAction;
-    // private InputAction jumpAction;
-    // private InputAction sprintAction;
-
-    // private Vector2 moveDirection; // input value for move
-    private Vector3 airbornMoveDirection;
-    // private Vector2 lookVector; // input value for look
-
-    // Movement variables
-    private CharacterController controller;
-    //private float playerYVelocity;
-    //private float airbornSpeed;
-    //private float availableSprint;
-    //private bool isSprinting;
-
-    [Header("Player")]
+	[Header("Player")]
     [Tooltip("Move speed of the character in m/s")]
     public float MoveSpeed = 4.0f;
     [Tooltip("Sprint speed of the character in m/s")]
@@ -82,53 +64,22 @@ public class PlayerController : MonoBehaviour
     // timeout deltatime
     private float _jumpTimeoutDelta;
     private float _fallTimeoutDelta;
-
-    // private bool isSprinting;
     
     private const float LookThreshold = 0.01f;
 
     private PlayerControllerInput input;
-    
+    private CharacterController controller;
+
     private void Awake()
     {
-        // playerInput = GetComponent<PlayerInput>();
         input = GetComponent<PlayerControllerInput>();
-        
-        // moveAction = playerInput.actions["Movement"];
-        // lookAction = playerInput.actions["Look"];
-        // jumpAction = playerInput.actions["Jump"];
-        // sprintAction = playerInput.actions["Sprint"];
     }
-
-    // private void OnDisable()
-    // {
-    //     moveAction.performed -= OnMove;
-    //     moveAction.canceled -= OnMove;
-    //     lookAction.performed -= OnLook;
-    //     lookAction.canceled -= OnLook;
-    //     jumpAction.performed -= Jump;
-    //     sprintAction.performed -= SprintPressed;
-    //     sprintAction.canceled -= SprintReleased;
-    // }
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
         
-        // Cursor.visible = false;
-        // Cursor.lockState = CursorLockMode.Locked;
-        
         _availableSprint = MaxSprintTime;
-        
-        // moveAction.performed += OnMove;
-        // moveAction.canceled += OnMove;
-        // lookAction.performed += OnLook;
-        // lookAction.canceled += OnLook;
-        // jumpAction.performed += Jump;
-        // sprintAction.performed += SprintPressed;
-        // sprintAction.canceled += SprintReleased;
-        //
-        print("TODO - Try to leave inputs in own script, as in FirstPersonController");
     }
 
     
@@ -316,40 +267,4 @@ public class PlayerController : MonoBehaviour
 		// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 		Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
 	}
-		
-    // private void OnMove(InputAction.CallbackContext context)
-    // {
-	   //  moveDirection = context.ReadValue<Vector2>();
-    // }
-
-    // private void OnLook(InputAction.CallbackContext context)
-    // {
-    //     lookVector = context.ReadValue<Vector2>();
-    // }
-
-//     private void Jump(InputAction.CallbackContext context)
-//     {
-// 	    /*
-//         airbornMoveDirection = moveDirection;
-//         if (controller.isGrounded)
-//         {
-//             playerYVelocity = jumpStrength;
-//
-//             airbornSpeed = isSprinting ? sprintMoveSpeed : defaultMoveSpeed;
-//         } 
-//         */
-// 	    if (Grounded && _jumpTimeoutDelta <= 0.0f)
-// 	    {
-// 		    // the square root of H * -2 * G = how much velocity needed to reach desired height
-// 		    _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-// 	    }
-//     }
-
-    // private void SprintPressed(InputAction.CallbackContext context){
-    //     isSprinting = true;
-    // }
-    //
-    // private void SprintReleased(InputAction.CallbackContext context){
-    //     isSprinting = false;
-    // }
 }
