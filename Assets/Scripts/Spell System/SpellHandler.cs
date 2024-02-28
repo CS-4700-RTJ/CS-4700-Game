@@ -26,6 +26,8 @@ public class SpellHandler : MonoBehaviour
     public Transform wandTransform;
     public GameObject spellChargeVfx;
     public AudioSource wandAudioSource;
+    
+    private const float WandCameraOffset = 28f;
 
     // Input                                                                         
     private PlayerInput playerInput;
@@ -80,8 +82,6 @@ public class SpellHandler : MonoBehaviour
         
         spellChargeVfx.SetActive(false);
     }
-
-    public float cameraOffset = 28f;
     
     private void Update()
     {
@@ -92,7 +92,7 @@ public class SpellHandler : MonoBehaviour
         currentSpellImage.color = canCastSpell ? Color.white : disabledColor;
 
         Vector3 eulerAngles = wandTransform.localRotation.eulerAngles;
-        wandTransform.localRotation = Quaternion.Euler(cameraOffset + _mainCamera.transform.rotation.eulerAngles.x, eulerAngles.y, eulerAngles.z);
+        wandTransform.localRotation = Quaternion.Euler(WandCameraOffset + _mainCamera.transform.rotation.eulerAngles.x, eulerAngles.y, eulerAngles.z);
     }
 
     private void SetSelectedSpell(int spellIndex)
