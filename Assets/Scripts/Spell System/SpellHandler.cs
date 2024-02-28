@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class SpellHandler : MonoBehaviour
@@ -21,6 +22,7 @@ public class SpellHandler : MonoBehaviour
     private float currentMana;
 
     [Header("Effects")]
+    public Transform castTransform;
     public Transform wandTransform;
     public GameObject spellChargeVfx;
     public AudioSource wandAudioSource;
@@ -39,6 +41,8 @@ public class SpellHandler : MonoBehaviour
     private Coroutine currentCast;
 
     private AudioSource audioSource;
+
+    private Camera _mainCamera;
 
 
     private void Awake()
@@ -71,12 +75,14 @@ public class SpellHandler : MonoBehaviour
         currentCast = null;
         canCastSpell = true;
         castingDisabled = false;
-        
-        Debug.LogWarning("TODO - Wand attached to player arm, IK arm towards center of screen OR wand fixed pointing towards center, not attached to player");
+
+        _mainCamera = Camera.main;
         
         spellChargeVfx.SetActive(false);
     }
 
+    public float cameraOffset = 28f;
+    
     private void Update()
     {
         currentMana = Math.Min(currentMana + manaRegenRate * Time.deltaTime, maxMana);
@@ -84,6 +90,9 @@ public class SpellHandler : MonoBehaviour
         
         canCastSpell = availableSpells[currentSpellIndex].manaCost <= currentMana;
         currentSpellImage.color = canCastSpell ? Color.white : disabledColor;
+
+        Vector3 eulerAngles = wandTransform.localRotation.eulerAngles;
+        wandTransform.localRotation = Quaternion.Euler(cameraOffset + _mainCamera.transform.rotation.eulerAngles.x, eulerAngles.y, eulerAngles.z);
     }
 
     private void SetSelectedSpell(int spellIndex)
@@ -139,12 +148,12 @@ public class SpellHandler : MonoBehaviour
             GameObject spellObject = Instantiate(availableSpells[currentSpellIndex].spellPrefab);
             ICastable spellCastable = spellObject.GetComponent<ICastable>();
 
-            spellObject.transform.SetPositionAndRotation(wandTransform.position + Vector3.up,
-                wandTransform.rotation);
+            spellObject.transform.SetPositionAndRotation(castTransform.position + Vector3.up,
+                Quaternion.identity);
 
             // Change with direction player is looking/aiming
-            var ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.48f, 0f));
-            spellCastable.Cast(ray.direction, wandTransform);
+            var ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.48f, 10f));
+            spellCastable.Cast(ray.direction, castTransform);
         }
         else
         {
