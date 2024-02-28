@@ -12,6 +12,12 @@ public class LightningBolt : Projectile
     [Tooltip("What is the maximum number of enemies that the lighting can chain to?")]
     public int maxAdditionalEnemies = 2;
 
+    private void FixedUpdate()
+    {
+        // Rotate object with velocity so that it always points in the direction it is moving
+        transform.rotation = Quaternion.LookRotation(rb.velocity);
+    }
+    
     protected override void OnImpact(Collision collision)
     {
         base.OnImpact(collision);
