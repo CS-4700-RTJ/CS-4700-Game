@@ -27,7 +27,7 @@ public class SpellHandler : MonoBehaviour
     public GameObject spellChargeVfx;
     public AudioSource wandAudioSource;
     
-    private const float WandCameraOffset = 28f;
+    public float WandCameraOffset = 28f;
 
     // Input                                                                         
     private PlayerInput playerInput;
@@ -91,8 +91,8 @@ public class SpellHandler : MonoBehaviour
         canCastSpell = availableSpells[currentSpellIndex].manaCost <= currentMana;
         currentSpellImage.color = canCastSpell ? Color.white : disabledColor;
 
-        Vector3 eulerAngles = wandTransform.localRotation.eulerAngles;
-        wandTransform.localRotation = Quaternion.Euler(WandCameraOffset + _mainCamera.transform.rotation.eulerAngles.x, eulerAngles.y, eulerAngles.z);
+        // Vector3 eulerAngles = wandTransform.localRotation.eulerAngles;
+        // wandTransform.localRotation = Quaternion.Euler(WandCameraOffset + _mainCamera.transform.rotation.eulerAngles.x, eulerAngles.y, eulerAngles.z);
     }
 
     private void SetSelectedSpell(int spellIndex)
@@ -148,11 +148,12 @@ public class SpellHandler : MonoBehaviour
             GameObject spellObject = Instantiate(availableSpells[currentSpellIndex].spellPrefab);
             ICastable spellCastable = spellObject.GetComponent<ICastable>();
 
-            spellObject.transform.SetPositionAndRotation(castTransform.position + Vector3.up,
-                Quaternion.identity);
-
             // Change with direction player is looking/aiming
-            var ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.48f, 10f));
+            var ray = _mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.48f, 10f));
+
+            spellObject.transform.SetPositionAndRotation(castTransform.position,
+                Quaternion.LookRotation(ray.direction.normalized));
+            
             spellCastable.Cast(ray.direction, castTransform);
         }
         else
