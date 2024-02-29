@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90313b956230353499b31a58b5147a0d, type: 3}
+  m_Name: Ice Shard
+  m_EditorClassIdentifier: 
+  spellName: Ice Shard
+  castTime: 1
+  manaCost: 15
+  castSfx: {fileID: 8300000, guid: 350bb65e6fe66b6469d63547d2d7ed55, type: 3}
+  spellIcon: {fileID: 21300000, guid: 0d1dc8ade7e63d14da6ea8a209621906, type: 3}
+  description: Shoot a shard of ice that freezes whatever it hits.
+  spellPrefab: {fileID: 6730322898657727304, guid: f1fe33dc7a4c1ba4eb3a0eb1ac5268c4, type: 3}
