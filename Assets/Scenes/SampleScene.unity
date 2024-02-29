@@ -827,32 +827,6 @@ PrefabInstance:
       addedObject: {fileID: 1133649639}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
---- !u!1 &468855868 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3805503669450470444, guid: 605a807552e8b9345aa7e1adf9c932a9, type: 3}
-  m_PrefabInstance: {fileID: 1179583935}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &468855873
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468855868}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 933001f76d74b64429f5594edab8e4f0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &641359383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,6 +1572,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &922018505 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6248073126268973408, guid: 605a807552e8b9345aa7e1adf9c932a9, type: 3}
+  m_PrefabInstance: {fileID: 1179583935}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &922018515
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922018505}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 933001f76d74b64429f5594edab8e4f0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &931520685
 GameObject:
   m_ObjectHideFlags: 0
@@ -2610,9 +2610,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3805503669450470444, guid: 605a807552e8b9345aa7e1adf9c932a9, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 6248073126268973408, guid: 605a807552e8b9345aa7e1adf9c932a9, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 468855873}
+      addedObject: {fileID: 922018515}
   m_SourcePrefab: {fileID: 100100000, guid: 605a807552e8b9345aa7e1adf9c932a9, type: 3}
 --- !u!4 &1179583936 stripped
 Transform:

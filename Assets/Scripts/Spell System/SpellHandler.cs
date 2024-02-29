@@ -46,7 +46,11 @@ public class SpellHandler : MonoBehaviour
 
     private Camera _mainCamera;
 
+    private Animator animator;
+    private static readonly int AnimatorIsCharging = Animator.StringToHash("IsCharging");
+    private static readonly int AnimatorChargeFinished = Animator.StringToHash("ChargeFinished");
 
+    
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -69,6 +73,7 @@ public class SpellHandler : MonoBehaviour
         cycleSpellAction.performed += OnCycleSpell;
 
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
 
         currentMana = maxMana;
         manaSlider.value = 1;
@@ -164,6 +169,8 @@ public class SpellHandler : MonoBehaviour
         StopCoroutine(currentCast);
         currentCast = null;
         wandAudioSource.Stop();
+        animator.SetBool(AnimatorIsCharging, false);
+        animator.speed = 1;
     }
 
     private void CastSpellStarted(InputAction.CallbackContext context)
@@ -179,6 +186,10 @@ public class SpellHandler : MonoBehaviour
         spellChargeVfx.SetActive(true);
         wandAudioSource.Play();
         
+        animator.SetBool(AnimatorIsCharging, true);
+        animator.SetBool(AnimatorChargeFinished, false);
+        animator.speed = 1 / spell.castTime;
+
         // use pitch to change playback speed
         // This makes the spell charge SFX last as long as the spell cast time
         float clipLength = wandAudioSource.clip.length;
@@ -193,6 +204,7 @@ public class SpellHandler : MonoBehaviour
         spellChargeVfx.SetActive(false);
 
         readyToCast = true;
+        animator.SetBool(AnimatorChargeFinished, true);
     }
 
     public IEnumerator DisableCastingForTime(float time)

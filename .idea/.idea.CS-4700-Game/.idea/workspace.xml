@@ -3,8 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="5b58bc5a-9854-41f7-93a6-01b6f2801b4c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Wand.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Wand.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Cast.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Cast.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Charge.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Charge.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Idle.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Movement.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Movement.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spell System/SpellHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spell System/SpellHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +51,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -118,7 +128,8 @@
       <workItem from="1708653102934" duration="2885000" />
       <workItem from="1708815322616" duration="7160000" />
       <workItem from="1709086587881" duration="7506000" />
-      <workItem from="1709156995242" duration="2110000" />
+      <workItem from="1709156995242" duration="3444000" />
+      <workItem from="1709246863953" duration="2327000" />
     </task>
     <servers />
   </component>

@@ -78,6 +78,8 @@ public class PlayerController : MonoBehaviour
 
     private PlayerControllerInput input;
     private CharacterController controller;
+    private Animator animator;
+    private static readonly int AnimatorMoveSpeed = Animator.StringToHash("MoveSpeed");
 
     private void Awake()
     {
@@ -87,6 +89,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         controller = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
         
         _availableSprint = MaxSprintTime;
 
@@ -209,6 +212,10 @@ public class PlayerController : MonoBehaviour
 			// move
 			inputDirection = transform.right * targetMove.x + transform.forward * targetMove.y;
 		}
+		
+		// animator.SetBool(AnimatorIsMoving, targetMove != Vector2.zero);
+		animator.SetFloat(AnimatorMoveSpeed, targetSpeed);
+
 
 		// move the player
 		controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
