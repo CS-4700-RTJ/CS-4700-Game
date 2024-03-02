@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8729029493176497014}
   - component: {fileID: 1029290649379780729}
   - component: {fileID: 2992454145393745393}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Lightning Bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}

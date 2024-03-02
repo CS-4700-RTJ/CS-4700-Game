@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shieldDuration: 1
-  shieldOffset: {x: -1, y: 0, z: 1.6}
+  shieldOffset: {x: 0, y: 0, z: 1.6}
 --- !u!65 &5577682187728848734
 BoxCollider:
   m_ObjectHideFlags: 0

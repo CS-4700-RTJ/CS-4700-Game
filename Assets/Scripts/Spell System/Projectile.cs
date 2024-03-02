@@ -30,7 +30,6 @@ public abstract class Projectile : MonoBehaviour, ICastable
             audioSource = gameObject.AddComponent<AudioSource>();
             audioSource.spatialBlend = 0.75f;
         }
-        
     }
 
     /// <summary>
@@ -59,6 +58,8 @@ public abstract class Projectile : MonoBehaviour, ICastable
     
     protected void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Hit " + collision.gameObject.name + "!", collision.gameObject);
+        
         OnImpact(collision);
         
         DoImpactEffects();
