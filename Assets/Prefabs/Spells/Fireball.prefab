@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6050112166991828789}
   - component: {fileID: 7704059284857792404}
   - component: {fileID: 7741467641965702442}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: FireEmbers (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4766,7 +4766,7 @@ GameObject:
   - component: {fileID: 6439787871382023440}
   - component: {fileID: 6904319770500615465}
   - component: {fileID: 4226283791812697716}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9616,7 +9616,6 @@ MonoBehaviour:
   impactAfterLifetime: 1
   launchMode: 2
   impactVfx: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
-  impactSfx: {fileID: 0}
   explosionRadius: 2.5
   explosionLayerMask:
     serializedVersion: 2
