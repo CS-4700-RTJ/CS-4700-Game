@@ -63,6 +63,7 @@ UserSettings/Layouts/
 
 # IDE files
 *.vsconfig
+.vsconfig
 .idea/
 .vscode
 .vscode/
