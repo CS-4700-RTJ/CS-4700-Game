@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(CharacterController), typeof(Animator), typeof(PlayerControllerInput))]
 public class PlayerController : MonoBehaviour
 {
 	[Header("Player")]

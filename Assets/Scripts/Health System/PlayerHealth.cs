@@ -18,11 +18,13 @@ public class PlayerHealth : Damageable
     private int numFlashes = 1;
     
     private MeshRenderer renderer;
-
+    private PlayerController _playerController;
+    
     protected override void Start()
     {
         base.Start();
         renderer = GetComponentInChildren<MeshRenderer>();
+        _playerController = GetComponent<PlayerController>();
         
         healthBar.value = 1;
     }
@@ -49,8 +51,7 @@ public class PlayerHealth : Damageable
         // TODO - after player input is implemented
 
         // Disable PlayerController
-        var controller = GetComponent<PlayerController>();
-        controller.enabled = false;
+        _playerController.enabled = false;
 
         healthBar.value = 0;
     }

@@ -1,30 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR;
 
+[RequireComponent(typeof(Animator))]
 public class Enemy : Damageable
 {
     protected bool isFrozen;
     protected bool isPoisoned;
 
-    protected Renderer renderer;
-    protected Color originalColor;
+    private Renderer _renderer;
+    private Color _originalColor;
 
+    private Animator _animator;
+    private Rigidbody _rigidbody;
+    
+    private static readonly int AnimatorDeathTrigger = Animator.StringToHash("Death");
+    private static readonly int AnimatorDamageTrigger = Animator.StringToHash("Damage");
+    
     protected override void Start()
     {
         base.Start();
-        renderer = GetComponent<Renderer>();
-        originalColor = renderer.material.color;
+
+        _animator = GetComponent<Animator>();
+        _rigidbody = GetComponent<Rigidbody>();
+        _renderer = GetComponent<Renderer>();
+        _originalColor = _renderer.material.color;
+    }
+
+    public override void ApplyDamage(float amount)
+    {
+        base.ApplyDamage(amount);
+        
+        _animator.SetTrigger(AnimatorDamageTrigger);
     }
 
     protected override void Death()
     {
         PlayDeathSound();
-
-        // Replace with death animation
         
-        StartCoroutine(DestroyAfterSfx());
+        // Replace with death animation
+        _animator.SetTrigger(AnimatorDeathTrigger);
+        PlayDeathSound();
+
+        enabled = false;
+        StopAllCoroutines();
+
+        _rigidbody.detectCollisions = false;
+        _renderer.material.color = _originalColor;
     }
 
     public void HandlePoisonFlashing(int numFlashes, float flashFrequency, Color poisonColor)
@@ -36,11 +58,11 @@ public class Enemy : Damageable
     {
         isPoisoned = true;
         
-        yield return StartCoroutine(FlashColor(renderer, poisonColor, numFlashes, flashFrequency));
+        yield return StartCoroutine(FlashColor(_renderer, poisonColor, numFlashes, flashFrequency));
 
         isPoisoned = false;
 
-        if (!isFrozen) renderer.material.color = originalColor;
+        if (!isFrozen) _renderer.material.color = _originalColor;
     }
     
     public void Freeze(float freezeDuration, Color freezeColor)
@@ -52,11 +74,11 @@ public class Enemy : Damageable
     {
         isFrozen = true;
 
-        renderer.material.color = freezeColor;
+        if (!isPoisoned) _renderer.material.color = freezeColor;
         
         yield return new WaitForSeconds(freezeDuration);
 
-        renderer.material.color = originalColor;
+        if (!isPoisoned) _renderer.material.color = _originalColor;
         
         isFrozen = false;
     }
