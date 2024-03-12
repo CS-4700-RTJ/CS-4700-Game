@@ -28,7 +28,6 @@ public class PlayerHealth : Damageable
     private int numFlashes = 1;
     
     private MeshRenderer renderer;
-    private PlayerController _playerController;
     
     private void Awake()
     {
@@ -39,7 +38,6 @@ public class PlayerHealth : Damageable
     {
         base.Start();
         renderer = GetComponentInChildren<MeshRenderer>();
-        _playerController = GetComponent<PlayerController>();
         
         healthBar.value = 1;
     }
@@ -61,14 +59,10 @@ public class PlayerHealth : Damageable
     {
         // Play the death sound
         PlayDeathSound();
-
-        // Disable inputs
-        // TODO - after player input is implemented
-
-        // Disable PlayerController
-        _playerController.enabled = false;
-
+        
         healthBar.value = 0;
+
+        EventManager.TriggerOnPlayerDeath();
     }
 
     private IEnumerator ApplyDamageInvulnerability(float time)
