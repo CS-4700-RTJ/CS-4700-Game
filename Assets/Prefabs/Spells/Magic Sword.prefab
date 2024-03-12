@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 62783527772492452}
   - component: {fileID: 3239952468442906927}
   - component: {fileID: 6520479392788281772}
-  - component: {fileID: 7850938487324503997}
   - component: {fileID: 8866740255225561244}
   - component: {fileID: -8249338929910078401}
+  - component: {fileID: 3785151728044393985}
+  - component: {fileID: 1454692046462375225}
   m_Layer: 0
   m_Name: Magic Sword
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2969398509416420344}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 500.279, y: 1.612, z: 500.698}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -86,28 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7850938487324503997
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2969398509416420344}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: cf12dc9cfbd39b14aaeae7c519275979, type: 3}
 --- !u!114 &8866740255225561244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 820726271329e1e469123ecce23c7625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponActiveTime: 3
+  damage: 3
+  startPositionOffset: {x: 0, y: -0.0456, z: -0.0426}
+  startRotation: {x: 0.34202012, y: 0, z: 0, w: 0.9396926}
   weaponAttackSfx: {fileID: 8300000, guid: 4060d0f899df1b645ada66ac6af8bf1d, type: 3}
 --- !u!82 &-8249338929910078401
 AudioSource:
@@ -218,3 +199,53 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &3785151728044393985
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969398509416420344}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.058959953
+  m_Height: 3.2133412
+  m_Direction: 1
+  m_Center: {x: 0.0029296875, y: 0.03692174, z: -0.0017537476}
+--- !u!54 &1454692046462375225
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2969398509416420344}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

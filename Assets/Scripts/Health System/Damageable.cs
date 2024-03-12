@@ -37,7 +37,10 @@ public abstract class Damageable : MonoBehaviour
         currentHealth -= amount;
         
         if (currentHealth <= 0f) Death();
-        else PlayDamagedSound();
+        else
+        {
+            PlayDamagedSound();
+        }
     }
 
     public virtual void ApplyDamageWithoutEffects(float amount)

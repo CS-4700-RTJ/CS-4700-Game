@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -5,7 +6,16 @@ using UnityEngine.UI;
 
 public class PlayerHealth : Damageable
 {
-    [Header("UI")] public Slider healthBar;
+    // Have a static reference to the player's transform so that enemies can quickly access it without having to 
+    // use GameObject.Find.
+    // There should only ever by one PlayerHealth at a time, which is why it is put in this script.
+    /// <summary>
+    /// Static reference to the Player's transform.
+    /// </summary>
+    public static Transform PlayerTransform { get; private set; }
+    
+    [Header("UI")] 
+    public Slider healthBar;
 
     [Header("Damage Invincibility")]
     [SerializeField]
@@ -20,6 +30,11 @@ public class PlayerHealth : Damageable
     private MeshRenderer renderer;
     private PlayerController _playerController;
     
+    private void Awake()
+    {
+        PlayerTransform = transform;
+    }
+
     protected override void Start()
     {
         base.Start();

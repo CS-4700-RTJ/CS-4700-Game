@@ -208,6 +208,18 @@ public class SpellHandler : MonoBehaviour
         animator.SetBool(AnimatorChargeFinished, true);
     }
 
+    private void DisableCasting()
+    {
+        castingDisabled = true;
+        print("disabled casting");
+    }
+
+    private void EnableCasting()
+    {
+        castingDisabled = false;
+        print("enabled casting");
+    } 
+
     public IEnumerator DisableCastingForTime(float time)
     {
         castingDisabled = true;
