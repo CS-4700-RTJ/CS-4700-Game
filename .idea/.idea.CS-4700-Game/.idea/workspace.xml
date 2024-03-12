@@ -2,41 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b58bc5a-9854-41f7-93a6-01b6f2801b4c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Melee_Attack.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Melee_Attack.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/Wolf.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/Wolf/Wolf_Howl.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/Wolf/Wolf_Howl.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/Wolf/mixkit-lone-wolf-howling-1729.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/Wolf/mixkit-lone-wolf-howling-1729.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/Wolf/wolf1.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/Wolf/wolf1.mp3.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/Wolf/wolf5.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/Wolf/wolf5.mp3.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene/NavMesh-Nav Mesh.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene/NavMesh-Nav Mesh.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Behaviors.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Behaviors/WolfBehavior.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Behaviors/WolfBehavior.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyBehavior.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyBehavior.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Wand.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Wand.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Packages/Wolf_Animated/Model/Wolf_animation.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Wolf_Animated/Model/Wolf_animation.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Spells/Magic Sword.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Spells/Magic Sword.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Health System/Damageable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Health System/Damageable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Health System/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Health System/PlayerHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spell System/MagicWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spell System/MagicWeapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spell System/SpellHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spell System/SpellHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spells/Magic Weapon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spells/Magic Weapon.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Behaviors/WolfBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Behaviors/WolfBehavior.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,6 +127,7 @@
       <workItem from="1709679622787" duration="9253000" />
       <workItem from="1709837447462" duration="10636000" />
       <workItem from="1710184120410" duration="7931000" />
+      <workItem from="1710279102045" duration="1757000" />
     </task>
     <servers />
   </component>

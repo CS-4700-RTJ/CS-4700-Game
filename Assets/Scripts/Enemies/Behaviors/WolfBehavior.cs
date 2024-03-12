@@ -14,11 +14,17 @@ public class WolfBehavior : EnemyBehavior
     public AudioClip[] attackSounds;
     public float idealPlayerDistance = 2f;
     public float runAttackTimeout = 5f;
-
+    public float biteDamage = 2f;
+    public float lungeDamage = 2f;
+    private float _currentDamage;
+    
     [Header("Debugging")]
     public bool lungeAttackNext = false;
     public bool chasePlayerNext = false;
     public bool howlNext = false;
+    
+    [Header("Attack Colliders")]
+    public Collider attackCollider;
 
     private NavMeshAgent _agent;
     private Animator _animator;
@@ -44,6 +50,7 @@ public class WolfBehavior : EnemyBehavior
         print("Action - Lunging Bite");
 
         _animator.SetTrigger(AnimatorLungeAttack);
+        _currentDamage = lungeDamage;
 
         float lungeAnimLength = 2f;
 
@@ -57,6 +64,7 @@ public class WolfBehavior : EnemyBehavior
         print("Action - Running Bite");
 
         _animator.SetTrigger(AnimatorBiteAttack);
+        _currentDamage = biteDamage;
 
         float biteAnimLength = 1.7f;
 
@@ -95,11 +103,6 @@ public class WolfBehavior : EnemyBehavior
 
             yield return null;
         }
-
-        // _animator.SetFloat(AnimatorMoveSpeed, 0f);
-        // _agent.isStopped = true;
-
-        // currentAction = null;
 
         currentAction = StartCoroutine(RunningBite());
     }
@@ -153,6 +156,16 @@ public class WolfBehavior : EnemyBehavior
         var clipToPlay = attackSounds[Random.Range(0, attackSounds.Length)];
 
         audioSource.PlayOneShot(clipToPlay);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        print("Wolf trigger hit " + other);
+        if (other.CompareTag("Player"))
+        {
+            print("Hit player");
+            other.GetComponent<PlayerHealth>().ApplyDamage(_currentDamage);
+        }
     }
 }
 
