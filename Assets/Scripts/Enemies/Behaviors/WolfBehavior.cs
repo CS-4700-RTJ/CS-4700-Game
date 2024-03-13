@@ -166,6 +166,10 @@ public class WolfBehavior : EnemyBehavior
             print("Hit player");
             other.GetComponent<PlayerHealth>().ApplyDamage(_currentDamage);
         }
+        else if (other.CompareTag("Weapon"))
+        {
+            print("Wolf hit by a weapon");
+        }
     }
 }
 

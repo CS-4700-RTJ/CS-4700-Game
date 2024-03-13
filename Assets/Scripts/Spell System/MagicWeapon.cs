@@ -18,6 +18,8 @@ public class MagicWeapon : MonoBehaviour, ICastable
     private Animator _animator;
     private static readonly int AnimatorMeleeAttack = Animator.StringToHash("MeleeAttack");
 
+    private List<GameObject> _hitObjects;
+
     public void Cast(Vector3 castDirection, Transform casterTransform)
     {
         _playerSpellHandler = casterTransform.GetComponentInParent<SpellHandler>();
@@ -27,6 +29,8 @@ public class MagicWeapon : MonoBehaviour, ICastable
         _audioSource = GetComponent<AudioSource>();
         _animator = _playerSpellHandler.GetComponent<Animator>();
 
+        _hitObjects = new List<GameObject>();
+        
         StartCoroutine(DoMeleeAttack());
     }
 
@@ -45,27 +49,26 @@ public class MagicWeapon : MonoBehaviour, ICastable
         Destroy(gameObject);
     }
 
+    // Have to user OnCollisionEnter instead of OnTriggerEnter due to potentially hitting compound colliders
+    //  NOTE
+    //  collision.collider = physical collider (child collider in compound)
+    //  collision.gameObject = rigidbody object (parent in compound)
+    // OnTriggerEnter only provides the hit collider, not the hit gameObject
     private void OnCollisionEnter(Collision collision)
     {
-        print("Melee hit " + collision.collider);
-        if (collision.collider.TryGetComponent(out Damageable damageable))
+        // Prevent the melee attack from hitting the same object more than once
+        if (_hitObjects.Contains(collision.gameObject)) return;
+        
+        // print("Melee hit " + collision.collider + " (" + collision.gameObject.name + ")");
+        if (collision.gameObject.TryGetComponent(out Damageable damageable))
         {
             if (damageable is PlayerHealth) return;
             
             Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
             damageable.ApplyDamage(damage);
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        print("Melee hit " + other);
-        if (other.TryGetComponent(out Damageable damageable))
-        {
-            if (damageable is PlayerHealth) return;
-         
-            Physics.IgnoreCollision(other, GetComponent<Collider>());
-            damageable.ApplyDamage(damage);
+            
+            // add the object to the list of hit objects
+            _hitObjects.Add(collision.gameObject);
         }
     }
 }
