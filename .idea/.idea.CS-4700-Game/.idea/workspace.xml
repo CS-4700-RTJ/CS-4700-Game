@@ -2,10 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b58bc5a-9854-41f7-93a6-01b6f2801b4c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Scores System.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Scores System/GameManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Scores System/GameManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Cast.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Cast.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Idle.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spell System/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spell System/Projectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Environment/Art/Materials/Blue_Mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Environment/Art/Materials/Blue_Mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Environment/Art/Materials/GreyBlue_Mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Environment/Art/Materials/GreyBlue_Mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Environment/Art/Materials/GridBlue_01_Mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Environment/Art/Materials/GridBlue_01_Mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Environment/Art/Materials/GridOrange_01_Mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Environment/Art/Materials/GridOrange_01_Mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Environment/Art/Materials/GridWhite_01_Mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Environment/Art/Materials/GridWhite_01_Mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Settings/High_PipelineAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Settings/High_PipelineAsset.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Settings/Low_PipelineAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Settings/Low_PipelineAsset.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Settings/Medium_PipelineAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Settings/Medium_PipelineAsset.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Settings/Ultra_PipelineAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Settings/Ultra_PipelineAsset.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Settings/Very High_PipelineAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Settings/Very High_PipelineAsset.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Settings/Very Low_PipelineAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/StarterAssets/Settings/Very Low_PipelineAsset.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,6 +134,7 @@
       <workItem from="1709156995242" duration="3444000" />
       <workItem from="1709246863953" duration="3470000" />
       <workItem from="1709412593461" duration="701000" />
+      <workItem from="1710437316355" duration="6933000" />
     </task>
     <servers />
   </component>
