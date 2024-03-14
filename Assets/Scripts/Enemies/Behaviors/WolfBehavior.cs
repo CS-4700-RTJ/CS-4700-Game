@@ -23,9 +23,6 @@ public class WolfBehavior : EnemyBehavior
     public bool chasePlayerNext = false;
     public bool howlNext = false;
     
-    [Header("Attack Colliders")]
-    public Collider attackCollider;
-
     private NavMeshAgent _agent;
     private Animator _animator;
 
