@@ -144,9 +144,10 @@ public class SpellHandler : MonoBehaviour
             }
 
             // Play SFX
-            if (spellBeingCast.castSfx)
+            if (spellBeingCast.castSfx[0])
             {
-                audioSource.PlayOneShot(spellBeingCast.castSfx);
+                var clipToPlay = spellBeingCast.castSfx[UnityEngine.Random.Range(0, spellBeingCast.castSfx.Length)];
+                audioSource.PlayOneShot(clipToPlay);
             }
                 
             // Create spell projectile
