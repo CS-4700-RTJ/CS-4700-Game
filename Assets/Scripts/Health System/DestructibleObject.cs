@@ -7,7 +7,7 @@ using UnityEngine;
 public class DestructibleObject : Damageable
 {
     public GameObject createOnDestroy;
-
+    
     // DestructibleObject's don't have health but instead die on any hit
     //public override void ApplyDamage(float amount)
     //{

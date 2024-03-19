@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Animator), typeof(EnemyBehavior))]
 public class Enemy : Damageable
 {
+    [Header("Scoring")] 
+    public int pointValue = 0;
+
     protected bool isFrozen;
     protected bool isPoisoned;
 
@@ -43,6 +46,9 @@ public class Enemy : Damageable
     protected override void Death()
     {
         PlayDeathSound();
+        
+        // Give the player points
+        GameManager.IncreaseScore(pointValue);
         
         // Replace with death animation
         _animator.SetTrigger(AnimatorDeathTrigger);
