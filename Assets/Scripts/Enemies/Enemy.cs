@@ -5,6 +5,9 @@ using UnityEngine.XR;
 
 public class Enemy : Damageable
 {
+    [Header("Scoring")] 
+    public int pointValue = 0;
+
     protected bool isFrozen;
     protected bool isPoisoned;
 
@@ -23,6 +26,9 @@ public class Enemy : Damageable
         PlayDeathSound();
 
         // Replace with death animation
+        
+        // Give the player points
+        GameManager.IncreaseScore(pointValue);
         
         StartCoroutine(DestroyAfterSfx());
     }

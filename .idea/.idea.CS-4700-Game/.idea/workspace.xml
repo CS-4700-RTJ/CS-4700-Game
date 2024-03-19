@@ -3,9 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="5b58bc5a-9854-41f7-93a6-01b6f2801b4c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Cast.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Cast.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Idle.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spell System/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spell System/Projectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/OccaSoftware/Crosshairs/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/OccaSoftware/Crosshairs/Editor/OccaSoftware.Crosshairs.Editor.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/OccaSoftware/Crosshairs/Editor/OccaSoftware.Crosshairs.Editor.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/OccaSoftware/Crosshairs/Editor/StartMenu.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/OccaSoftware/Crosshairs/Editor/StartMenu.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/OccaSoftware/Crosshairs/Editor/Textures.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/OccaSoftware/Crosshairs/Editor/Textures/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/OccaSoftware/Crosshairs/Editor/Textures/logo.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Health System/DestructibleObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Health System/DestructibleObject.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,6 +131,7 @@
       <workItem from="1709156995242" duration="3444000" />
       <workItem from="1709246863953" duration="3470000" />
       <workItem from="1709412593461" duration="701000" />
+      <workItem from="1710437316355" duration="8241000" />
     </task>
     <servers />
   </component>
