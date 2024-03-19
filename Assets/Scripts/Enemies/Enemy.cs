@@ -32,6 +32,8 @@ public class Enemy : Damageable
         _behavior = GetComponent<EnemyBehavior>();
         
         _originalColor = _renderer.material.color;
+
+        EventManager.OnPlayerDeath += _behavior.OnDeath;
     }
 
     public override void ApplyDamage(float amount)
@@ -59,6 +61,8 @@ public class Enemy : Damageable
 
         _rigidbody.detectCollisions = false;
         _renderer.material.color = _originalColor;
+
+        EventManager.OnPlayerDeath -= _behavior.OnDeath;
         
         _behavior.OnDeath();
     }
