@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Enemy))]
 public abstract class EnemyBehavior : MonoBehaviour
 {
     [Header("Player Detection")]
@@ -118,7 +119,9 @@ public abstract class EnemyBehavior : MonoBehaviour
         {
             if (currentAction == null)
             {
-                print("choosing action");
+                #if UNITY_EDITOR
+                if (debugMessages) print("choosing action");
+                #endif
                 ChooseNextAction();
             }
 

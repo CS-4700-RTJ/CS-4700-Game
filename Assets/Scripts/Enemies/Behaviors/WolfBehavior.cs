@@ -7,6 +7,8 @@ namespace Enemies.Behaviors
     [RequireComponent(typeof(NavMeshAgent))]
     public class WolfBehavior : EnemyBehavior
     {
+        [Header("Wolf")]
+        [Space]
         [Header("Movement")] 
         public float baseSpeed = 5f;
         public float runSpeed = 7f;
@@ -92,16 +94,16 @@ namespace Enemies.Behaviors
         }
         
         #region Actions
-        
+
         /// <summary>
         /// Action that causes the wolf to stand on its hind legs before pouncing and biting at the player.
         /// </summary>
         private IEnumerator LungingBiteAttack()
         {
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             if (debugMessages) print("Action - Lunging Bite");
-            #endif
-            
+#endif
+
             _animator.SetTrigger(AnimatorLungeAttack);
             _currentDamage = lungeDamage;
 
@@ -117,10 +119,10 @@ namespace Enemies.Behaviors
         /// </summary>
         private IEnumerator RunningAttack()
         {
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             if (debugMessages) print("Action - Running Bite Attack");
-            #endif
-            
+#endif
+
             // Chase the player
             yield return StartCoroutine(ChasePlayer());
             // And then do a running bite
@@ -128,16 +130,16 @@ namespace Enemies.Behaviors
 
             currentAction = null;
         }
-        
+
         /// <summary>
         /// Sub-Action that makes the wolf run at the player while biting.
         /// </summary>
         private IEnumerator RunningBite()
         {
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             if (debugMessages) print("Sub-Action - Running Bite");
-            #endif
-            
+#endif
+
             _animator.SetTrigger(AnimatorBiteAttack);
             _currentDamage = biteDamage;
 
@@ -160,8 +162,6 @@ namespace Enemies.Behaviors
 
             _animator.SetFloat(AnimatorMoveSpeed, 0f);
             _agent.isStopped = true;
-
-            currentAction = StartCoroutine(Delay(1f));
         }
 
         /// <summary>
@@ -187,10 +187,10 @@ namespace Enemies.Behaviors
 
         private IEnumerator Howl()
         {
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             if (debugMessages) print("Action - Howl");
-            #endif
-            
+#endif
+
             _animator.SetTrigger(AnimatorHowl);
 
             float howlAnimLength = 2.667f;
@@ -199,7 +199,7 @@ namespace Enemies.Behaviors
 
             currentAction = null;
         }
-        
+
         #endregion
     }
 }

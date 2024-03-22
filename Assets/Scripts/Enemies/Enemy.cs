@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator), typeof(EnemyBehavior))]
+[RequireComponent(typeof(Animator))]
 public class Enemy : Damageable
 {
     [Header("Scoring")] 
