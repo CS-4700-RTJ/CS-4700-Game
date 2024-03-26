@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public abstract class Damageable : MonoBehaviour
 {
     [Header("Health")]
@@ -34,9 +35,19 @@ public abstract class Damageable : MonoBehaviour
     public virtual void ApplyDamage(float amount)
     {
         currentHealth -= amount;
+        
+        if (currentHealth <= 0f) Death();
+        else
+        {
+            PlayDamagedSound();
+        }
+    }
+
+    public virtual void ApplyDamageWithoutEffects(float amount)
+    {
+        currentHealth -= amount;
 
         if (currentHealth <= 0f) Death();
-        else PlayDamagedSound();
     }
     
     /// <summary>

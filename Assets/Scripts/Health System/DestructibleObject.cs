@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -15,12 +16,13 @@ public class DestructibleObject : Damageable
 
     protected override void Death()
     {
-        if (deathSounds.Length > 0)
-        {
-            PlayDeathSound();
-            StartCoroutine(DestroyAfterSfx());
-        }
-        else Destroy();
+        // if (deathSounds.Length > 0)
+        // {
+        //     PlayDeathSound();
+        //     StartCoroutine(DestroyAfterSfx());
+        // }
+        // else Destroy();
+        Destroy();
     }
 
     // Creates the object (if applicable) and then destroys this

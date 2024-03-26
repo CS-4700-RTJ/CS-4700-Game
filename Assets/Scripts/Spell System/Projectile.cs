@@ -17,7 +17,6 @@ public abstract class Projectile : MonoBehaviour, ICastable
     
     [Header("Effects")]
     public GameObject impactVfx;
-    // public AudioClip impactSfx;
 
     protected Rigidbody rb;
     protected AudioSource audioSource;
@@ -41,7 +40,6 @@ public abstract class Projectile : MonoBehaviour, ICastable
     {
         rb.AddForce(castDirection.normalized * launchSpeed, launchMode);
         
-        //Destroy(gameObject, lifetime);
         StartCoroutine(SelfDestruct());
     }
 
@@ -58,7 +56,7 @@ public abstract class Projectile : MonoBehaviour, ICastable
     
     protected void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Hit " + collision.gameObject.name + "!", collision.gameObject);
+        // Debug.Log(this.name + " hit " + collision.gameObject.name + "!", collision.gameObject);
         
         OnImpact(collision);
         
@@ -74,15 +72,9 @@ public abstract class Projectile : MonoBehaviour, ICastable
             var vfx = Instantiate(impactVfx, spawnTransform.position, spawnTransform.rotation);
         }
         
-        // if (impactSfx)
-        // {
-        //     audioSource.PlayOneShot(impactSfx);
-        //     StartCoroutine(DestroyAfterSfx());
-        // }
-        // else
-        // {
+        // put any impact sfx on the impactVfx
+        // This allows the projectile to be destroyed right away
         Destroy(gameObject);
-        // }
     }
 
     /// <summary>

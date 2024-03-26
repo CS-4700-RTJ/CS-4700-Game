@@ -9,6 +9,7 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+/[Ll]ayouts/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -67,7 +68,7 @@ UserSettings/Layouts/
 .idea/
 .vscode
 .vscode/
-.idea/.idea.CS-4700-Game/.idea/workspace.xml
+workspace.xml
 
 # Unity Editor layouts
 UserSettings/Layouts
