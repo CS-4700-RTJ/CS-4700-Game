@@ -53,6 +53,7 @@ namespace Enemies.Behaviors
         {
             base.OnDeath();
             _agent.isStopped = true;
+            _agent.enabled = false;
         }
 
         public override void ChooseNextAction()

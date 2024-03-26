@@ -17,10 +17,12 @@ public class Enemy : Damageable
     private Animator _animator;
     private Rigidbody _rigidbody;
     private EnemyBehavior _behavior;
+    private Coroutine _poisonFlashRoutine;
     
     private static readonly int AnimatorDeathTrigger = Animator.StringToHash("Death");
     private static readonly int AnimatorDamageTrigger = Animator.StringToHash("Damage");
     private static readonly int AnimatorFreezeTrigger = Animator.StringToHash("Freeze");
+
     
     protected override void Start()
     {
@@ -50,14 +52,15 @@ public class Enemy : Damageable
         PlayDeathSound();
         
         // Give the player points
-        GameManager.IncreaseScore(pointValue);
-        
+        GameManager.IncreaseScore(pointValue);        
         // Replace with death animation
+        
+        // _animator.enabled = true;
         _animator.SetTrigger(AnimatorDeathTrigger);
         PlayDeathSound();
 
         enabled = false;
-        StopAllCoroutines();
+        if (_poisonFlashRoutine != null) StopCoroutine(_poisonFlashRoutine);
 
         _rigidbody.detectCollisions = false;
         _renderer.material.color = _originalColor;
@@ -69,7 +72,7 @@ public class Enemy : Damageable
 
     public void HandlePoisonFlashing(int numFlashes, float flashFrequency, Color poisonColor)
     {
-        StartCoroutine(HandlePoisonColor(numFlashes, flashFrequency, poisonColor));
+        _poisonFlashRoutine = StartCoroutine(HandlePoisonColor(numFlashes, flashFrequency, poisonColor));
     }
 
     private IEnumerator HandlePoisonColor(int numFlashes, float flashFrequency, Color poisonColor)
@@ -81,13 +84,19 @@ public class Enemy : Damageable
         isPoisoned = false;
 
         if (!isFrozen) _renderer.material.color = _originalColor;
+
+        _poisonFlashRoutine = null;
     }
     
-    public void Freeze(float freezeDuration, Color freezeColor)
+    public bool Freeze(float freezeDuration, Color freezeColor)
     {
+        bool startedFrozen = isFrozen;
+        
         _animator.SetTrigger(AnimatorFreezeTrigger);
         _behavior.OnFreeze(freezeDuration);
         StartCoroutine(HandleFreeze(freezeDuration, freezeColor));
+
+        return startedFrozen;
     }
 
     private IEnumerator HandleFreeze(float freezeDuration, Color freezeColor)

@@ -30,7 +30,7 @@ namespace Enemies.Behaviors
 
         public override void OnFreeze(float freezeTime)
         {
-            base.OnFreeze(freezeTime);
+            StopAction();
             _agent.isStopped = true;
         }
 
@@ -38,6 +38,8 @@ namespace Enemies.Behaviors
         {
             base.OnDeath();
             _agent.isStopped = true;
+            _agent.enabled = false;
+            StopAllCoroutines();
         }
 
 
@@ -53,6 +55,14 @@ namespace Enemies.Behaviors
             var clipToPlay = attackSounds[Random.Range(0, attackSounds.Length)];
 
             audioSource.PlayOneShot(clipToPlay);
+        }
+        
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                other.GetComponent<PlayerHealth>().ApplyDamage(attackDamage);
+            }
         }
 
         #region Actions

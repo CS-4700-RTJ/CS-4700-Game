@@ -2,15 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b58bc5a-9854-41f7-93a6-01b6f2801b4c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Behaviors/ZombieBehavior.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Behaviors/ZombieBehavior.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/Wolf_Animated/Model/Wolf_animation.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Wolf_Animated/Model/Wolf_animation.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Wolf.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Wolf.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Wand.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Wand.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/Zombie/Animation/zombie@idle1.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Zombie/Animation/zombie@idle1.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/Zombie/Animation/zombie@idle2.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Zombie/Animation/zombie@idle2.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/Zombie/Animation/zombie@run.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Zombie/Animation/zombie@run.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/Zombie/Animation/zombie@walk.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Zombie/Animation/zombie@walk.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/Zombie/Zombie Animator Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/Zombie/Zombie Animator Controller.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Joseph's Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Joseph's Scene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Behaviors/WolfBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Behaviors/WolfBehavior.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Behaviors/ZombieBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Behaviors/ZombieBehavior.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyBehavior.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spell System/IceShard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spell System/IceShard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +144,9 @@
       <workItem from="1710883913955" duration="2900000" />
       <workItem from="1711052701279" duration="299000" />
       <workItem from="1711057410818" duration="3176000" />
-      <workItem from="1711074442585" duration="332000" />
+      <workItem from="1711074442585" duration="1020000" />
+      <workItem from="1711479478767" duration="1150000" />
+      <workItem from="1711489603746" duration="1212000" />
     </task>
     <servers />
   </component>
