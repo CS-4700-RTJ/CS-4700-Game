@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class DestructibleObject : Damageable
 {
     public GameObject createOnDestroy;
-
+    
     // DestructibleObject's don't have health but instead die on any hit
     //public override void ApplyDamage(float amount)
     //{
@@ -15,12 +16,13 @@ public class DestructibleObject : Damageable
 
     protected override void Death()
     {
-        if (deathSounds.Length > 0)
-        {
-            PlayDeathSound();
-            StartCoroutine(DestroyAfterSfx());
-        }
-        else Destroy();
+        // if (deathSounds.Length > 0)
+        // {
+        //     PlayDeathSound();
+        //     StartCoroutine(DestroyAfterSfx());
+        // }
+        // else Destroy();
+        Destroy();
     }
 
     // Creates the object (if applicable) and then destroys this

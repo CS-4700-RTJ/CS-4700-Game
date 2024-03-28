@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerInput))]
 public class PlayerControllerInput : MonoBehaviour
 {
     public Vector2 move { get; private set; }

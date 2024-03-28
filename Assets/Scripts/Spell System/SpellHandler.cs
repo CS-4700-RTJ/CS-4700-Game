@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -206,6 +207,18 @@ public class SpellHandler : MonoBehaviour
         readyToCast = true;
         animator.SetBool(AnimatorChargeFinished, true);
     }
+
+    private void DisableCasting()
+    {
+        castingDisabled = true;
+        print("disabled casting");
+    }
+
+    private void EnableCasting()
+    {
+        castingDisabled = false;
+        print("enabled casting");
+    } 
 
     public IEnumerator DisableCastingForTime(float time)
     {

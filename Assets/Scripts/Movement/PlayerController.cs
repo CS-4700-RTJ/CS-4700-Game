@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(CharacterController), typeof(Animator), typeof(PlayerControllerInput))]
 public class PlayerController : MonoBehaviour
 {
 	[Header("Player")]
@@ -80,6 +81,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private Animator animator;
     private static readonly int AnimatorMoveSpeed = Animator.StringToHash("MoveSpeed");
+    private static readonly int AnimatorDeathTrigger = Animator.StringToHash("Death");
 
     private void Awake()
     {
@@ -96,6 +98,17 @@ public class PlayerController : MonoBehaviour
         _availableJumps = 1;
         _maxJumps = 1;
         _originalAirborneMoveStrength = AirborneMoveStrength;
+
+        EventManager.OnPlayerDeath += OnDeath;
+    }
+
+    private void OnDeath()
+    {
+	    animator.SetTrigger(AnimatorDeathTrigger);
+	    input.enabled = false;
+	    enabled = false;
+	    
+	    EventManager.OnPlayerDeath -= OnDeath;
     }
 
     
