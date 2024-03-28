@@ -35,12 +35,10 @@ public abstract class EnemyBehavior : MonoBehaviour
 
         currentAction = StartCoroutine(WaitForPlayerDetected());
         _actionHandlerCoroutine = StartCoroutine(HandleActions());
+
+        detectsPlayer = detectOnSpawn;
         
-        if (detectOnSpawn)
-        {
-            detectsPlayer = true;
-            OnPlayerDetected();
-        }
+        EventManager.OnPlayerDeath += OnDeath;
     }
 
     /// <summary>
@@ -62,7 +60,11 @@ public abstract class EnemyBehavior : MonoBehaviour
     public virtual void OnDeath()
     {
         enabled = false;
+        StopCoroutine(_actionHandlerCoroutine);
         StopAction();
+        
+        EventManager.OnPlayerDeath -= OnDeath;
+        Destroy(this);
     }
 
     /// <summary>

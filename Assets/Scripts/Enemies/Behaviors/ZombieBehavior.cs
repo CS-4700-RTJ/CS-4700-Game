@@ -17,6 +17,9 @@ namespace Enemies.Behaviors
         public float idealPlayerDistance = 2f;
         public float attackDamage = 2f;
 
+        [Header("Death")] 
+        public GameObject[] clothesObjects;
+
         private NavMeshAgent _agent;
         private Animator _animator;
 
@@ -36,10 +39,15 @@ namespace Enemies.Behaviors
 
         public override void OnDeath()
         {
-            base.OnDeath();
+            foreach (var clothing in clothesObjects)
+            {
+                Destroy(clothing);
+            }
+            
             _agent.isStopped = true;
             _agent.enabled = false;
             StopAllCoroutines();
+            base.OnDeath();
         }
 
 

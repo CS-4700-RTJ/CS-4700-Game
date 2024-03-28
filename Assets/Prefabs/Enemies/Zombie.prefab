@@ -3947,6 +3947,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b9750598859a29c449843d0afe7ef1d5, type: 3}
   - {fileID: 8300000, guid: fe13769ea8680db4a96e2e469a885f2d, type: 3}
   pointValue: 10
+  dissolveMaterial: {fileID: 2100000, guid: da3bd06e9cb99fb4da1a55e1685338dc, type: 2}
+  dissolveVfx: {fileID: 712745939539798183, guid: 6b92d3257476a22428cfe7209536b966, type: 3}
 --- !u!114 &5666952598702180491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3965,11 +3967,18 @@ MonoBehaviour:
   detectOnSpawn: 1
   detectsPlayer: 0
   visualizeDetection: 0
-  debugMessages: 1
+  debugMessages: 0
   attackSounds:
   - {fileID: 8300000, guid: 47ac041cd93eaa44e9abb79df441dac7, type: 3}
   idealPlayerDistance: 1.5
   attackDamage: 2
+  clothesObjects:
+  - {fileID: 6452224331508499635}
+  - {fileID: 138906392343239431}
+  - {fileID: 3162578539115157843}
+  - {fileID: 4895262080202689204}
+  - {fileID: 6428777659491843583}
+  - {fileID: 8204811584638286884}
 --- !u!54 &2273603573700561926
 Rigidbody:
   m_ObjectHideFlags: 0

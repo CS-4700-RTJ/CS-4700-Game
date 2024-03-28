@@ -1367,6 +1367,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7aa86cfae42922542a8eb8078f3afb76, type: 3}
   - {fileID: 8300000, guid: d1b7644bd18cfc04e858264c8363c4b7, type: 3}
   pointValue: 20
+  dissolveMaterial: {fileID: 2100000, guid: 20e4d7549b496a64380faa96555e4eea, type: 2}
+  dissolveVfx: {fileID: 712745939539798183, guid: 6b92d3257476a22428cfe7209536b966, type: 3}
 --- !u!114 &3835331172471131620
 MonoBehaviour:
   m_ObjectHideFlags: 0
