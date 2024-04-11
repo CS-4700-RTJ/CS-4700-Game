@@ -126,5 +126,5 @@ public class GameManager : MonoBehaviour
         
         // Start the Coroutine to update the score indicators
         _instance._scoreUpdateRoutine = _instance.StartCoroutine(_instance.LerpScores());
-    } 
+    }
 }
