@@ -29,12 +29,14 @@ public class PoisonDart : Projectile
     {
         float timer = 0f;
         int numFlashes = (int)(poisonDuration / poisonFlashFrequncy);
-        damageable.StartCoroutine(Damageable.FlashColor(damageable.GetComponent<Renderer>(), poisonFlashColor, numFlashes, poisonFlashFrequncy));
+
+        if (damageable is Enemy enemy) enemy.HandlePoisonFlashing(numFlashes, poisonFlashFrequncy, poisonFlashColor);
+        else damageable.StartCoroutine(Damageable.FlashColor(damageable.GetComponent<Renderer>(), poisonFlashColor, numFlashes, poisonFlashFrequncy));
         
         while (timer < poisonDuration)
         {
             // Apply damage based on the DPS
-            damageable.ApplyDamage((damagePerSecond * Time.deltaTime));
+            damageable.ApplyDamageWithoutEffects((damagePerSecond * Time.deltaTime));
 
             // Increment the timer
             timer += Time.deltaTime;

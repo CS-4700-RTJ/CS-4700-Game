@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90313b956230353499b31a58b5147a0d, type: 3}
+  m_Name: Homing Missile
+  m_EditorClassIdentifier: 
+  spellName: Homing Missile
+  castTime: 1.5
+  manaCost: 15
+  castSfx:
+  - {fileID: 8300000, guid: 9b25dd8f4c6ab904783f793865e9f0f9, type: 3}
+  - {fileID: 8300000, guid: 6baf97bef709db74a85d8b9e41dbae3e, type: 3}
+  - {fileID: 8300000, guid: c718e8f47a8dc744f89ae11fc6c9e423, type: 3}
+  spellIcon: {fileID: 21300000, guid: d70dd1b9c6ae54448923db5c4924edd5, type: 3}
+  description: Shoots a missile that homes towards the nearest enemy.
+  spellPrefab: {fileID: 4815718332176778537, guid: 1237ef6e240e99b4b8599b2827c0e484, type: 3}
