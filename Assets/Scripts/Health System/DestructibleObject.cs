@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-<<<<<<< HEAD
-=======
 using Cinemachine;
->>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -19,14 +16,6 @@ public class DestructibleObject : Damageable
 
     protected override void Death()
     {
-<<<<<<< HEAD
-        if (deathSounds.Length > 0)
-        {
-            PlayDeathSound();
-            StartCoroutine(DestroyAfterSfx());
-        }
-        else Destroy();
-=======
         // if (deathSounds.Length > 0)
         // {
         //     PlayDeathSound();
@@ -34,7 +23,6 @@ public class DestructibleObject : Damageable
         // }
         // else Destroy();
         Destroy();
->>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
     }
 
     // Creates the object (if applicable) and then destroys this

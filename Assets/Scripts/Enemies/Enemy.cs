@@ -1,23 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< HEAD
-using UnityEngine.XR;
-
-public class Enemy : Damageable
-{
-    protected bool isFrozen;
-    protected bool isPoisoned;
-
-    protected Renderer renderer;
-    protected Color originalColor;
-
-    protected override void Start()
-    {
-        base.Start();
-        renderer = GetComponent<Renderer>();
-        originalColor = renderer.material.color;
-=======
 
 [RequireComponent(typeof(Animator), typeof(Rigidbody))]
 public class Enemy : Damageable
@@ -64,23 +47,11 @@ public class Enemy : Damageable
         _behavior.OnDamage();
         _animator.SetTrigger(AnimatorDamageTrigger);
         StartCoroutine(FlashColor(_renderer, Color.red));
->>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
     }
 
     protected override void Death()
     {
         PlayDeathSound();
-<<<<<<< HEAD
-
-        // Replace with death animation
-        
-        StartCoroutine(DestroyAfterSfx());
-    }
-
-    public void HandlePoisonFlashing(int numFlashes, float flashFrequency, Color poisonColor)
-    {
-        StartCoroutine(HandlePoisonColor(numFlashes, flashFrequency, poisonColor));
-=======
         
         // Give the player points
         GameManager.IncreaseScore(pointValue);        
@@ -139,25 +110,12 @@ public class Enemy : Damageable
     public void HandlePoisonFlashing(int numFlashes, float flashFrequency, Color poisonColor)
     {
         _poisonFlashRoutine = StartCoroutine(HandlePoisonColor(numFlashes, flashFrequency, poisonColor));
->>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
     }
 
     private IEnumerator HandlePoisonColor(int numFlashes, float flashFrequency, Color poisonColor)
     {
         isPoisoned = true;
         
-<<<<<<< HEAD
-        yield return StartCoroutine(FlashColor(renderer, poisonColor, numFlashes, flashFrequency));
-
-        isPoisoned = false;
-
-        if (!isFrozen) renderer.material.color = originalColor;
-    }
-    
-    public void Freeze(float freezeDuration, Color freezeColor)
-    {
-        StartCoroutine(HandleFreeze(freezeDuration, freezeColor));
-=======
         yield return StartCoroutine(FlashColor(_renderer, poisonColor, numFlashes, flashFrequency));
 
         isPoisoned = false;
@@ -182,22 +140,11 @@ public class Enemy : Damageable
         StartCoroutine(HandleFreeze(freezeDuration, freezeColor));
 
         return startedFrozen;
->>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
     }
 
     private IEnumerator HandleFreeze(float freezeDuration, Color freezeColor)
     {
         isFrozen = true;
-<<<<<<< HEAD
-
-        renderer.material.color = freezeColor;
-        
-        yield return new WaitForSeconds(freezeDuration);
-
-        renderer.material.color = originalColor;
-        
-        isFrozen = false;
-=======
         _animator.enabled = false;
         print("Disabling animator");
         
@@ -211,6 +158,5 @@ public class Enemy : Damageable
         
         isFrozen = false;
         _animator.enabled = true;
->>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
     }
 }
