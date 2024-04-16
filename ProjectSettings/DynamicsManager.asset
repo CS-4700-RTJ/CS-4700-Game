@@ -18,7 +18,11 @@ PhysicsManager:
   m_ClothInterCollisionDistance: 0
   m_ClothInterCollisionStiffness: 0
   m_ContactsGeneration: 1
+<<<<<<< HEAD
   m_LayerCollisionMatrix: fffffffffff9fffffff9fffffffffffffffffffffff9fffffffffffffffbffffffffffffd9ffffff59ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+=======
+  m_LayerCollisionMatrix: fffffffffff9fffffff9fffffffffffffffffffffff9fffffffffffffffbffffffffffffd9ffffff59fbffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+>>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
   m_SimulationMode: 0
   m_AutoSyncTransforms: 0
   m_ReuseCollisionCallbacks: 1

@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 using System;
 using System.Collections;
 using System.Collections.Generic;
+=======
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+>>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -11,6 +19,10 @@ public class SpellHandler : MonoBehaviour
     
     [Header("Spell UI")]
     public Image currentSpellImage;
+<<<<<<< HEAD
+=======
+    public TMP_Text spellNameText;
+>>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
     public Slider manaSlider;
     public Color disabledColor;
 
@@ -50,6 +62,12 @@ public class SpellHandler : MonoBehaviour
     private static readonly int AnimatorIsCharging = Animator.StringToHash("IsCharging");
     private static readonly int AnimatorChargeFinished = Animator.StringToHash("ChargeFinished");
 
+<<<<<<< HEAD
+=======
+    private float spellTextVisibleDuration = 2f;
+    private float spellTextFadeTime = 1f;
+    private Coroutine spellNameFadeRoutine;
+>>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
     
     private void Awake()
     {
@@ -84,6 +102,11 @@ public class SpellHandler : MonoBehaviour
         castingDisabled = false;
 
         _mainCamera = Camera.main;
+<<<<<<< HEAD
+=======
+
+        spellNameFadeRoutine = StartCoroutine(FadeSpellText());
+>>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
         
         spellChargeVfx.SetActive(false);
     }
@@ -105,6 +128,13 @@ public class SpellHandler : MonoBehaviour
         currentSpellIndex = spellIndex;
 
         currentSpellImage.sprite = availableSpells[currentSpellIndex].spellIcon;
+<<<<<<< HEAD
+=======
+
+        if (spellNameFadeRoutine != null) StopCoroutine(spellNameFadeRoutine);
+        spellNameText.text = availableSpells[currentSpellIndex].spellName;
+        spellNameFadeRoutine = StartCoroutine(FadeSpellText());
+>>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
     }
 
     private void OnCycleSpell(InputAction.CallbackContext context)
@@ -207,6 +237,19 @@ public class SpellHandler : MonoBehaviour
         animator.SetBool(AnimatorChargeFinished, true);
     }
 
+<<<<<<< HEAD
+=======
+    private void DisableCasting()
+    {
+        castingDisabled = true;
+    }
+
+    private void EnableCasting()
+    {
+        castingDisabled = false;
+    } 
+
+>>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
     public IEnumerator DisableCastingForTime(float time)
     {
         castingDisabled = true;
@@ -215,4 +258,31 @@ public class SpellHandler : MonoBehaviour
 
         castingDisabled = false;
     }
+<<<<<<< HEAD
+=======
+    
+    private IEnumerator FadeSpellText() 
+    {        
+        // Make spell text fully visible
+        Color textColor = Color.white;
+
+        spellNameText.color = textColor;
+
+        yield return new WaitForSeconds(spellTextVisibleDuration);
+        
+        float timer = spellTextFadeTime;
+        
+        while (timer > 0f)
+        {
+            textColor.a = Mathf.Lerp(0, 1, timer / spellTextFadeTime);
+            spellNameText.color = textColor;
+            
+            timer -= Time.deltaTime;
+            yield return null;
+        }
+
+        textColor.a = 0;
+        spellNameText.color = textColor;
+    }
+>>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
 }
