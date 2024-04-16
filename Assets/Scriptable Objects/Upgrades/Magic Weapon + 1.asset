@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 461c04cf0c1ab86489abbab166c8cbfd, type: 3}
+  m_Name: Magic Weapon + 1
+  m_EditorClassIdentifier: 
+  requiredTier: 1
+  requiredUpgrade: {fileID: 11400000, guid: 40d8f92659c0b9c4aafb19038f9a480c, type: 2}
+  upgradeName: Magic Sword+
+  upgradeDescription: Increases damage of Magic Sword
+  upgradeIcon: {fileID: 21300000, guid: d8108e50be9cf7f49878337929803edd, type: 3}
+  upgradeType: 0
+  spellToRemove: {fileID: 11400000, guid: 41b8dfd85e389ad449c63b80cd6c60a8, type: 2}
+  spellToGain: {fileID: 11400000, guid: 0a293abe9b17c0a4a983241573f633b3, type: 2}
+  maxHealthIncrease: 0
+  maxManaIncrease: 0
+  moveSpeedMultiplier: 1
