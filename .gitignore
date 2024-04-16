@@ -64,10 +64,7 @@ UserSettings/Layouts/
 
 # IDE files
 *.vsconfig
-<<<<<<< HEAD
-=======
 .vsconfig
->>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
 .idea/
 .vscode
 .vscode/

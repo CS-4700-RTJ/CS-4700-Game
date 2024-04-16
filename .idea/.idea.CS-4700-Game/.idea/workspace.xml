@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b58bc5a-9854-41f7-93a6-01b6f2801b4c" name="Changes" comment="">
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Cast.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Cast.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Wand/Wand_Idle.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spell System/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spell System/Projectile.cs" afterDir="false" />
-=======
       <change afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Enemies.meta" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Enemies/Wolf.asset" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Enemies/Wolf.asset.meta" afterDir="false" />
@@ -43,7 +37,6 @@
       <change beforePath="$PROJECT_DIR$/Assets/Spells/Reflect.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Spells/Reflect.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Spells/Reflect.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Spells/Reflect.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
->>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

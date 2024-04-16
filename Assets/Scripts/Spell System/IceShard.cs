@@ -23,16 +23,6 @@ public class IceShard : Projectile
 
         if (collision.transform.TryGetComponent(out Enemy enemy))
         {
-<<<<<<< HEAD
-            enemy.Freeze(freezeTime, freezeColor);
-            
-            // Create the Ice object and transfer all damage from the ice to the enemy
-            Transform enemyTransform = enemy.transform;
-            DamageTransfer iceTransfer = Instantiate(icePrefab, enemyTransform.position, enemyTransform.rotation, enemyTransform).GetComponentInChildren<DamageTransfer>();
-            iceTransfer.target = enemy;
-
-            iceTransfer.StartCoroutine(BreakIce(iceTransfer.transform.parent, freezeTime));
-=======
             bool startedFrozen = enemy.Freeze(freezeTime, freezeColor);
 
             if (!startedFrozen)
@@ -45,7 +35,6 @@ public class IceShard : Projectile
 
                 iceTransfer.StartCoroutine(BreakIce(iceTransfer.transform.parent, freezeTime));
             }
->>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
         }
     }
 

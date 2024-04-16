@@ -2,11 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-<<<<<<< HEAD
-[CreateAssetMenu]
-=======
 [CreateAssetMenu(menuName = "ScriptableObjects/Spell", order = 1)]
->>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
 public class Spell : ScriptableObject
 {
     [Tooltip("What is the spell's name?")]

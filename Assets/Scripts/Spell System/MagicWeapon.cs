@@ -1,30 +1,10 @@
-<<<<<<< HEAD
-=======
 using System;
->>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MagicWeapon : MonoBehaviour, ICastable
 {
-<<<<<<< HEAD
-    // TODO - remove this once animated so that it only does 1 weapon swing
-    public float weaponActiveTime = 3f;
-
-    public AudioClip weaponAttackSfx;
-    
-    private SpellHandler playerSpellHandler;
-    private AudioSource audioSource;
-    
-    public void Cast(Vector3 castDirection, Transform casterTransform)
-    {
-        playerSpellHandler = casterTransform.GetComponentInParent<SpellHandler>();
-        transform.SetParent(casterTransform);
-        transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
-
-        audioSource = GetComponent<AudioSource>();
-=======
     private const float MeleeAnimationTime = 0.75f;
 
     public float damage = 3f;
@@ -50,25 +30,10 @@ public class MagicWeapon : MonoBehaviour, ICastable
         _animator = _playerSpellHandler.GetComponent<Animator>();
 
         _hitObjects = new List<GameObject>();
->>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
         
         StartCoroutine(DoMeleeAttack());
     }
 
-<<<<<<< HEAD
-    // TODO - animate this and modify as needed
-    private IEnumerator DoMeleeAttack()
-    {
-        playerSpellHandler.StartCoroutine(playerSpellHandler.DisableCastingForTime(weaponActiveTime));
-
-        audioSource.PlayOneShot(weaponAttackSfx);
-        
-        yield return new WaitForSeconds(weaponActiveTime);
-        
-        Destroy(gameObject);
-    }
-}
-=======
     private IEnumerator DoMeleeAttack()
     {
         _animator.SetTrigger(AnimatorMeleeAttack);
@@ -107,4 +72,3 @@ public class MagicWeapon : MonoBehaviour, ICastable
         }
     }
 }
->>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
