@@ -3511,7 +3511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1567221486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3906,6 +3906,7 @@ GameObject:
   - component: {fileID: 5600638910772560505}
   - component: {fileID: 7833328923971130787}
   - component: {fileID: 3627606654354655605}
+  - component: {fileID: 7833328923971130788}
   m_Layer: 0
   m_Name: obelisk_main
   m_TagString: Untagged
@@ -3933,7 +3934,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 57b9566559fef6b419ce2c91878028fa, type: 2}
+  - {fileID: 2100000, guid: 5164867d3cbb5ed4fa6e9d3a2ff23f4e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3975,7 +3976,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 57b9566559fef6b419ce2c91878028fa, type: 2}
+  - {fileID: 2100000, guid: 5164867d3cbb5ed4fa6e9d3a2ff23f4e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4006,12 +4007,12 @@ Transform:
   m_GameObject: {fileID: 2213322727429445051}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 3, z: 0}
+  m_LocalPosition: {x: -0, y: 0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8267299153856454776}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 264, z: 0}
 --- !u!1 &7379182281869242605
 GameObject:
   m_ObjectHideFlags: 0
@@ -4023,13 +4024,36 @@ GameObject:
   - component: {fileID: 1164391195733658137}
   - component: {fileID: 2171448991505370970}
   - component: {fileID: 2327453707533026530}
+  - component: {fileID: 7379182281869242606}
   m_Layer: 0
   m_Name: obelisk_plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
+--- !u!64 &7379182281869242606
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379182281869242605}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5960382256196242765, guid: dd429fa777638ef429ae03b5efdbf847, type: 3}
 --- !u!33 &7833328923971130787
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4037,6 +4061,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2213322727429445051}
+  m_Mesh: {fileID: -1296040800289190018, guid: dd429fa777638ef429ae03b5efdbf847, type: 3}
+--- !u!64 &7833328923971130788
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2213322727429445051}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
   m_Mesh: {fileID: -1296040800289190018, guid: dd429fa777638ef429ae03b5efdbf847, type: 3}
 --- !u!4 &8267299153856454776
 Transform:
@@ -4047,7 +4093,7 @@ Transform:
   m_GameObject: {fileID: 8786672869887195842}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 525.75806, y: -0.0000038146973, z: 534.33734}
+  m_LocalPosition: {x: 525.7581, y: -0.013, z: 534.3373}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4064,13 +4110,35 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8267299153856454776}
+  - component: {fileID: 8786672869887195843}
   m_Layer: 0
-  m_Name: Obelisk_zodiac_low
+  m_Name: Obelisk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &8786672869887195843
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8786672869887195842}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ac000975bcfafb349b24cb217fe4d659, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
