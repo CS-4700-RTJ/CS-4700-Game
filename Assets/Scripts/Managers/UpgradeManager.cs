@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour
@@ -8,6 +9,8 @@ public class UpgradeManager : MonoBehaviour
     public UpgradeSO[] allUpgrades;
     public UpgradeSO[] startingSpellUpgrades;
 
+    public bool getAvailableUpgrades = false;
+    
     private SpellHandler _spellHandler;
     
     private List<UpgradeSO> ownedUpgrades;
@@ -31,19 +34,46 @@ public class UpgradeManager : MonoBehaviour
         _spellHandler.SelectStartingSpell();
     }
 
-    private UpgradeSO[] GetAvailableUpgrades()
+    private void Update()
     {
-        var availableUpgrades = new List<UpgradeSO>();
+        if (getAvailableUpgrades)
+        {
+            getAvailableUpgrades = false;
 
-        foreach (var upgrade in availableUpgrades)
+            GetAvailableUpgrades(out var newSpellUpgrades, out var spellEnhancementUpgrades, out var playerBuffUpgrades);
+            
+            print("New Spell Upgrades: " + newSpellUpgrades.Length);
+            print("Spell Enhancement Upgrades: " + spellEnhancementUpgrades.Length);
+            print("Player Buff Upgrades: " + playerBuffUpgrades.Length);
+        }
+    }
+
+    /// <summary>
+    /// Gets an array of Upgrades that the player is able to choose from
+    /// </summary>
+    /// <returns>An array of available upgrades</returns>
+    private void GetAvailableUpgrades(out UpgradeSO[] newSpellUpgrades, out UpgradeSO[] spellEnhancementUpgrades, out UpgradeSO[] playerBuffUpgrades)
+    {
+        var newSpellUpgradesList = new List<UpgradeSO>();
+        var spellEnhancementUpgradesList = new List<UpgradeSO>();
+        var playerBuffUpgradesList = new List<UpgradeSO>();
+
+        foreach (var upgrade in allUpgrades)
         {
             if (ownedUpgrades.Contains(upgrade)) continue;
             
             // If the player has the prereq, the upgrade is available
             bool hasPreReq = upgrade.requiredUpgrade == null || ownedUpgrades.Contains(upgrade.requiredUpgrade);
-            if (GameManager.GetCurrentTier() >= upgrade.requiredTier && hasPreReq) availableUpgrades.Add(upgrade);
+            if (GameManager.GetCurrentTier() >= upgrade.requiredTier && hasPreReq)
+            {
+                if (upgrade.upgradeType == UpgradeSO.UpgradeType.PlayerBuff) playerBuffUpgradesList.Add(upgrade);
+                else if (upgrade.spellToRemove == null) newSpellUpgradesList.Add(upgrade);
+                else spellEnhancementUpgradesList.Add(upgrade);
+            }
         }
-
-        return availableUpgrades.ToArray();
+        
+        newSpellUpgrades = newSpellUpgradesList.ToArray();
+        spellEnhancementUpgrades = spellEnhancementUpgradesList.ToArray();
+        playerBuffUpgrades = playerBuffUpgradesList.ToArray();
     }
 }

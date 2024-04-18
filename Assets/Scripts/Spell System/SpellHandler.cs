@@ -103,9 +103,6 @@ public class SpellHandler : MonoBehaviour
         
         canCastSpell = availableSpells[currentSpellIndex].manaCost <= currentMana;
         currentSpellImage.color = canCastSpell ? Color.white : disabledColor;
-
-        // Vector3 eulerAngles = wandTransform.localRotation.eulerAngles;
-        // wandTransform.localRotation = Quaternion.Euler(WandCameraOffset + _mainCamera.transform.rotation.eulerAngles.x, eulerAngles.y, eulerAngles.z);
     }
     
     /// <summary>
