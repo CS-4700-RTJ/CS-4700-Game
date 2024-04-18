@@ -107,6 +107,14 @@ public class SpellHandler : MonoBehaviour
         // Vector3 eulerAngles = wandTransform.localRotation.eulerAngles;
         // wandTransform.localRotation = Quaternion.Euler(WandCameraOffset + _mainCamera.transform.rotation.eulerAngles.x, eulerAngles.y, eulerAngles.z);
     }
+    
+    /// <summary>
+    /// Selects the very first spell in the list of available spells, so that the UI matches
+    /// </summary>
+    public void SelectStartingSpell() 
+    {
+        SetSelectedSpell(0);
+    }
 
     private void SetSelectedSpell(int spellIndex)
     {

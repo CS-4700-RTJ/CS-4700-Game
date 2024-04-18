@@ -28,6 +28,7 @@ public class UpgradeManager : MonoBehaviour
         }
 
         _spellHandler.availableSpells = startingSpells.ToArray();
+        _spellHandler.SelectStartingSpell();
     }
 
     private UpgradeSO[] GetAvailableUpgrades()

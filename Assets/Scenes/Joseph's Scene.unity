@@ -1191,7 +1191,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f503621a34af679468b0c3b2008cd926, type: 2}
   startingSpellUpgrades:
   - {fileID: 11400000, guid: e57f466e4a5c24c46b063fe4853f6320, type: 2}
-  - {fileID: 11400000, guid: 4c0b34a980a8be347a7fdc4d4b541a4d, type: 2}
 --- !u!1 &619442105
 GameObject:
   m_ObjectHideFlags: 0
