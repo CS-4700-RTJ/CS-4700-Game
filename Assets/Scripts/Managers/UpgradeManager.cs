@@ -3,12 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class UpgradeManager : MonoBehaviour
 {
     public UpgradeSO[] allUpgrades;
     public UpgradeSO[] startingSpellUpgrades;
 
+    public UpgradeUIElement newSpellUpgradeElement;
+    public UpgradeUIElement spellEnhancementUpgradeElement;
+    public UpgradeUIElement playerBuffUpgradeElement;
+    
     public bool getAvailableUpgrades = false;
     
     private SpellHandler _spellHandler;
@@ -41,17 +46,56 @@ public class UpgradeManager : MonoBehaviour
             getAvailableUpgrades = false;
 
             GetAvailableUpgrades(out var newSpellUpgrades, out var spellEnhancementUpgrades, out var playerBuffUpgrades);
-            
-            print("New Spell Upgrades: " + newSpellUpgrades.Length);
-            print("Spell Enhancement Upgrades: " + spellEnhancementUpgrades.Length);
-            print("Player Buff Upgrades: " + playerBuffUpgrades.Length);
+
+            // Set the New Spell upgrade
+            if (newSpellUpgrades.Length > 0)
+            {
+                var newSpellUpgrade = newSpellUpgrades[Random.Range(0, newSpellUpgrades.Length)];
+                newSpellUpgradeElement.SetUpgrade(newSpellUpgrade, ChooseUpgrade);
+                newSpellUpgradeElement.gameObject.SetActive(true);
+            }
+            else
+            {
+                newSpellUpgradeElement.gameObject.SetActive(false);
+            }
+
+            // Set the Spell Enhancement Upgrade
+            if (spellEnhancementUpgrades.Length > 0)
+            {
+                var spellEnhancementUpgrade = spellEnhancementUpgrades[Random.Range(0, spellEnhancementUpgrades.Length)];
+                spellEnhancementUpgradeElement.SetUpgrade(spellEnhancementUpgrade, ChooseUpgrade);
+                spellEnhancementUpgradeElement.gameObject.SetActive(true);
+            }
+            else
+            {
+                spellEnhancementUpgradeElement.gameObject.SetActive(false);
+            }
+
+            // Set the Player Buff Upgrade
+            if (playerBuffUpgrades.Length > 0)
+            {
+                var playerBuffUpgrade = playerBuffUpgrades[Random.Range(0, playerBuffUpgrades.Length)];
+                playerBuffUpgradeElement.SetUpgrade(playerBuffUpgrade, ChooseUpgrade);
+                playerBuffUpgradeElement.gameObject.SetActive(true);
+            }
+            else
+            {
+                playerBuffUpgradeElement.gameObject.SetActive(false);
+            }
         }
     }
 
-    /// <summary>
-    /// Gets an array of Upgrades that the player is able to choose from
-    /// </summary>
-    /// <returns>An array of available upgrades</returns>
+    private void ChooseUpgrade(UpgradeSO chosenUpgrade)
+    {
+        print("Player Chose " + chosenUpgrade.upgradeName);
+    }
+
+   /// <summary>
+   /// Gets the upgrades that are currently available to the player
+   /// </summary>
+   /// <param name="newSpellUpgrades">An array containing the available upgrades for new spells to learn</param>
+   /// <param name="spellEnhancementUpgrades">An array containing the available upgrades for spells to enhance</param>
+   /// <param name="playerBuffUpgrades">An array containing the available upgrade for player buffs</param>
     private void GetAvailableUpgrades(out UpgradeSO[] newSpellUpgrades, out UpgradeSO[] spellEnhancementUpgrades, out UpgradeSO[] playerBuffUpgrades)
     {
         var newSpellUpgradesList = new List<UpgradeSO>();
