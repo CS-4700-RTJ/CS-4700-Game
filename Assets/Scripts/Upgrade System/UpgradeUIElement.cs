@@ -25,7 +25,7 @@ public class UpgradeUIElement : MonoBehaviour
         this.OnSelect = OnSelect;
     }
 
-    private void ChooseUpgrade()
+    public void ChooseUpgrade()
     {
         OnSelect(_upgrade);
     }
