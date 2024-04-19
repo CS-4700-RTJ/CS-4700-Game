@@ -11,12 +11,14 @@ public class UpgradeManager : MonoBehaviour
     public UpgradeSO[] allUpgrades;
     public UpgradeSO[] startingSpellUpgrades;
 
+    public float timeBetweenUpgrades = 60f;
+
     [Header("UI")] public GameObject upgradePanel;
     public UpgradeUIElement newSpellUpgradeElement;
     public UpgradeUIElement spellEnhancementUpgradeElement;
     public UpgradeUIElement playerBuffUpgradeElement;
     
-    public bool getAvailableUpgrades = false;
+    private bool readyForUpgrade;
     
     private SpellHandler _spellHandler;
     private Animator _obeliskAnimator;
@@ -24,12 +26,18 @@ public class UpgradeManager : MonoBehaviour
     private List<UpgradeSO> _ownedUpgrades;
     private static readonly int ObeliskActiveBool = Animator.StringToHash("Active");
 
+    private PlayerHealth _playerHealth;
+    private PlayerController _playerController;
+
     private void Start()
     {
         _spellHandler = PlayerHealth.PlayerTransform.GetComponent<SpellHandler>();
         _obeliskAnimator = GameObject.FindGameObjectWithTag("Obelisk").GetComponent<Animator>();
         _ownedUpgrades = new List<UpgradeSO>();
-        
+        _playerHealth = PlayerHealth.PlayerTransform.GetComponent<PlayerHealth>();
+        _playerController = PlayerHealth.PlayerTransform.GetComponent<PlayerController>();
+        readyForUpgrade = false;
+
         List<Spell> startingSpells = new List<Spell>();
         
         foreach (var upgrade in startingSpellUpgrades)
@@ -43,59 +51,56 @@ public class UpgradeManager : MonoBehaviour
         _spellHandler.availableSpells = startingSpells.ToArray();
         _spellHandler.SelectStartingSpell();
         upgradePanel.SetActive(false);
+
+        StartCoroutine(WaitForUpgrade());
     }
 
-    private void Update()
+    private void TriggerUpgrade()
     {
-        if (getAvailableUpgrades)
+        GetAvailableUpgrades(out var newSpellUpgrades, out var spellEnhancementUpgrades, out var playerBuffUpgrades);
+
+        // Set the New Spell upgrade
+        if (newSpellUpgrades.Length > 0)
         {
-            getAvailableUpgrades = false;
-
-            GetAvailableUpgrades(out var newSpellUpgrades, out var spellEnhancementUpgrades, out var playerBuffUpgrades);
-
-            // Set the New Spell upgrade
-            if (newSpellUpgrades.Length > 0)
-            {
-                var newSpellUpgrade = newSpellUpgrades[Random.Range(0, newSpellUpgrades.Length)];
-                newSpellUpgradeElement.SetUpgrade(newSpellUpgrade, ChooseUpgrade);
-                newSpellUpgradeElement.gameObject.SetActive(true);
-            }
-            else
-            {
-                newSpellUpgradeElement.gameObject.SetActive(false);
-            }
-
-            // Set the Spell Enhancement Upgrade
-            if (spellEnhancementUpgrades.Length > 0)
-            {
-                var spellEnhancementUpgrade = spellEnhancementUpgrades[Random.Range(0, spellEnhancementUpgrades.Length)];
-                spellEnhancementUpgradeElement.SetUpgrade(spellEnhancementUpgrade, ChooseUpgrade);
-                spellEnhancementUpgradeElement.gameObject.SetActive(true);
-            }
-            else
-            {
-                spellEnhancementUpgradeElement.gameObject.SetActive(false);
-            }
-
-            // Set the Player Buff Upgrade
-            if (playerBuffUpgrades.Length > 0)
-            {
-                var playerBuffUpgrade = playerBuffUpgrades[Random.Range(0, playerBuffUpgrades.Length)];
-                playerBuffUpgradeElement.SetUpgrade(playerBuffUpgrade, ChooseUpgrade);
-                playerBuffUpgradeElement.gameObject.SetActive(true);
-            }
-            else
-            {
-                playerBuffUpgradeElement.gameObject.SetActive(false);
-            }
-            
-            // Activate the Obelisk
-            _obeliskAnimator.SetBool(ObeliskActiveBool, true);
-            upgradePanel.SetActive(true);
-
-            Time.timeScale = 0;
-            Cursor.lockState = CursorLockMode.Confined;
+            var newSpellUpgrade = newSpellUpgrades[Random.Range(0, newSpellUpgrades.Length)];
+            newSpellUpgradeElement.SetUpgrade(newSpellUpgrade, ChooseUpgrade);
+            newSpellUpgradeElement.gameObject.SetActive(true);
         }
+        else
+        {
+            newSpellUpgradeElement.gameObject.SetActive(false);
+        }
+
+        // Set the Spell Enhancement Upgrade
+        if (spellEnhancementUpgrades.Length > 0)
+        {
+            var spellEnhancementUpgrade = spellEnhancementUpgrades[Random.Range(0, spellEnhancementUpgrades.Length)];
+            spellEnhancementUpgradeElement.SetUpgrade(spellEnhancementUpgrade, ChooseUpgrade);
+            spellEnhancementUpgradeElement.gameObject.SetActive(true);
+        }
+        else
+        {
+            spellEnhancementUpgradeElement.gameObject.SetActive(false);
+        }
+
+        // Set the Player Buff Upgrade
+        if (playerBuffUpgrades.Length > 0)
+        {
+            var playerBuffUpgrade = playerBuffUpgrades[Random.Range(0, playerBuffUpgrades.Length)];
+            playerBuffUpgradeElement.SetUpgrade(playerBuffUpgrade, ChooseUpgrade);
+            playerBuffUpgradeElement.gameObject.SetActive(true);
+        }
+        else
+        {
+            playerBuffUpgradeElement.gameObject.SetActive(false);
+        }
+
+        // Activate the Obelisk
+        _obeliskAnimator.SetBool(ObeliskActiveBool, true);
+        upgradePanel.SetActive(true);
+
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     private void ChooseUpgrade(UpgradeSO chosenUpgrade)
@@ -103,11 +108,36 @@ public class UpgradeManager : MonoBehaviour
         print("Player Chose " + chosenUpgrade.upgradeName);
         _ownedUpgrades.Add(chosenUpgrade);
         
+        // Apply the upgrade
+        if (chosenUpgrade.upgradeType == UpgradeSO.UpgradeType.SpellUpgrade)
+        {
+            // Get a list of the current Spells
+            List<Spell> currentSpells = new List<Spell>(_spellHandler.availableSpells);
+            
+            // Remove the spell if there is one
+            if (chosenUpgrade.spellToRemove) currentSpells.Remove(chosenUpgrade.spellToRemove);
+            
+            // Add the spell to gain
+            currentSpells.Add(chosenUpgrade.spellToGain);
+            
+            // set the available spells to the list
+            _spellHandler.availableSpells = currentSpells.ToArray();
+        }
+        else
+        {
+            // Apply the player buffs
+            _playerHealth.IncreaseMaxHealth(chosenUpgrade.maxHealthIncrease);
+            _spellHandler.IncreaseMaxMana(chosenUpgrade.maxManaIncrease);
+            _playerController.IncreaseMoveSpeed(chosenUpgrade.moveSpeedMultiplier);
+        }
+        
         Time.timeScale = 1;
         _obeliskAnimator.SetBool(ObeliskActiveBool, false);
         upgradePanel.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Locked;
+
+        readyForUpgrade = true;
     }
 
    /// <summary>
@@ -140,4 +170,17 @@ public class UpgradeManager : MonoBehaviour
         spellEnhancementUpgrades = spellEnhancementUpgradesList.ToArray();
         playerBuffUpgrades = playerBuffUpgradesList.ToArray();
     }
+
+   private IEnumerator WaitForUpgrade()
+   {
+       while (true)
+       {
+           yield return new WaitForSeconds(timeBetweenUpgrades);
+
+            readyForUpgrade = false;
+            TriggerUpgrade();
+            
+            while (!readyForUpgrade) yield return null;
+       }
+   }
 }

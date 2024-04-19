@@ -104,6 +104,13 @@ public class SpellHandler : MonoBehaviour
         canCastSpell = availableSpells[currentSpellIndex].manaCost <= currentMana;
         currentSpellImage.color = canCastSpell ? Color.white : disabledColor;
     }
+
+    public void IncreaseMaxMana(int increase)
+    {
+        maxMana += increase;
+        currentMana += increase;
+        manaSlider.value = currentMana / maxMana;
+    }
     
     /// <summary>
     /// Selects the very first spell in the list of available spells, so that the UI matches
