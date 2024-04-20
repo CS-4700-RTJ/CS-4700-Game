@@ -6,12 +6,16 @@ using UnityEngine;
 public class EventManager : MonoBehaviour
 {
     // private static EventManager _instance;
+    
+    
 
     public static event Action OnPlayerDeath;
 
     public static void TriggerOnPlayerDeath()
     {
+        HighScoreTable highScoreTable = new();
         OnPlayerDeath?.Invoke();
+        highScoreTable.AddHighScoreEntry(GameManager.PlayerScore,"Bob");
     }
 
     // private void Awake()
