@@ -67,7 +67,8 @@ public class PlayerControllerInput : MonoBehaviour
     
     private void OnApplicationFocus(bool hasFocus)
     {
-        Cursor.lockState = hasFocus ? CursorLockMode.Locked : CursorLockMode.None;
+        // If the application has focus, then confine the mouse if time is paused for an upgrade, or lock it otherwise
+        Cursor.lockState = hasFocus ? (Time.timeScale < 0.1 ? CursorLockMode.Confined : CursorLockMode.Locked) : CursorLockMode.None;
     }
 
     public void OnMove(InputAction.CallbackContext context)

@@ -42,6 +42,13 @@ public class PlayerHealth : Damageable
         healthBar.value = 1;
     }
 
+    public void IncreaseMaxHealth(int increase)
+    {
+        maxHealth += increase;
+        currentHealth += increase;
+        healthBar.value = currentHealth / maxHealth;
+    }
+
     public override void ApplyDamage(float amount)
     {
         if (!isInvulnerable)

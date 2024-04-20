@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 461c04cf0c1ab86489abbab166c8cbfd, type: 3}
+  m_Name: Fireball + 1
+  m_EditorClassIdentifier: 
+  requiredTier: 1
+  requiredUpgrade: {fileID: 11400000, guid: e57f466e4a5c24c46b063fe4853f6320, type: 2}
+  upgradeName: Fireball+
+  upgradeDescription: Increases damage of Fireball
+  upgradeIcon: {fileID: 21300000, guid: 2d0997ac1b1fd664e98202450e7ea2d7, type: 3}
+  upgradeType: 0
+  spellToRemove: {fileID: 11400000, guid: 773fefb6dea213f4290e15c56d969117, type: 2}
+  spellToGain: {fileID: 11400000, guid: 8a011ef019cb7054987e31ed05df24e4, type: 2}
+  maxHealthIncrease: 0
+  maxManaIncrease: 0
+  moveSpeedMultiplier: 1

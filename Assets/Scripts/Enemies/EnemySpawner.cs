@@ -18,7 +18,6 @@ public class EnemySpawner : MonoBehaviour
     [Header("Spawn Timer")] 
     public float timeBetweenRounds = 30f;
     
-    private int currentTier = 1;
     private int roundsToNextTier;
 
     private void Start()
@@ -38,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
 
         foreach (var enemy in enemies)
         {
-            if (enemy.enemyTier <= currentTier) availableEnemies.Add(enemy);
+            if (enemy.enemyTier <= GameManager.GetCurrentTier()) availableEnemies.Add(enemy);
         }
         
         // choose which enemies to spawn (random)
@@ -78,7 +77,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (roundsToNextTier == 0)
         {
-            currentTier++;
+            GameManager.IncreaseTier();
             roundsToNextTier = roundsPerTier;
         }
     }
