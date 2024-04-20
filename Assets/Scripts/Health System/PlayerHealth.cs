@@ -38,7 +38,6 @@ public class PlayerHealth : Damageable
     {
         base.Start();
         renderer = GetComponentInChildren<MeshRenderer>();
-        
         healthBar.value = 1;
     }
 

@@ -76,7 +76,7 @@ public class HighScoreTable : MonoBehaviour
             transformList.Add (entryTransform);
     }
 
-    public void AddHighScoreEntry(int score, string name)
+    public static void AddHighScoreEntry(int score, string name)
     {
         HighScoreEntry highScoreEntry = new HighScoreEntry{score = score, name = name};
         string jsonString = PlayerPrefs.GetString("highscoreTable");
