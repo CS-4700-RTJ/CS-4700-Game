@@ -10,36 +10,38 @@ public class HighScoreTable : MonoBehaviour
     private Transform entryContainer;
     private Transform entryTemplate;
     private List <Transform> highScoreEntryTransformList;
+
     private void Awake()
     {
-        
         entryContainer = transform.Find("HighscoreContainer");
         entryTemplate = entryContainer.Find("Template");
 
         entryTemplate.gameObject.SetActive(false);
         
-        string jsonString = PlayerPrefs.GetString("highscoreTable");
-        Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
+        highScoreEntryTransformList = new List<Transform>();
 
-        for(int i = 0; i < highscores.highScoreEntryList.Count; i++)
+
+        if (PlayerPrefs.HasKey("highscoreTable"))
         {
-            for(int j = i+1; j < highscores.highScoreEntryList.Count; j++)
+            string jsonString = PlayerPrefs.GetString("highscoreTable");
+            Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
+
+            for (int i = 0; i < highscores.highScoreEntryList.Count; i++)
             {
-                if(highscores.highScoreEntryList[j].score > highscores.highScoreEntryList[i].score)
+                for (int j = i + 1; j < highscores.highScoreEntryList.Count; j++)
                 {
-                    HighScoreEntry temp = highscores.highScoreEntryList[i];
-                    highscores.highScoreEntryList[i] = highscores.highScoreEntryList[j];
-                    highscores.highScoreEntryList[j] = temp;
+                    if (highscores.highScoreEntryList[j].score > highscores.highScoreEntryList[i].score)
+                    {
+                        (highscores.highScoreEntryList[i], highscores.highScoreEntryList[j]) = (highscores.highScoreEntryList[j], highscores.highScoreEntryList[i]);
+                    }
                 }
             }
-        }
 
-        highScoreEntryTransformList = new List<Transform>();
-        foreach (HighScoreEntry highScoreEntry in highscores.highScoreEntryList)
-        {
-            CreateHighscoreEntry(highScoreEntry,entryContainer,highScoreEntryTransformList);
+            foreach (HighScoreEntry highScoreEntry in highscores.highScoreEntryList)
+            {
+                CreateHighscoreEntry(highScoreEntry, entryContainer, highScoreEntryTransformList);
+            }
         }
-        
     }
 
     private void CreateHighscoreEntry(HighScoreEntry highScoreEntry, Transform container, List<Transform> transformList)
