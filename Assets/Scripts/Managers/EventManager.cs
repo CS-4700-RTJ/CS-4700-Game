@@ -14,7 +14,7 @@ public class EventManager : MonoBehaviour
     public static void TriggerOnPlayerDeath()
     {
         OnPlayerDeath?.Invoke();
-        HighScoreTable.AddHighScoreEntry(10,"Bob");
+        HighScoreTable.AddHighScoreEntry(GameManager.PlayerScore,"Bob");
     }
 
     // private void Awake()
