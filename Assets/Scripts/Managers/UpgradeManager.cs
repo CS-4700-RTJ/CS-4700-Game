@@ -53,6 +53,14 @@ public class UpgradeManager : MonoBehaviour
         upgradePanel.SetActive(false);
 
         StartCoroutine(WaitForUpgrade());
+
+        EventManager.OnPlayerDeath += StopUpgrades;
+    }
+
+    private void StopUpgrades()
+    {
+        StopAllCoroutines();
+        EventManager.OnPlayerDeath -= StopUpgrades;
     }
 
     private void TriggerUpgrade()

@@ -7,10 +7,12 @@ public class EventManager : MonoBehaviour
 {
     // private static EventManager _instance;
 
+
     public static event Action OnPlayerDeath;
 
     public static void TriggerOnPlayerDeath()
     {
+        print("OnPlayerDeath!");
         OnPlayerDeath?.Invoke();
     }
 

@@ -15,7 +15,6 @@ MonoBehaviour:
   spellName: Fireball
   castTime: 1
   manaCost: 10
-  castVfx: {fileID: 0}
   castSfx: {fileID: 8300000, guid: cc01456b9bf3eef45ba0d89ccf07efb7, type: 3}
   spellIcon: {fileID: 21300000, guid: 2d0997ac1b1fd664e98202450e7ea2d7, type: 3}
   description: Shoots a ball of fire that explodes upon impact.

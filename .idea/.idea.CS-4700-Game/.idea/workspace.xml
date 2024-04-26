@@ -2,12 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b58bc5a-9854-41f7-93a6-01b6f2801b4c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Game Manager.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Game Manager.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Enemies.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Enemies/Wolf.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Enemies/Wolf.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Enemies/Zombie.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Enemies/Zombie.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySO.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySpawner.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemySpawner.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CS-4700-Game/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Joseph's Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Joseph's Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/UpgradeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UpgradeManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scores System.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptable Objects.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scores System/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Scores System/GameManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spell System/Spell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spell System/Spell.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spell System/SpellHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spell System/SpellHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Spells.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells/Feather.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Spells/Feather.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells/Feather.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Spells/Feather.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells/Fireball.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Spells/Fireball.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells/Fireball.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Spells/Fireball.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells/Homing Missile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Spells/Homing Missile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells/Homing Missile.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Spells/Homing Missile.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells/Ice Shard.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Spells/Ice Shard.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells/Ice Shard.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Spells/Ice Shard.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells/Lightning Bolt.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Spells/Lightning Bolt.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells/Lightning Bolt.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Spells/Lightning Bolt.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells/Magic Weapon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Spells/Magic Weapon.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells/Magic Weapon.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Spells/Magic Weapon.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells/Poison.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Spells/Poison.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells/Poison.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Spells/Poison.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells/Reflect.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Spells/Reflect.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spells/Reflect.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptable Objects/Spells/Reflect.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,9 +45,12 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../2D Roguelike/Assets/Scripts/Spells/MagicMissileSpell.cs" root0="SKIP_HIGHLIGHTING" />
+<<<<<<< HEAD
+=======
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Behaviors/WolfBehavior.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyBehavior.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/EventManager.cs" root0="FORCE_HIGHLIGHTING" />
+>>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spell System/Feather.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spell System/Fireball.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spell System/LightningBolt.cs" root0="FORCE_HIGHLIGHTING" />
@@ -27,9 +58,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spell System/MagicWeapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spell System/PoisonDart.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spell System/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Upgrade System/Editor/UpgradeSOEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Upgrade System/UpgradeSO.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Upgrade System/UpgradeUIElement.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -131,6 +159,8 @@
       <workItem from="1709156995242" duration="3444000" />
       <workItem from="1709246863953" duration="3470000" />
       <workItem from="1709412593461" duration="701000" />
+<<<<<<< HEAD
+=======
       <workItem from="1709679622787" duration="9253000" />
       <workItem from="1709837447462" duration="10636000" />
       <workItem from="1710184120410" duration="7931000" />
@@ -150,9 +180,7 @@
       <workItem from="1712682493744" duration="2662000" />
       <workItem from="1712691275436" duration="1176000" />
       <workItem from="1712698755992" duration="881000" />
-      <workItem from="1713305557333" duration="1687000" />
-      <workItem from="1713460225086" duration="6342000" />
-      <workItem from="1713554342658" duration="269000" />
+>>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
     </task>
     <servers />
   </component>
