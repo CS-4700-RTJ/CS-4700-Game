@@ -26,6 +26,17 @@ public class EnemySpawner : MonoBehaviour
         roundsToNextTier = roundsPerTier;
 
         StartCoroutine(HandleSpawns());
+
+        EventManager.OnPlayerDeath += StopSpawner;
+    }
+
+    private void StopSpawner()
+    {
+        gameObject.SetActive(false);
+        
+        StopAllCoroutines();
+
+        EventManager.OnPlayerDeath -= StopSpawner;
     }
 
     public void SpawnEnemies()

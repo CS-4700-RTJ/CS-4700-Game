@@ -59,6 +59,7 @@ public abstract class EnemyBehavior : MonoBehaviour
     /// </summary>
     public virtual void OnDeath()
     {
+        print("Enemy onDeath");
         enabled = false;
         StopCoroutine(_actionHandlerCoroutine);
         StopAction();

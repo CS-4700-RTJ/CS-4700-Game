@@ -60,6 +60,8 @@ public class PlayerHealth : Damageable
         PlayDeathSound();
         
         healthBar.value = 0;
+        
+        print("Player died!");
 
         EventManager.TriggerOnPlayerDeath();
     }
