@@ -16,7 +16,7 @@ public class Fireball : Projectile
 
         bool includedHitObject = false;
         
-        print("fireball hit " + collision.gameObject.name);
+        // print("fireball hit " + collision.gameObject.name);
         
         foreach (var hitObject in hitObjects)
         {

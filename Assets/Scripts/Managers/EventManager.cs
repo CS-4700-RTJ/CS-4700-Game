@@ -12,6 +12,7 @@ public class EventManager : MonoBehaviour
 
     public static void TriggerOnPlayerDeath()
     {
+        print("OnPlayerDeath!");
         OnPlayerDeath?.Invoke();
     }
 

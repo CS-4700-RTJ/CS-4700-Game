@@ -42,12 +42,14 @@ public class GameManager : MonoBehaviour
         if (_instance == null)
         {
             _instance = this;
-            DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(gameObject);
 
             scoreText.text = "Score: 0";
             scoreChangeText.text = "";
 
             _currentTier = 1;
+
+            EventManager.OnPlayerDeath += () => AddHighScoreEntry("Bob");
         }
         else
         {
@@ -141,5 +143,31 @@ public class GameManager : MonoBehaviour
     public static int GetCurrentTier()
     {
         return _instance._currentTier;
+    }
+    
+    // Adds an entry to the JSON DB
+    private static void AddHighScoreEntry(string name)
+    {
+        print("Creating High score entry! Score: " + _instance._playerScore + ", name: " + name);
+        HighScoreTable.HighScoreEntry highScoreEntry = new HighScoreTable.HighScoreEntry{score = _instance._playerScore, name = name};
+
+        HighScoreTable.Highscores highscores;
+        if (PlayerPrefs.HasKey(HighScoreTable.HIGHSCORE_TABLE_PREF))
+        {
+            print("Loading high scores table!");
+            string jsonString = PlayerPrefs.GetString(HighScoreTable.HIGHSCORE_TABLE_PREF);
+            highscores = JsonUtility.FromJson<HighScoreTable.Highscores>(jsonString);
+        }
+        else
+        {
+            print("Creating high scores table!");
+            highscores = new HighScoreTable.Highscores();
+        }
+        
+        highscores.highScoreEntryList.Add(highScoreEntry);
+        
+        string json = JsonUtility.ToJson(highscores);
+        PlayerPrefs.SetString(HighScoreTable.HIGHSCORE_TABLE_PREF, json);
+        PlayerPrefs.Save();
     }
 }
