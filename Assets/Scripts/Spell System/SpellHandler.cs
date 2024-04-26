@@ -103,9 +103,21 @@ public class SpellHandler : MonoBehaviour
         
         canCastSpell = availableSpells[currentSpellIndex].manaCost <= currentMana;
         currentSpellImage.color = canCastSpell ? Color.white : disabledColor;
+    }
 
-        // Vector3 eulerAngles = wandTransform.localRotation.eulerAngles;
-        // wandTransform.localRotation = Quaternion.Euler(WandCameraOffset + _mainCamera.transform.rotation.eulerAngles.x, eulerAngles.y, eulerAngles.z);
+    public void IncreaseMaxMana(int increase)
+    {
+        maxMana += increase;
+        currentMana += increase;
+        manaSlider.value = currentMana / maxMana;
+    }
+    
+    /// <summary>
+    /// Selects the very first spell in the list of available spells, so that the UI matches
+    /// </summary>
+    public void SelectStartingSpell() 
+    {
+        SetSelectedSpell(0);
     }
 
     private void SetSelectedSpell(int spellIndex)

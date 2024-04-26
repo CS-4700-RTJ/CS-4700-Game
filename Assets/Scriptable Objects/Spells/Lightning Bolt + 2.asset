@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90313b956230353499b31a58b5147a0d, type: 3}
+  m_Name: Lightning Bolt + 2
+  m_EditorClassIdentifier: 
+  spellName: Lightning Bolt++
+  castTime: 0.3
+  manaCost: 5
+  castSfx: {fileID: 8300000, guid: fa1ef90116aeacf48a6ce936df58a39f, type: 3}
+  spellIcon: {fileID: 21300000, guid: ff42a689ad961fd4b9da0a00643acce7, type: 3}
+  description: Quickly fires a small bolt of lightning.
+  spellPrefab: {fileID: 8231677505309178848, guid: 38051fc7295686d4880c67df8e867559, type: 3}
