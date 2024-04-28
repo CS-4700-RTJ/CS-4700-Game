@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 461c04cf0c1ab86489abbab166c8cbfd, type: 3}
+  m_Name: Homing Missile + 3
+  m_EditorClassIdentifier: 
+  requiredTier: 1
+  requiredUpgrade: {fileID: 11400000, guid: bf96d15bc6e356b428d2991569985eec, type: 2}
+  upgradeName: Homing Missile+++
+  upgradeDescription: Decreases mana cost of Homing Missile
+  upgradeIcon: {fileID: 21300000, guid: d70dd1b9c6ae54448923db5c4924edd5, type: 3}
+  upgradeType: 0
+  spellToRemove: {fileID: 11400000, guid: 49c5286e9ff949049aa21c00127bb139, type: 2}
+  spellToGain: {fileID: 11400000, guid: e545cf823581fa44285c0a1da7fe3138, type: 2}
+  maxHealthIncrease: 0
+  maxManaIncrease: 0
+  moveSpeedMultiplier: 1

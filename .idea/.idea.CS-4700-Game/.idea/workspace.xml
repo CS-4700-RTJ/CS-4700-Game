@@ -45,9 +45,12 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../2D Roguelike/Assets/Scripts/Spells/MagicMissileSpell.cs" root0="SKIP_HIGHLIGHTING" />
+<<<<<<< HEAD
+=======
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Behaviors/WolfBehavior.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyBehavior.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/EventManager.cs" root0="FORCE_HIGHLIGHTING" />
+>>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spell System/Feather.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spell System/Fireball.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spell System/LightningBolt.cs" root0="FORCE_HIGHLIGHTING" />
@@ -156,6 +159,8 @@
       <workItem from="1709156995242" duration="3444000" />
       <workItem from="1709246863953" duration="3470000" />
       <workItem from="1709412593461" duration="701000" />
+<<<<<<< HEAD
+=======
       <workItem from="1709679622787" duration="9253000" />
       <workItem from="1709837447462" duration="10636000" />
       <workItem from="1710184120410" duration="7931000" />
@@ -175,6 +180,7 @@
       <workItem from="1712682493744" duration="2662000" />
       <workItem from="1712691275436" duration="1176000" />
       <workItem from="1712698755992" duration="881000" />
+>>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c
     </task>
     <servers />
   </component>

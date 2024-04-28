@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Packages/StarterAssets/FirstPersonController/Scripts/FirstPersonController.cs.meta
 guid: 55919ac34a26952479f3fc91f777b2fa
+========
+guid: 1b101b242ded8fe40b2544ce18bea6ba
+>>>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c:Assets/Packages/OccaSoftware/Crosshairs/Editor/StartMenu.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

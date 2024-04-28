@@ -38,8 +38,14 @@ public class PlayerHealth : Damageable
     {
         base.Start();
         renderer = GetComponentInChildren<MeshRenderer>();
-        
         healthBar.value = 1;
+    }
+
+    public void IncreaseMaxHealth(int increase)
+    {
+        maxHealth += increase;
+        currentHealth += increase;
+        healthBar.value = currentHealth / maxHealth;
     }
 
     public override void ApplyDamage(float amount)
@@ -61,6 +67,8 @@ public class PlayerHealth : Damageable
         PlayDeathSound();
         
         healthBar.value = 0;
+        
+        print("Player died!");
 
         EventManager.TriggerOnPlayerDeath();
     }

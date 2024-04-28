@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour
     // Score Change variables
     private int _remainingScoreChange = 0;
     private float _scoreChangeTimer;
+    
+    // Round information
+    private int _currentTier;
 
     private Coroutine _scoreUpdateRoutine;
     private bool _isDelayed;
@@ -39,10 +42,14 @@ public class GameManager : MonoBehaviour
         if (_instance == null)
         {
             _instance = this;
-            DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(gameObject);
 
             scoreText.text = "Score: 0";
             scoreChangeText.text = "";
+
+            _currentTier = 1;
+
+            EventManager.OnPlayerDeath += () => AddHighScoreEntry("Bob");
         }
         else
         {
@@ -126,5 +133,41 @@ public class GameManager : MonoBehaviour
         
         // Start the Coroutine to update the score indicators
         _instance._scoreUpdateRoutine = _instance.StartCoroutine(_instance.LerpScores());
+    }
+
+    public static void IncreaseTier()
+    {
+        _instance._currentTier++;
+    }
+
+    public static int GetCurrentTier()
+    {
+        return _instance._currentTier;
+    }
+    
+    // Adds an entry to the JSON DB
+    private static void AddHighScoreEntry(string name)
+    {
+        print("Creating High score entry! Score: " + _instance._playerScore + ", name: " + name);
+        HighScoreTable.HighScoreEntry highScoreEntry = new HighScoreTable.HighScoreEntry{score = _instance._playerScore, name = name};
+
+        HighScoreTable.Highscores highscores;
+        if (PlayerPrefs.HasKey(HighScoreTable.HIGHSCORE_TABLE_PREF))
+        {
+            print("Loading high scores table!");
+            string jsonString = PlayerPrefs.GetString(HighScoreTable.HIGHSCORE_TABLE_PREF);
+            highscores = JsonUtility.FromJson<HighScoreTable.Highscores>(jsonString);
+        }
+        else
+        {
+            print("Creating high scores table!");
+            highscores = new HighScoreTable.Highscores();
+        }
+        
+        highscores.highScoreEntryList.Add(highScoreEntry);
+        
+        string json = JsonUtility.ToJson(highscores);
+        PlayerPrefs.SetString(HighScoreTable.HIGHSCORE_TABLE_PREF, json);
+        PlayerPrefs.Save();
     }
 }
