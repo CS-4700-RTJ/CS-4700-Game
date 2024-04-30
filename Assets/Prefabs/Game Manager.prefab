@@ -75,6 +75,84 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &167123514923677384
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5056618407017996252}
+  - component: {fileID: 7256364885875189378}
+  - component: {fileID: 6054929467418224550}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5056618407017996252
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167123514923677384}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6916330232211099290}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7256364885875189378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167123514923677384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!114 &6054929467418224550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167123514923677384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 23a05ebdac2466345a1fb9ab744f1547, type: 3}
+  m_PointAction: {fileID: 0}
+  m_MoveAction: {fileID: -4775743041677309014, guid: 23a05ebdac2466345a1fb9ab744f1547, type: 3}
+  m_SubmitAction: {fileID: -4133851143120011739, guid: 23a05ebdac2466345a1fb9ab744f1547, type: 3}
+  m_CancelAction: {fileID: -7934226266593844377, guid: 23a05ebdac2466345a1fb9ab744f1547, type: 3}
+  m_LeftClickAction: {fileID: 0}
+  m_MiddleClickAction: {fileID: 0}
+  m_RightClickAction: {fileID: 0}
+  m_ScrollWheelAction: {fileID: 0}
+  m_TrackedDevicePositionAction: {fileID: 0}
+  m_TrackedDeviceOrientationAction: {fileID: 0}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!1 &234044712458922833
 GameObject:
   m_ObjectHideFlags: 0
@@ -3672,6 +3750,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8937962684681636251}
+  - {fileID: 5056618407017996252}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8977331450201174330
@@ -3741,11 +3820,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f503621a34af679468b0c3b2008cd926, type: 2}
   startingSpellUpgrades:
   - {fileID: 11400000, guid: e57f466e4a5c24c46b063fe4853f6320, type: 2}
+  timeBetweenUpgrades: 60
   upgradePanel: {fileID: 630385885478846559}
   newSpellUpgradeElement: {fileID: 6056877927178273662}
   spellEnhancementUpgradeElement: {fileID: 8556475146867132391}
   playerBuffUpgradeElement: {fileID: 2165100629082317171}
-  getAvailableUpgrades: 0
 --- !u!1 &8025255048877196830
 GameObject:
   m_ObjectHideFlags: 0
