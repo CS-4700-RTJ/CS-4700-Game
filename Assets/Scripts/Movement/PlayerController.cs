@@ -89,6 +89,8 @@ public class PlayerController : MonoBehaviour
     private static readonly int AnimatorMoveSpeed = Animator.StringToHash("MoveSpeed");
     private static readonly int AnimatorDeathTrigger = Animator.StringToHash("Death");
 
+    private bool _touchingObelisk;
+    
     private void Awake()
     {
         input = GetComponent<PlayerControllerInput>();
@@ -104,6 +106,7 @@ public class PlayerController : MonoBehaviour
         _availableJumps = 1;
         _maxJumps = 1;
         _originalAirborneMoveStrength = airborneMoveStrength;
+        _touchingObelisk = false;
 
         EventManager.OnPlayerDeath += OnDeath;
     }
@@ -123,10 +126,16 @@ public class PlayerController : MonoBehaviour
 	    sprintSpeed *= multiplier;
     }
     
+    public bool CanInteract()
+    {
+	    return _touchingObelisk;
+    }
+    
     private void Update()
 	{
 		JumpAndGravity();
 		GroundedCheck();
+		CheckInteractions();
 		Move();
 	}
 
@@ -315,6 +324,37 @@ public class PlayerController : MonoBehaviour
 		if (_verticalVelocity < _terminalVelocity)
 		{
 			_verticalVelocity += gravity * Time.deltaTime;
+		}
+	}
+
+	private void CheckInteractions()
+	{
+		if (input.interact)
+		{
+			if (_touchingObelisk)
+			{
+				print("Interact with Obelisk!");
+				GameManager.OpenUpgradeMenu();
+			}
+			input.interact = false;
+		}
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.CompareTag("Obelisk"))
+		{
+			_touchingObelisk = true;
+			GameManager.SetNotificationVisibility(true);
+		}
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		if (other.CompareTag("Obelisk"))
+		{
+			_touchingObelisk = false;
+			GameManager.SetNotificationVisibility(false);
 		}
 	}
 

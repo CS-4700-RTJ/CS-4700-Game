@@ -396,6 +396,7 @@ MonoBehaviour:
   upgradeIcon: {fileID: 5562427212018212908}
   upgradeNameText: {fileID: 148034697924511717}
   upgradeDescriptionText: {fileID: 538818309350776528}
+  button: {fileID: 1030988766191314925}
 --- !u!1 &699989137921601982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,6 +1267,7 @@ MonoBehaviour:
   upgradeIcon: {fileID: 6713522301909758790}
   upgradeNameText: {fileID: 4709077689909582477}
   upgradeDescriptionText: {fileID: 7884733331916933131}
+  button: {fileID: 3985142938073327741}
 --- !u!1 &1987206373902753039
 GameObject:
   m_ObjectHideFlags: 0
@@ -3137,6 +3139,7 @@ MonoBehaviour:
   upgradeIcon: {fileID: 8624177320714937334}
   upgradeNameText: {fileID: 7000106686513531139}
   upgradeDescriptionText: {fileID: 7135791817855965888}
+  button: {fileID: 4639824194258710036}
 --- !u!1 &6633866014057158426
 GameObject:
   m_ObjectHideFlags: 0

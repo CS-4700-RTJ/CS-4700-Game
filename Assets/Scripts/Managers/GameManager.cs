@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     [Tooltip("The score change text will be visible for this amount of time before visibly applying points")]
     public float scoreChangeDelay = 1f;
 
+    [Header("Notification")] 
+    public GameObject notificationImage;
+
     // actual player score value
     private int _playerScore;
     
@@ -36,6 +39,8 @@ public class GameManager : MonoBehaviour
 
     private Coroutine _scoreUpdateRoutine;
     private bool _isDelayed;
+
+    private UpgradeManager _upgradeManager;
     
     private void Awake()
     {
@@ -47,8 +52,11 @@ public class GameManager : MonoBehaviour
             scoreText.text = "Score: 0";
             scoreChangeText.text = "";
 
+            notificationImage.SetActive(false);
+            
             _currentTier = 1;
-
+            _upgradeManager = GetComponent<UpgradeManager>();
+            
             EventManager.OnPlayerDeath += () => AddHighScoreEntry("Bob");
         }
         else
@@ -143,6 +151,17 @@ public class GameManager : MonoBehaviour
     public static int GetCurrentTier()
     {
         return _instance._currentTier;
+    }
+
+    public static void OpenUpgradeMenu()
+    {
+        _instance._upgradeManager.OpenUpgradeMenu();
+    }
+
+    public static void SetNotificationVisibility(bool visible)
+    {
+        if (visible && _instance._upgradeManager.GetUpgradeReady()) _instance.notificationImage.SetActive(true);
+        else _instance.notificationImage.SetActive(false);
     }
     
     // Adds an entry to the JSON DB

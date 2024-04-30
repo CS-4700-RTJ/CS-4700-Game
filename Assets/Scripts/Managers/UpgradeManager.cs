@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
@@ -28,6 +29,7 @@ public class UpgradeManager : MonoBehaviour
 
     private PlayerHealth _playerHealth;
     private PlayerController _playerController;
+    private PlayerControllerInput _playerInput;
 
     private void Start()
     {
@@ -36,6 +38,8 @@ public class UpgradeManager : MonoBehaviour
         _ownedUpgrades = new List<UpgradeSO>();
         _playerHealth = PlayerHealth.PlayerTransform.GetComponent<PlayerHealth>();
         _playerController = PlayerHealth.PlayerTransform.GetComponent<PlayerController>();
+        _playerInput = PlayerHealth.PlayerTransform.GetComponent<PlayerControllerInput>();
+        
         readyForUpgrade = false;
 
         List<Spell> startingSpells = new List<Spell>();
@@ -63,6 +67,11 @@ public class UpgradeManager : MonoBehaviour
         EventManager.OnPlayerDeath -= StopUpgrades;
     }
 
+    public bool GetUpgradeReady()
+    {
+        return _obeliskAnimator.GetBool(ObeliskActiveBool);
+    }
+    
     private void TriggerUpgrade()
     {
         GetAvailableUpgrades(out var newSpellUpgrades, out var spellEnhancementUpgrades, out var playerBuffUpgrades);
@@ -105,12 +114,32 @@ public class UpgradeManager : MonoBehaviour
 
         // Activate the Obelisk
         _obeliskAnimator.SetBool(ObeliskActiveBool, true);
-        upgradePanel.SetActive(true);
-
-        Time.timeScale = 0;
-        Cursor.lockState = CursorLockMode.Confined;
+        if (_playerController.CanInteract()) GameManager.SetNotificationVisibility(true);
+        // assume it opens right away, need to change
+        // OpenUpgradeMenu();
     }
 
+    public void OpenUpgradeMenu()
+    {
+        upgradePanel.SetActive(true);
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.Confined;
+        _playerInput.DisableInput();
+
+        // select the first enabled upgrade
+        if (newSpellUpgradeElement.gameObject.activeSelf) newSpellUpgradeElement.Select();
+        else if (spellEnhancementUpgradeElement.gameObject.activeSelf) newSpellUpgradeElement.Select();
+        else if (playerBuffUpgradeElement.gameObject.activeSelf) playerBuffUpgradeElement.Select();
+        else
+        {
+            // no upgrades!
+            _obeliskAnimator.SetBool(ObeliskActiveBool, false);
+            upgradePanel.SetActive(false);
+            Time.timeScale = 1f;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+    }
+    
     private void ChooseUpgrade(UpgradeSO chosenUpgrade)
     {
         print("Player Chose " + chosenUpgrade.upgradeName);
@@ -139,6 +168,7 @@ public class UpgradeManager : MonoBehaviour
             _playerController.IncreaseMoveSpeed(chosenUpgrade.moveSpeedMultiplier);
         }
         
+        _playerInput.EnableInput();
         Time.timeScale = 1;
         _obeliskAnimator.SetBool(ObeliskActiveBool, false);
         upgradePanel.SetActive(false);

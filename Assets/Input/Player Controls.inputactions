@@ -11,7 +11,7 @@
                     "id": "02eebc4e-e653-4336-80e5-ad60d8b1da73",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press",
+                    "interactions": "",
                     "initialStateCheck": true
                 },
                 {
@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "e7b137fd-be9a-4924-8b18-189c76994751",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -85,7 +94,7 @@
                     "name": "",
                     "id": "ac402727-837c-4da1-8f24-84b7710fdf73",
                     "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "processors": "",
                     "groups": "Controller",
                     "action": "Cast Spell",
@@ -328,9 +337,31 @@
                     "id": "fc17ca27-51f4-4790-9b85-24b4897b7f59",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
-                    "processors": "InvertVector2(invertX=false),ScaleVector2(x=0.05,y=0.05)",
+                    "processors": "InvertVector2(invertX=false),ScaleVector2(x=90,y=90)",
                     "groups": "Controller",
                     "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cb7602fd-bde8-4e2e-ba9a-a609db8757bc",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard Mouse",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2cf3b3d1-da6a-4f4a-89d6-b1f5ef4af073",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
