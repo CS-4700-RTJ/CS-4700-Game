@@ -16,6 +16,7 @@ public class SpellHandler : MonoBehaviour
     public TMP_Text spellNameText;
     public Slider manaSlider;
     public Color disabledColor;
+    public Image progressReticle;
 
     public Spell[] availableSpells;
 
@@ -94,6 +95,7 @@ public class SpellHandler : MonoBehaviour
         spellNameFadeRoutine = StartCoroutine(FadeSpellText());
         
         spellChargeVfx.SetActive(false);
+        progressReticle.fillAmount = 0f;
     }
     
     private void Update()
@@ -195,6 +197,7 @@ public class SpellHandler : MonoBehaviour
         wandAudioSource.Stop();
         animator.SetBool(AnimatorIsCharging, false);
         animator.speed = 1;
+        progressReticle.fillAmount = 0f;
     }
 
     private void CastSpellStarted(InputAction.CallbackContext context)
@@ -221,7 +224,17 @@ public class SpellHandler : MonoBehaviour
 
         wandAudioSource.pitch = pitch;
 
-        yield return new WaitForSeconds(spell.castTime);
+        float timer = 0f;
+        while (timer < spell.castTime)
+        {
+            yield return null;
+            
+            timer += Time.deltaTime;
+            progressReticle.fillAmount = timer / spell.castTime;
+        }
+
+        progressReticle.fillAmount = 1f;
+        // yield return new WaitForSeconds(spell.castTime);
         wandAudioSource.Stop();
         
         // Destroy the charging Vfx to signify that the spell can be cast

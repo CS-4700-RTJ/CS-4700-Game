@@ -404,6 +404,17 @@
                 },
                 {
                     "name": "",
+                    "id": "1f7fb8d4-f965-4a22-ab81-5f726294d718",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard Mouse",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "715643c4-bcd2-45d0-ad5d-a832b0b341f5",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
