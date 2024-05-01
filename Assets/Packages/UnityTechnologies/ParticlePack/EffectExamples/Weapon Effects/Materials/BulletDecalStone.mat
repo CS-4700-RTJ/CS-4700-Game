@@ -2,6 +2,20 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BulletDecalStone
+  m_Shader: {fileID: 210, guid: 0000000000000000f000000000000000, type: 0}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _ALPHABLEND_ON
+  - _NORMALMAP
+  m_InvalidKeywords:
+  - _PARALLAXMAP
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16,6 +30,8 @@ Material:
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses:
+  - GRABPASS
+  m_LockedProperties: 
   - ALWAYS
   m_SavedProperties:
     serializedVersion: 3
@@ -60,6 +76,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+<<<<<<< HEAD
+    m_Ints: []
+=======
+>>>>>>> f341356f5a7c4e20f993a872adbc450290740739
     m_Floats:
     - _BlendOp: 0
     - _BumpScale: 0.75
@@ -98,3 +118,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0, g: 0, b: 0, a: 1}
+<<<<<<< HEAD
+  m_BuildTextureStacks: []
+=======
+>>>>>>> f341356f5a7c4e20f993a872adbc450290740739
