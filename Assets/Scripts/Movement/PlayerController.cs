@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     [FormerlySerializedAs("SpeedChangeRate")] [Tooltip("Acceleration and deceleration")]
     public float speedChangeRate = 10.0f;
     [FormerlySerializedAs("AirborneMoveStrength")] [Tooltip("How strongly does the input affect player airborne movement?"), Range(0, 1)]
-    public float airborneMoveStrength = 0f;
+    public float airborneMoveStrength = 0.6f;
 
     [FormerlySerializedAs("JumpHeight")]
     [Space(10)]
