@@ -14,18 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellName: Magic Sword
   castTime: 0.5
-<<<<<<< HEAD:Assets/Spells/Magic Weapon.asset
-  manaCost: 20
-  castSfx:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-=======
   manaCost: 10
   castSfx: {fileID: 8300000, guid: 608b722665014b943a335d28decf9b6c, type: 3}
->>>>>>> ee62877142338c7d80e7badf05f02c61c1e2a88c:Assets/Scriptable Objects/Spells/Magic Weapon.asset
   spellIcon: {fileID: 21300000, guid: d8108e50be9cf7f49878337929803edd, type: 3}
   description: Summon a magical sword from the end of your staff and attack with
     it.
