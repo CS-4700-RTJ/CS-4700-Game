@@ -1,6 +1,8 @@
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -11,6 +13,7 @@ public class SpellHandler : MonoBehaviour
     
     [Header("Spell UI")]
     public Image currentSpellImage;
+    public TMP_Text spellNameText;
     public Slider manaSlider;
     public Color disabledColor;
 
@@ -50,6 +53,9 @@ public class SpellHandler : MonoBehaviour
     private static readonly int AnimatorIsCharging = Animator.StringToHash("IsCharging");
     private static readonly int AnimatorChargeFinished = Animator.StringToHash("ChargeFinished");
 
+    private float spellTextVisibleDuration = 2f;
+    private float spellTextFadeTime = 1f;
+    private Coroutine spellNameFadeRoutine;
     
     private void Awake()
     {
@@ -84,6 +90,8 @@ public class SpellHandler : MonoBehaviour
         castingDisabled = false;
 
         _mainCamera = Camera.main;
+
+        spellNameFadeRoutine = StartCoroutine(FadeSpellText());
         
         spellChargeVfx.SetActive(false);
     }
@@ -95,9 +103,21 @@ public class SpellHandler : MonoBehaviour
         
         canCastSpell = availableSpells[currentSpellIndex].manaCost <= currentMana;
         currentSpellImage.color = canCastSpell ? Color.white : disabledColor;
+    }
 
-        // Vector3 eulerAngles = wandTransform.localRotation.eulerAngles;
-        // wandTransform.localRotation = Quaternion.Euler(WandCameraOffset + _mainCamera.transform.rotation.eulerAngles.x, eulerAngles.y, eulerAngles.z);
+    public void IncreaseMaxMana(int increase)
+    {
+        maxMana += increase;
+        currentMana += increase;
+        manaSlider.value = currentMana / maxMana;
+    }
+    
+    /// <summary>
+    /// Selects the very first spell in the list of available spells, so that the UI matches
+    /// </summary>
+    public void SelectStartingSpell() 
+    {
+        SetSelectedSpell(0);
     }
 
     private void SetSelectedSpell(int spellIndex)
@@ -105,6 +125,10 @@ public class SpellHandler : MonoBehaviour
         currentSpellIndex = spellIndex;
 
         currentSpellImage.sprite = availableSpells[currentSpellIndex].spellIcon;
+
+        if (spellNameFadeRoutine != null) StopCoroutine(spellNameFadeRoutine);
+        spellNameText.text = availableSpells[currentSpellIndex].spellName;
+        spellNameFadeRoutine = StartCoroutine(FadeSpellText());
     }
 
     private void OnCycleSpell(InputAction.CallbackContext context)
@@ -207,6 +231,16 @@ public class SpellHandler : MonoBehaviour
         animator.SetBool(AnimatorChargeFinished, true);
     }
 
+    private void DisableCasting()
+    {
+        castingDisabled = true;
+    }
+
+    private void EnableCasting()
+    {
+        castingDisabled = false;
+    } 
+
     public IEnumerator DisableCastingForTime(float time)
     {
         castingDisabled = true;
@@ -214,5 +248,29 @@ public class SpellHandler : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         castingDisabled = false;
+    }
+    
+    private IEnumerator FadeSpellText() 
+    {        
+        // Make spell text fully visible
+        Color textColor = Color.white;
+
+        spellNameText.color = textColor;
+
+        yield return new WaitForSeconds(spellTextVisibleDuration);
+        
+        float timer = spellTextFadeTime;
+        
+        while (timer > 0f)
+        {
+            textColor.a = Mathf.Lerp(0, 1, timer / spellTextFadeTime);
+            spellNameText.color = textColor;
+            
+            timer -= Time.deltaTime;
+            yield return null;
+        }
+
+        textColor.a = 0;
+        spellNameText.color = textColor;
     }
 }

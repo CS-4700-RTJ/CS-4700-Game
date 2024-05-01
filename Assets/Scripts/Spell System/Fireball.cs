@@ -13,10 +13,22 @@ public class Fireball : Projectile
     protected override void OnImpact(Collision collision)
     {
         var hitObjects = Physics.OverlapSphere(transform.position, explosionRadius, explosionLayerMask);
-       
+
+        bool includedHitObject = false;
+        
+        // print("fireball hit " + collision.gameObject.name);
+        
         foreach (var hitObject in hitObjects)
         {
+            // Debug.Log(hitObject, hitObject);
+            if (hitObject.gameObject.Equals(collision.gameObject)) includedHitObject = true;
+            
             if (hitObject.TryGetComponent(out Damageable damageable)) damageable.ApplyDamage(damage);
+        }
+
+        if (!includedHitObject)
+        {
+            if (collision.gameObject.TryGetComponent(out Damageable damageable)) damageable.ApplyDamage(damage);
         }
     }
 }
