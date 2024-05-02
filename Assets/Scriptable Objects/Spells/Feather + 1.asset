@@ -15,7 +15,10 @@ MonoBehaviour:
   spellName: Feather+
   castTime: 1.5
   manaCost: 15
-  castSfx: {fileID: 8300000, guid: 1b59e7ad2d6d4bf459f2590d0012d675, type: 3}
+  castSfx:
+  - {fileID: 8300000, guid: 8bdee20c86ad062418247b84b6d9cef1, type: 3}
+  - {fileID: 8300000, guid: 82162a4a1e0b3cf46b872f36b4ee2638, type: 3}
+  - {fileID: 8300000, guid: 9008c654aae867449abaca95306fd392, type: 3}
   spellIcon: {fileID: 21300000, guid: 411f88b287eb8504aa08edb04c1443c6, type: 3}
   description: Makes your body as light as feathers, allowing you to jump much higher
     and land lightly on your feet.
