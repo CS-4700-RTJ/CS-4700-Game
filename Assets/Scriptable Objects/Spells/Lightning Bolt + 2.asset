@@ -16,7 +16,7 @@ MonoBehaviour:
   castTime: 0.3
   manaCost: 5
   castSfx:
-  - {fileID: 8300000, guid: c1f32e6b0e276204fbb20cabb3b26447, type: 3}
+  - {fileID: 8300000, guid: 66b176cf1e891ce4f8bf27ad494f3216, type: 3}
   - {fileID: 8300000, guid: 37f68e2abcc80844a8518d935e4de26b, type: 3}
   - {fileID: 8300000, guid: 4269d59064590fb48bd14c192bd1117e, type: 3}
   spellIcon: {fileID: 21300000, guid: ff42a689ad961fd4b9da0a00643acce7, type: 3}

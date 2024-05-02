@@ -16,10 +16,10 @@ MonoBehaviour:
   castTime: 1.5
   manaCost: 15
   castSfx:
+  - {fileID: 8300000, guid: dbc1786fd276b204082c05bfbd8a91bd, type: 3}
   - {fileID: 8300000, guid: 9b25dd8f4c6ab904783f793865e9f0f9, type: 3}
   - {fileID: 8300000, guid: 6baf97bef709db74a85d8b9e41dbae3e, type: 3}
   - {fileID: 8300000, guid: c718e8f47a8dc744f89ae11fc6c9e423, type: 3}
-  - {fileID: 8300000, guid: dbc1786fd276b204082c05bfbd8a91bd, type: 3}
   spellIcon: {fileID: 21300000, guid: d70dd1b9c6ae54448923db5c4924edd5, type: 3}
   description: Shoots a missile that homes towards the nearest enemy.
   spellPrefab: {fileID: 4815718332176778537, guid: 33e59364964e1a84dbc148b4fa11ae3b, type: 3}
