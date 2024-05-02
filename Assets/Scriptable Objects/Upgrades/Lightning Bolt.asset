@@ -16,10 +16,10 @@ MonoBehaviour:
   requiredUpgrade: {fileID: 0}
   upgradeName: Lightning Bolt
   upgradeDescription: Unlocks the Lightning Bolt spell
-  upgradeIcon: {fileID: 21300000, guid: 43932b67c71640244a46b122a525ad3a, type: 3}
+  upgradeIcon: {fileID: 21300000, guid: ff42a689ad961fd4b9da0a00643acce7, type: 3}
   upgradeType: 0
-  spellToRemove: {fileID: 0}
-  spellToGain: {fileID: 11400000, guid: b0517e9685e49f94c9e10ee1d6b37031, type: 2}
+  spellToRemove: {fileID: 11400000, guid: f07b5516eb7dffb46a152f26745272f9, type: 2}
+  spellToGain: {fileID: 11400000, guid: f07b5516eb7dffb46a152f26745272f9, type: 2}
   maxHealthIncrease: 0
   maxManaIncrease: 0
   moveSpeedMultiplier: 1

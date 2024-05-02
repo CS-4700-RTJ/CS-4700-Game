@@ -15,8 +15,9 @@ MonoBehaviour:
   spellName: Poison Dart
   castTime: 2
   manaCost: 15
-  castVfx: {fileID: 0}
-  castSfx: {fileID: 8300000, guid: 228f6cd6125071e4c86cd1893e041074, type: 3}
+  castSfx:
+  - {fileID: 8300000, guid: d02c573afd2e30c4b9faf1f8b3215cf4, type: 3}
+  - {fileID: 8300000, guid: 76eafd9b4b9427c498bb675ad7d27fbd, type: 3}
   spellIcon: {fileID: 21300000, guid: 43932b67c71640244a46b122a525ad3a, type: 3}
   description: Launches a toxic missile that poisons anything it touches, applying
     damage over time.
