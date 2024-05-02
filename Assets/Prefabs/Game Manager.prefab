@@ -3741,11 +3741,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f503621a34af679468b0c3b2008cd926, type: 2}
   startingSpellUpgrades:
   - {fileID: 11400000, guid: e57f466e4a5c24c46b063fe4853f6320, type: 2}
+  timeBetweenUpgrades: 60
   upgradePanel: {fileID: 630385885478846559}
   newSpellUpgradeElement: {fileID: 6056877927178273662}
   spellEnhancementUpgradeElement: {fileID: 8556475146867132391}
   playerBuffUpgradeElement: {fileID: 2165100629082317171}
-  getAvailableUpgrades: 0
+  panelPopUpSfx: {fileID: 8300000, guid: 28d7d69b1857cf142bbd818d1fa73d68, type: 3}
+  upgradeSelectSfx: {fileID: 8300000, guid: b73d5871f6f610f4c88752e1e945de46, type: 3}
 --- !u!1 &8025255048877196830
 GameObject:
   m_ObjectHideFlags: 0
