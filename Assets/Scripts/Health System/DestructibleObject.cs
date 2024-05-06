@@ -35,6 +35,7 @@ public class DestructibleObject : Damageable
             newObj.SetPositionAndRotation(objectTransform.position, objectTransform.rotation);
             var objectScale = objectTransform.localScale;
             newObj.localScale = objectScale;
+            
         }
 
         Destroy(gameObject);
