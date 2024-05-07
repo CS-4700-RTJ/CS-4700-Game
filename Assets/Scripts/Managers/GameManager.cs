@@ -60,14 +60,20 @@ public class GameManager : MonoBehaviour
             _currentTier = 1;
             _upgradeManager = GetComponent<UpgradeManager>();
             
-            EventManager.OnPlayerDeath += () => AddHighScoreEntry("Bob");
+            // EventManager.OnPlayerDeath += () => AddHighScoreEntry("Bob");
+            EventManager.OnPlayerDeath += OpenGameOverMenu;
         }
         else
         {
             Destroy(gameObject);
         }
     }
-    
+
+    private void OnDestroy()
+    {
+        EventManager.OnPlayerDeath -= OpenGameOverMenu;
+    }
+
     /// <summary>
     /// Animates the increase in the player's score so that the player can clearly see how many points they gained
     /// while smoothly transitioning to the player's new score.
@@ -169,14 +175,20 @@ public class GameManager : MonoBehaviour
 
     public static void TogglePause()
     {
-        print("Toggling pause!");
+        if (PauseMenu.IsGameOver) return;
         
         if (PauseMenu.IsPaused) _instance.pauseMenu.Continue();
         else _instance.pauseMenu.Pause();
     }
 
+    private static void OpenGameOverMenu()
+    {
+        print("Get player name");
+        _instance.pauseMenu.GameOver();
+    }
+
     // Adds an entry to the JSON DB
-    private static void AddHighScoreEntry(string name)
+    public static void AddHighScoreEntry(string name)
     {
         print("Creating High score entry! Score: " + _instance._playerScore + ", name: " + name);
         HighScoreTable.HighScoreEntry highScoreEntry = new HighScoreTable.HighScoreEntry{score = _instance._playerScore, name = name};
