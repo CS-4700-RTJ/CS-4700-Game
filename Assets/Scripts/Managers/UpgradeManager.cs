@@ -31,6 +31,12 @@ public class UpgradeManager : MonoBehaviour
     private PlayerController _playerController;
     private PlayerControllerInput _playerInput;
 
+    // audio
+    private AudioSource _audiosource;
+    public AudioClip panelPopUpSfx;
+    public AudioClip upgradeSelectSfx;
+
+
     private void Start()
     {
         _spellHandler = PlayerHealth.PlayerTransform.GetComponent<SpellHandler>();
@@ -41,6 +47,7 @@ public class UpgradeManager : MonoBehaviour
         _playerInput = PlayerHealth.PlayerTransform.GetComponent<PlayerControllerInput>();
         
         readyForUpgrade = false;
+        _audiosource = GetComponent<AudioSource>();
 
         List<Spell> startingSpells = new List<Spell>();
         
@@ -75,6 +82,7 @@ public class UpgradeManager : MonoBehaviour
     private void TriggerUpgrade()
     {
         GetAvailableUpgrades(out var newSpellUpgrades, out var spellEnhancementUpgrades, out var playerBuffUpgrades);
+        _audiosource.PlayOneShot(panelPopUpSfx);
 
         // Set the New Spell upgrade
         if (newSpellUpgrades.Length > 0)
@@ -144,6 +152,7 @@ public class UpgradeManager : MonoBehaviour
     {
         print("Player Chose " + chosenUpgrade.upgradeName);
         _ownedUpgrades.Add(chosenUpgrade);
+        _audiosource.PlayOneShot(upgradeSelectSfx);
         
         // Apply the upgrade
         if (chosenUpgrade.upgradeType == UpgradeSO.UpgradeType.SpellUpgrade)
