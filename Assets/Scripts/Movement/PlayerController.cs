@@ -133,6 +133,7 @@ public class PlayerController : MonoBehaviour
     
     private void Update()
 	{
+		if (PauseMenu.IsPaused) return;
 		JumpAndGravity();
 		GroundedCheck();
 		CheckInteractions();
@@ -141,6 +142,7 @@ public class PlayerController : MonoBehaviour
 
 	private void LateUpdate()
 	{
+		if (PauseMenu.IsPaused) return;
 		CameraRotation();
 	}
 

@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     [Header("Notification")] 
     public GameObject notificationImage;
 
+    [Header("Pause Menu")] 
+    public PauseMenu pauseMenu;
+
     // actual player score value
     private int _playerScore;
     
@@ -163,7 +166,15 @@ public class GameManager : MonoBehaviour
         if (visible && _instance._upgradeManager.GetUpgradeReady()) _instance.notificationImage.SetActive(true);
         else _instance.notificationImage.SetActive(false);
     }
-    
+
+    public static void TogglePause()
+    {
+        print("Toggling pause!");
+        
+        if (PauseMenu.IsPaused) _instance.pauseMenu.Continue();
+        else _instance.pauseMenu.Pause();
+    }
+
     // Adds an entry to the JSON DB
     private static void AddHighScoreEntry(string name)
     {
