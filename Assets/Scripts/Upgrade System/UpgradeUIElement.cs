@@ -10,6 +10,7 @@ public class UpgradeUIElement : MonoBehaviour
     public Image upgradeIcon;
     public TextMeshProUGUI upgradeNameText;
     public TextMeshProUGUI upgradeDescriptionText;
+    public Button button;
     
     private Action<UpgradeSO> OnSelect;
     private UpgradeSO _upgrade;
@@ -28,5 +29,10 @@ public class UpgradeUIElement : MonoBehaviour
     public void ChooseUpgrade()
     {
         OnSelect(_upgrade);
+    }
+
+    public void Select()
+    {
+        button.Select();
     }
 }

@@ -10,6 +10,7 @@ public class PlayerControllerInput : MonoBehaviour
     public Vector2 look { get; private set; }
     public bool jump { get; set; }
     public bool sprint { get; private set; }
+    public bool interact { get; set; }
 
     public bool analogMovement;
     
@@ -18,6 +19,7 @@ public class PlayerControllerInput : MonoBehaviour
     private InputAction lookAction;
     private InputAction jumpAction;
     private InputAction sprintAction;
+    private InputAction interactAction;
     
     private void Awake()
     {
@@ -26,6 +28,7 @@ public class PlayerControllerInput : MonoBehaviour
         lookAction = playerInput.actions["Look"];
         jumpAction = playerInput.actions["Jump"];
         sprintAction = playerInput.actions["Sprint"];
+        interactAction = playerInput.actions["Interact"];
     }
 
     private void OnDisable()
@@ -38,6 +41,7 @@ public class PlayerControllerInput : MonoBehaviour
         jumpAction.canceled -= OnJump;
         sprintAction.performed -= OnSprint;
         sprintAction.canceled -= OnSprint;
+        interactAction.performed -= OnInteract;
     }
 
     private void Start()
@@ -50,6 +54,17 @@ public class PlayerControllerInput : MonoBehaviour
         jumpAction.canceled += OnJump;
         sprintAction.performed += OnSprint;
         sprintAction.canceled += OnSprint;
+        interactAction.performed += OnInteract;
+    }
+    
+    public void DisableInput()
+    {
+        playerInput.actions.Disable();
+    }
+
+    public void EnableInput()
+    {
+        playerInput.actions.Enable();
     }
 
     public bool IsCurrentDeviceMouse()
@@ -90,5 +105,10 @@ public class PlayerControllerInput : MonoBehaviour
     private void OnSprint(InputAction.CallbackContext context)
     {
         sprint = context.ReadValueAsButton();
+    }
+
+    private void OnInteract(InputAction.CallbackContext context)
+    {
+        interact = context.ReadValueAsButton();
     }
 }
