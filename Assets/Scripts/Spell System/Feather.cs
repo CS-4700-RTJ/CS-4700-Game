@@ -11,7 +11,7 @@ public class Feather : MonoBehaviour, ICastable
 
     public void Cast(Vector3 castDirection, Transform casterTransform)
     {
-        PlayerController player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        PlayerController player = PlayerHealth.PlayerTransform.GetComponent<PlayerController>();
         
         player.ApplyFeather(featherDuration, midAirJumps);
         

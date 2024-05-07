@@ -561,7 +561,7 @@ MonoBehaviour:
   maxSprintTime: 5
   rotationSpeed: 1
   speedChangeRate: 10
-  airborneMoveStrength: 0
+  airborneMoveStrength: 0.6
   jumpHeight: 1.2
   gravity: -15
   jumpTimeout: 0.1
@@ -618,6 +618,7 @@ MonoBehaviour:
   spellNameText: {fileID: 0}
   manaSlider: {fileID: 0}
   disabledColor: {r: 0.4509804, g: 0.4509804, b: 0.4509804, a: 1}
+  progressReticle: {fileID: 0}
   availableSpells: []
   maxMana: 30
   manaRegenRate: 2
