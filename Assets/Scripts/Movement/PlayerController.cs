@@ -102,6 +102,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         
         _availableSprint = maxSprintTime;
+        GameManager.GetHUD().SetStaminaSliderPercent(1f);
 
         _availableJumps = 1;
         _maxJumps = 1;
@@ -209,6 +210,8 @@ public class PlayerController : MonoBehaviour
 			input.StopSprint();
 			_availableSprint = 0;
 		}
+		
+		GameManager.GetHUD().SetStaminaSliderPercent(_availableSprint / maxSprintTime);
 
 		// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 

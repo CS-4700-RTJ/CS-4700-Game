@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     [Header("Pause Menu")] 
     public PauseMenu pauseMenu;
 
+    [Header("HUD")] 
+    public HUD hud;
+
     // actual player score value
     private int _playerScore;
     
@@ -44,7 +47,7 @@ public class GameManager : MonoBehaviour
     private bool _isDelayed;
 
     private UpgradeManager _upgradeManager;
-    
+
     private void Awake()
     {
         if (_instance == null)
@@ -119,6 +122,11 @@ public class GameManager : MonoBehaviour
         scoreChangeText.text = "";
     }
 
+    public static HUD GetHUD()
+    {
+        return _instance.hud;
+    }
+    
     /// <summary>
     /// Increases the player's score by the specified amount of <b>points</b>.
     /// Use a negative value to subtract from the player's score.
