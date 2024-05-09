@@ -54,7 +54,7 @@ public class SpellHandler : MonoBehaviour
         playerInput.actions.Enable(); // Make sure player can move at the start      
 
         castSpellAction = playerInput.actions["Cast Spell"];
-        cycleSpellAction = playerInput.actions["Cycle Spell"];
+        cycleSpellAction = playerInput.actions["Cycle Spell"];        
     }
 
     private void OnDisable()
@@ -108,13 +108,15 @@ public class SpellHandler : MonoBehaviour
     /// </summary>
     public void SelectStartingSpell() 
     {
+        _hud = GameManager.GetHUD();
+    
         SetSelectedSpell(0);
     }
 
     private void SetSelectedSpell(int spellIndex)
     {
         currentSpellIndex = spellIndex;
-
+        
         _hud.SetCurrentSpellImage(availableSpells[currentSpellIndex].spellIcon);
 
         _hud.SetSpellNameText(availableSpells[currentSpellIndex].spellName);

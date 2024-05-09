@@ -34,11 +34,13 @@ public abstract class EnemyBehavior : MonoBehaviour
         playerTransform = PlayerHealth.PlayerTransform;
 
         currentAction = StartCoroutine(WaitForPlayerDetected());
-        _actionHandlerCoroutine = StartCoroutine(HandleActions());
+    //    _actionHandlerCoroutine = StartCoroutine(HandleActions());
 
         detectsPlayer = detectOnSpawn;
         
         EventManager.OnPlayerDeath += OnDeath;
+        
+        enabled = false;
     }
 
     /// <summary>
@@ -61,7 +63,7 @@ public abstract class EnemyBehavior : MonoBehaviour
     {
         print("Enemy onDeath");
         enabled = false;
-        StopCoroutine(_actionHandlerCoroutine);
+        if (_actionHandlerCoroutine != null) StopCoroutine(_actionHandlerCoroutine);
         StopAction();
         
         EventManager.OnPlayerDeath -= OnDeath;

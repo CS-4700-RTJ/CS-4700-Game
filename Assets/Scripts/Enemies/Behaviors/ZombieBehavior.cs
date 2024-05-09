@@ -43,7 +43,7 @@ namespace Enemies.Behaviors
             {
                 Destroy(clothing);
             }
-            
+                        
             _agent.isStopped = true;
             _agent.enabled = false;
             StopAllCoroutines();
