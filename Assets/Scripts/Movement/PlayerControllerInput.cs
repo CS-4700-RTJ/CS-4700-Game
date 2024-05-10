@@ -20,6 +20,7 @@ public class PlayerControllerInput : MonoBehaviour
     private InputAction jumpAction;
     private InputAction sprintAction;
     private InputAction interactAction;
+    private InputAction pauseAction;
     
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class PlayerControllerInput : MonoBehaviour
         jumpAction = playerInput.actions["Jump"];
         sprintAction = playerInput.actions["Sprint"];
         interactAction = playerInput.actions["Interact"];
+        pauseAction = playerInput.actions["Pause"];
     }
 
     private void OnDisable()
@@ -42,6 +44,7 @@ public class PlayerControllerInput : MonoBehaviour
         sprintAction.performed -= OnSprint;
         sprintAction.canceled -= OnSprint;
         interactAction.performed -= OnInteract;
+        pauseAction.performed -= OnPause;
     }
 
     private void Start()
@@ -55,6 +58,7 @@ public class PlayerControllerInput : MonoBehaviour
         sprintAction.performed += OnSprint;
         sprintAction.canceled += OnSprint;
         interactAction.performed += OnInteract;
+        pauseAction.performed += OnPause;
     }
     
     public void DisableInput()
@@ -110,5 +114,10 @@ public class PlayerControllerInput : MonoBehaviour
     private void OnInteract(InputAction.CallbackContext context)
     {
         interact = context.ReadValueAsButton();
+    }
+
+    private void OnPause(InputAction.CallbackContext context)
+    {
+        GameManager.TogglePause();
     }
 }

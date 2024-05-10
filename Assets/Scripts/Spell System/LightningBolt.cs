@@ -21,36 +21,51 @@ public class LightningBolt : Projectile
     protected override void OnImpact(Collision collision)
     {
         base.OnImpact(collision);
-
+        
         // Get all potential objects that the lightning can chain to
         List<Collider> hitColliders = new List<Collider>(Physics.OverlapSphere(transform.position, lightningChainDistance * maxAdditionalEnemies, lightningChainLayerMask));
+        List<GameObject> hitObjects = new List<GameObject>();
         
         // Remove the initially hit collider, if it is in the list
         if (hitColliders.Contains(collision.collider)) hitColliders.Remove(collision.collider);
         
         // Now determine which ones get hit
-        
-        var chainedObjects = new List<Collider>();
-        var startingTransform = collision.collider.transform;
+        foreach (var coll in hitColliders)
+        {
+            if (coll.attachedRigidbody)
+            {
+                GameObject hitObject = coll.attachedRigidbody.gameObject;
+                
+                if (!hitObjects.Contains(hitObject)) hitObjects.Add(hitObject);
+            }
+        }
 
-        while (chainedObjects.Count < maxAdditionalEnemies)
+        // Remove the initially hit game object, if its in the list
+        if (hitObjects.Count > 0 && hitObjects.Contains(collision.gameObject)) hitObjects.Remove(collision.gameObject);
+        
+        if (hitObjects.Count == 0) return;
+
+        // var chainedObjects = new List<Collider>();
+        var chainedObjs = new List<GameObject>();
+        var startingTransform = hitObjects[0].transform;
+
+        while (chainedObjs.Count < maxAdditionalEnemies)
         {
             // Get the next chained enemy
-            var nextCollider = GetNextEnemyInChain(startingTransform, hitColliders);
+            // var nextCollider = GetNextEnemyInChain(startingTransform, hitColliders);
+            var nextObject = GetNextEnemyInChain(startingTransform, hitObjects);
 
-            if (nextCollider)
+            if (nextObject)
             {
                 // Add the next chained enemy to the list
-                chainedObjects.Add(nextCollider);
-                startingTransform = nextCollider.transform;
-
-                hitColliders.Remove(nextCollider);
+                chainedObjs.Add(nextObject);
+                startingTransform = nextObject.transform;
+                hitObjects.Remove(nextObject);
             } 
             else break;
         }
-        
-        // Now try to damage each hit object
-        foreach (var chainedObject in chainedObjects)
+
+        foreach (var chainedObject in chainedObjs)
         {
             if (chainedObject.TryGetComponent(out Damageable damageable))
             {
@@ -61,34 +76,33 @@ public class LightningBolt : Projectile
         }
     }
 
-    private Collider GetNextEnemyInChain(Transform startTransform, List<Collider> hitColliders)
+    private GameObject GetNextEnemyInChain(Transform startTransform, List<GameObject> hitObjects)
     {
         // Find the closest enemy and add it to the chained list
-        Collider closestObject = null;
+        GameObject closestObject = null;
         float closestDistance = -1f;
-        foreach (var hitCol in hitColliders)
+
+        foreach (var hitObj in hitObjects)
         {
             if (closestObject == null)
             {
-                closestObject = hitCol;
-                
-                // Subtract the extents of the bounding box from the distance so that
-                // it is the distance from the edge of the collider to the start transform
-                closestDistance = Vector3.Distance(closestObject.bounds.center, startTransform.position) - closestObject.bounds.extents.magnitude;
+                closestObject = hitObj;
+
+                closestDistance = Vector3.Distance(closestObject.transform.position, startTransform.position);
             }
             else
             {
-                float distance = Vector3.Distance(hitCol.bounds.center, startTransform.position) - closestObject.bounds.extents.magnitude;
-                
+                float distance = Vector3.Distance(hitObj.transform.position, startTransform.position);
+
                 if (distance < closestDistance)
                 {
-                    closestObject = hitCol;
+                    closestObject = hitObj;
                     closestDistance = distance;
                 }
             }
+
         }
-        
-        // Now we have the closest collider
+
         if (closestDistance <= lightningChainDistance) return closestObject;
         else return null;
     }

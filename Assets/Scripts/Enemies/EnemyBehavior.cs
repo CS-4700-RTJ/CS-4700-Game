@@ -61,7 +61,7 @@ public abstract class EnemyBehavior : MonoBehaviour
     {
         print("Enemy onDeath");
         enabled = false;
-        StopCoroutine(_actionHandlerCoroutine);
+        if (_actionHandlerCoroutine != null) StopCoroutine(_actionHandlerCoroutine);
         StopAction();
         
         EventManager.OnPlayerDeath -= OnDeath;
@@ -74,8 +74,11 @@ public abstract class EnemyBehavior : MonoBehaviour
     /// <param name="freezeTime">The amount of time for which the Enemy is frozen</param>
     public virtual void OnFreeze(float freezeTime)
     {
+#if UNITY_EDITOR
+        if (debugMessages) print("EnemyBehavior OnFreeze");
+#endif
+        
         StopAction();
-
         currentAction = StartCoroutine(Delay(freezeTime));
     }
     
@@ -168,6 +171,10 @@ public abstract class EnemyBehavior : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
 
         currentAction = null;
+        
+        #if UNITY_EDITOR
+        if (debugMessages) print("Find new action!");
+        #endif
     }
     
     #endregion
