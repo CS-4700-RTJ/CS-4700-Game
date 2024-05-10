@@ -33,7 +33,14 @@ namespace Enemies.Behaviors
 
         public override void OnFreeze(float freezeTime)
         {
-            StopAction();
+            base.OnFreeze(freezeTime);
+            
+            #if UNITY_EDITOR
+            if (debugMessages) print("Zombie OnFreeze");
+            #endif
+            
+            // StopAction();
+            _animator.SetFloat(AnimatorMoveSpeed, 0);
             _agent.isStopped = true;
         }
 

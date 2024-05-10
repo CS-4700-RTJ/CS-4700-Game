@@ -46,6 +46,7 @@ namespace Enemies.Behaviors
         public override void OnFreeze(float freezeTime)
         {
             base.OnFreeze(freezeTime);
+            _animator.SetFloat(AnimatorMoveSpeed, 0);
             _agent.isStopped = true;
         }
 

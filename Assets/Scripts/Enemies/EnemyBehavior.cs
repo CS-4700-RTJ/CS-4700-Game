@@ -34,13 +34,11 @@ public abstract class EnemyBehavior : MonoBehaviour
         playerTransform = PlayerHealth.PlayerTransform;
 
         currentAction = StartCoroutine(WaitForPlayerDetected());
-    //    _actionHandlerCoroutine = StartCoroutine(HandleActions());
+        _actionHandlerCoroutine = StartCoroutine(HandleActions());
 
         detectsPlayer = detectOnSpawn;
         
         EventManager.OnPlayerDeath += OnDeath;
-        
-        enabled = false;
     }
 
     /// <summary>
@@ -76,8 +74,11 @@ public abstract class EnemyBehavior : MonoBehaviour
     /// <param name="freezeTime">The amount of time for which the Enemy is frozen</param>
     public virtual void OnFreeze(float freezeTime)
     {
+#if UNITY_EDITOR
+        if (debugMessages) print("EnemyBehavior OnFreeze");
+#endif
+        
         StopAction();
-
         currentAction = StartCoroutine(Delay(freezeTime));
     }
     
@@ -170,6 +171,10 @@ public abstract class EnemyBehavior : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
 
         currentAction = null;
+        
+        #if UNITY_EDITOR
+        if (debugMessages) print("Find new action!");
+        #endif
     }
     
     #endregion
