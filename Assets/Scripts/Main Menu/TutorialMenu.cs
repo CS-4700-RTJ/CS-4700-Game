@@ -35,6 +35,7 @@ public class TutorialMenu : MonoBehaviour
         tutorialText.text = tutorials[0].tutorialText;
         
         previousButton.gameObject.SetActive(false);
+        nextButton.gameObject.SetActive(true);
     }
     
     public void NextTutorial()
