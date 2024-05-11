@@ -9616,7 +9616,7 @@ MonoBehaviour:
   impactAfterLifetime: 1
   launchMode: 2
   impactVfx: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
-  explosionRadius: 2.5
+  explosionRadius: 3.5
   explosionLayerMask:
     serializedVersion: 2
     m_Bits: 385

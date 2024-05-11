@@ -146,13 +146,14 @@ public class Enemy : Damageable
     {
         isFrozen = true;
         _animator.enabled = false;
-        print("Disabling animator");
+        print("Disabling animator for freeze");
         
         if (!isPoisoned) _renderer.material.color = freezeColor;
         
         yield return new WaitForSeconds(freezeDuration);
 
-        print(_animator.enabled);
+        print("Freezing over");
+        print("Animator status (hasn't been re-enabled): " + _animator.enabled);
         
         if (!isPoisoned) _renderer.material.color = _originalColor;
         

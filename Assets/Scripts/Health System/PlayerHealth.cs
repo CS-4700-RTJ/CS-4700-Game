@@ -13,9 +13,6 @@ public class PlayerHealth : Damageable
     /// Static reference to the Player's transform.
     /// </summary>
     public static Transform PlayerTransform { get; private set; }
-    
-    [Header("UI")] 
-    public Slider healthBar;
 
     [Header("Damage Invincibility")]
     [SerializeField]
@@ -38,14 +35,14 @@ public class PlayerHealth : Damageable
     {
         base.Start();
         renderer = GetComponentInChildren<MeshRenderer>();
-        healthBar.value = 1;
+        GameManager.GetHUD().SetHealthSliderPercent(1);
     }
 
     public void IncreaseMaxHealth(int increase)
     {
         maxHealth += increase;
         currentHealth += increase;
-        healthBar.value = currentHealth / maxHealth;
+        GameManager.GetHUD().SetHealthSliderPercent(currentHealth / maxHealth);
     }
 
     public override void ApplyDamage(float amount)
@@ -57,7 +54,7 @@ public class PlayerHealth : Damageable
             //StartCoroutine(DamageFlash());
             StartCoroutine(FlashColor(renderer, Color.red, numFlashes, flashFrequency));
 
-            healthBar.value = currentHealth / maxHealth;
+            GameManager.GetHUD().SetHealthSliderPercent(currentHealth / maxHealth);
         }
     }
 
@@ -66,7 +63,7 @@ public class PlayerHealth : Damageable
         // Play the death sound
         PlayDeathSound();
         
-        healthBar.value = 0;
+        GameManager.GetHUD().SetHealthSliderPercent(0);
         
         print("Player died!");
 

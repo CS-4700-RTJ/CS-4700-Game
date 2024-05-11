@@ -19,6 +19,12 @@ public class GameManager : MonoBehaviour
     [Header("Notification")] 
     public GameObject notificationImage;
 
+    [Header("Pause Menu")] 
+    public PauseMenu pauseMenu;
+
+    [Header("HUD")] 
+    public HUD hud;
+
     // actual player score value
     private int _playerScore;
     
@@ -41,7 +47,7 @@ public class GameManager : MonoBehaviour
     private bool _isDelayed;
 
     private UpgradeManager _upgradeManager;
-    
+
     private void Awake()
     {
         if (_instance == null)
@@ -57,14 +63,20 @@ public class GameManager : MonoBehaviour
             _currentTier = 1;
             _upgradeManager = GetComponent<UpgradeManager>();
             
-            EventManager.OnPlayerDeath += () => AddHighScoreEntry("Bob");
+            // EventManager.OnPlayerDeath += () => AddHighScoreEntry("Bob");
+            EventManager.OnPlayerDeath += OpenGameOverMenu;
         }
         else
         {
             Destroy(gameObject);
         }
     }
-    
+
+    private void OnDestroy()
+    {
+        EventManager.OnPlayerDeath -= OpenGameOverMenu;
+    }
+
     /// <summary>
     /// Animates the increase in the player's score so that the player can clearly see how many points they gained
     /// while smoothly transitioning to the player's new score.
@@ -110,6 +122,11 @@ public class GameManager : MonoBehaviour
         scoreChangeText.text = "";
     }
 
+    public static HUD GetHUD()
+    {
+        return _instance.hud;
+    }
+    
     /// <summary>
     /// Increases the player's score by the specified amount of <b>points</b>.
     /// Use a negative value to subtract from the player's score.
@@ -163,9 +180,23 @@ public class GameManager : MonoBehaviour
         if (visible && _instance._upgradeManager.GetUpgradeReady()) _instance.notificationImage.SetActive(true);
         else _instance.notificationImage.SetActive(false);
     }
-    
+
+    public static void TogglePause()
+    {
+        if (PauseMenu.IsGameOver) return;
+        
+        if (PauseMenu.IsPaused) _instance.pauseMenu.Continue();
+        else _instance.pauseMenu.Pause();
+    }
+
+    private static void OpenGameOverMenu()
+    {
+        print("Get player name");
+        _instance.pauseMenu.GameOver();
+    }
+
     // Adds an entry to the JSON DB
-    private static void AddHighScoreEntry(string name)
+    public static void AddHighScoreEntry(string name)
     {
         print("Creating High score entry! Score: " + _instance._playerScore + ", name: " + name);
         HighScoreTable.HighScoreEntry highScoreEntry = new HighScoreTable.HighScoreEntry{score = _instance._playerScore, name = name};
