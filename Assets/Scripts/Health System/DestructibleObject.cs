@@ -30,6 +30,7 @@ public class DestructibleObject : Damageable
     {
         if (createOnDestroy)
         {
+            createOnDestroy.SetActive(true);
             var objectTransform = transform;
             var newObj = Instantiate(createOnDestroy).transform; 
             newObj.SetPositionAndRotation(objectTransform.position, objectTransform.rotation);
