@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mana Increase 3
   m_EditorClassIdentifier: 
   requiredTier: 1
-  requiredUpgrade: {fileID: 11400000, guid: 96d2267a3341f6249a863748f8a3b094, type: 2}
+  requiredUpgrade: {fileID: 11400000, guid: 9f49cf43a4d367341a33e018db3fed62, type: 2}
   upgradeName: Mana+++
   upgradeDescription: Increases your mana by 10
   upgradeIcon: {fileID: 21300000, guid: c06e2e24bf97b9c4094ca5c56733ea0c, type: 3}
