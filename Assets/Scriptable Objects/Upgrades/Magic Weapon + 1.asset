@@ -18,7 +18,7 @@ MonoBehaviour:
   upgradeDescription: Increases damage of Magic Sword
   upgradeIcon: {fileID: 21300000, guid: d8108e50be9cf7f49878337929803edd, type: 3}
   upgradeType: 0
-  spellToRemove: {fileID: 11400000, guid: 41b8dfd85e389ad449c63b80cd6c60a8, type: 2}
+  spellToRemove: {fileID: 11400000, guid: 8ea6b03b70ee57847a2936b3245f34e7, type: 2}
   spellToGain: {fileID: 11400000, guid: 0a293abe9b17c0a4a983241573f633b3, type: 2}
   maxHealthIncrease: 0
   maxManaIncrease: 0

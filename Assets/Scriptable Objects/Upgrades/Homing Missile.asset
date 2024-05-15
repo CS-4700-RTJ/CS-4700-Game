@@ -19,7 +19,7 @@ MonoBehaviour:
   upgradeIcon: {fileID: 21300000, guid: d70dd1b9c6ae54448923db5c4924edd5, type: 3}
   upgradeType: 0
   spellToRemove: {fileID: 0}
-  spellToGain: {fileID: 11400000, guid: 4feb00016c8ebb04aa7b029a61468c68, type: 2}
+  spellToGain: {fileID: 11400000, guid: 93f85fda81a5c414780a15cfa6db1938, type: 2}
   maxHealthIncrease: 0
   maxManaIncrease: 0
   moveSpeedMultiplier: 1

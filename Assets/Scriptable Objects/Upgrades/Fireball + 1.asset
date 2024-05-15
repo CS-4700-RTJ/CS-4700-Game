@@ -18,7 +18,7 @@ MonoBehaviour:
   upgradeDescription: Increases damage of Fireball
   upgradeIcon: {fileID: 21300000, guid: 2d0997ac1b1fd664e98202450e7ea2d7, type: 3}
   upgradeType: 0
-  spellToRemove: {fileID: 11400000, guid: 773fefb6dea213f4290e15c56d969117, type: 2}
+  spellToRemove: {fileID: 11400000, guid: 331a4234632c8c4419645bec621a3ddc, type: 2}
   spellToGain: {fileID: 11400000, guid: 8a011ef019cb7054987e31ed05df24e4, type: 2}
   maxHealthIncrease: 0
   maxManaIncrease: 0

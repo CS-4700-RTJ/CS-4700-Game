@@ -18,6 +18,8 @@ public class UpgradeSOEditor : Editor
         DrawDefaultInspector();
         EditorGUILayout.Space();
 
+        EditorGUI.BeginChangeCheck();
+
         if (upgrade.upgradeType == UpgradeSO.UpgradeType.SpellUpgrade)
         {
             upgrade.maxHealthIncrease = 0;
@@ -45,5 +47,12 @@ public class UpgradeSOEditor : Editor
                 EditorGUILayout.FloatField("Move Speed Multiplier", upgrade.moveSpeedMultiplier);
             EditorGUILayout.EndVertical();
         }
+
+        if (EditorGUI.EndChangeCheck())
+        {
+            Undo.RecordObject(target, "Changed Upgrade");
+        }
+        
+        EditorUtility.SetDirty(target);
     }
 }
