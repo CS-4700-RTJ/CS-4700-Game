@@ -18,7 +18,7 @@ MonoBehaviour:
   upgradeDescription: Increases poison damage of Poison Dart
   upgradeIcon: {fileID: 21300000, guid: 43932b67c71640244a46b122a525ad3a, type: 3}
   upgradeType: 0
-  spellToRemove: {fileID: 11400000, guid: 50892fb573ff39d4e90d20d365c89f11, type: 2}
+  spellToRemove: {fileID: 11400000, guid: 6737ce7051f0db043a612a63b6d014be, type: 2}
   spellToGain: {fileID: 11400000, guid: c6a7a217c5308474d97482245a373614, type: 2}
   maxHealthIncrease: 0
   maxManaIncrease: 0

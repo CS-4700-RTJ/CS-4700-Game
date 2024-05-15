@@ -18,7 +18,7 @@ MonoBehaviour:
   upgradeDescription: Increases freeze duration of Ice Shard
   upgradeIcon: {fileID: 21300000, guid: 0d1dc8ade7e63d14da6ea8a209621906, type: 3}
   upgradeType: 0
-  spellToRemove: {fileID: 11400000, guid: c578bdfef682c014d92f50d83e2c11ad, type: 2}
+  spellToRemove: {fileID: 11400000, guid: 00a663b2288fd8a41bb8f8a5780bb296, type: 2}
   spellToGain: {fileID: 11400000, guid: 9c202a7d242ed404a8369efa538a44e2, type: 2}
   maxHealthIncrease: 0
   maxManaIncrease: 0

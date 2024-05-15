@@ -18,8 +18,8 @@ MonoBehaviour:
   upgradeDescription: Decreases mana cost of Fireball
   upgradeIcon: {fileID: 21300000, guid: 2d0997ac1b1fd664e98202450e7ea2d7, type: 3}
   upgradeType: 0
-  spellToRemove: {fileID: 0}
-  spellToGain: {fileID: 11400000, guid: 773fefb6dea213f4290e15c56d969117, type: 2}
+  spellToRemove: {fileID: 11400000, guid: 01e8fd36a3a26f44c82a547e24c5e902, type: 2}
+  spellToGain: {fileID: 11400000, guid: eaa1cac30eace51478d77b82ee679f93, type: 2}
   maxHealthIncrease: 0
   maxManaIncrease: 0
   moveSpeedMultiplier: 1
