@@ -4962,7 +4962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd8aa91e6797984fb7c36d736761703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 1.5
   launchSpeed: 15
   lifetime: 3
   impactAfterLifetime: 0
