@@ -129,22 +129,24 @@ public class UpgradeManager : MonoBehaviour
 
     public void OpenUpgradeMenu()
     {
-        upgradePanel.SetActive(true);
-        Time.timeScale = 0;
-        Cursor.lockState = CursorLockMode.Confined;
-        _playerInput.DisableInput();
+        if(GetUpgradeReady()){
+            upgradePanel.SetActive(true);
+            Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.Confined;
+            _playerInput.DisableInput();
 
-        // select the first enabled upgrade
-        if (newSpellUpgradeElement.gameObject.activeSelf) newSpellUpgradeElement.Select();
-        else if (spellEnhancementUpgradeElement.gameObject.activeSelf) newSpellUpgradeElement.Select();
-        else if (playerBuffUpgradeElement.gameObject.activeSelf) playerBuffUpgradeElement.Select();
-        else
-        {
-            // no upgrades!
-            _obeliskAnimator.SetBool(ObeliskActiveBool, false);
-            upgradePanel.SetActive(false);
-            Time.timeScale = 1f;
-            Cursor.lockState = CursorLockMode.Locked;
+            // select the first enabled upgrade
+            if (newSpellUpgradeElement.gameObject.activeSelf) newSpellUpgradeElement.Select();
+            else if (spellEnhancementUpgradeElement.gameObject.activeSelf) newSpellUpgradeElement.Select();
+            else if (playerBuffUpgradeElement.gameObject.activeSelf) playerBuffUpgradeElement.Select();
+            else
+            {
+                // no upgrades!
+                _obeliskAnimator.SetBool(ObeliskActiveBool, false);
+                upgradePanel.SetActive(false);
+                Time.timeScale = 1f;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
         }
     }
     
