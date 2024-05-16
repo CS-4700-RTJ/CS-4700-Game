@@ -556,25 +556,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95068b1fb05807d489c2eb55af7fec24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 4
-  SprintSpeed: 6
-  MaxSprintTime: 5
-  RotationSpeed: 1
-  SpeedChangeRate: 10
-  AirborneMoveStrength: 0
-  JumpHeight: 1.2
-  Gravity: -15
-  JumpTimeout: 0.1
-  FallTimeout: 0.15
-  Grounded: 1
-  GroundedOffset: -0.14
-  GroundedRadius: 0.5
-  GroundLayers:
+  moveSpeed: 4
+  sprintSpeed: 6
+  maxSprintTime: 5
+  rotationSpeed: 1
+  speedChangeRate: 10
+  airborneMoveStrength: 0.6
+  jumpHeight: 1.2
+  gravity: -15
+  jumpTimeout: 0.1
+  fallTimeout: 0.15
+  grounded: 1
+  groundedOffset: -0.14
+  groundedRadius: 0.5
+  groundLayers:
     serializedVersion: 2
     m_Bits: 65
-  CinemachineCameraTarget: {fileID: 4733641752133670444}
-  TopClamp: 90
-  BottomClamp: -90
+  cinemachineCameraTarget: {fileID: 4733641752133670444}
+  topClamp: 90
+  bottomClamp: -90
 --- !u!114 &2028906022314204218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,8 +588,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
-  damageSounds: []
-  deathSounds: []
+  damageSounds:
+  - {fileID: 8300000, guid: 961b2e152018653429efcf751c1e9c10, type: 3}
+  - {fileID: 8300000, guid: 0b503824be1f1d2408fd00b1d7028835, type: 3}
+  - {fileID: 8300000, guid: b45091e4c066a5144a2eaa0c625a7f08, type: 3}
+  - {fileID: 8300000, guid: 820c059b4bcbbae4c8f4eba5cfb29a10, type: 3}
+  - {fileID: 8300000, guid: 8a218fdb327e50641bc9a546e1a222a4, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: 0f03d9d5ba63d864b8cfe68ef7a90237, type: 3}
+  - {fileID: 8300000, guid: 52e5c8e0a66aa0c4ebc089e86428725e, type: 3}
+  - {fileID: 8300000, guid: 21c4b56c0e54af94799e0c12684196d4, type: 3}
   healthBar: {fileID: 0}
   invulnerableTime: 0.5
   flashFrequency: 0.2
@@ -607,17 +615,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpellImage: {fileID: 0}
+  spellNameText: {fileID: 0}
   manaSlider: {fileID: 0}
   disabledColor: {r: 0.4509804, g: 0.4509804, b: 0.4509804, a: 1}
-  availableSpells:
-  - {fileID: 11400000, guid: 773fefb6dea213f4290e15c56d969117, type: 2}
-  - {fileID: 11400000, guid: 4feb00016c8ebb04aa7b029a61468c68, type: 2}
-  - {fileID: 11400000, guid: b0517e9685e49f94c9e10ee1d6b37031, type: 2}
-  - {fileID: 11400000, guid: 50892fb573ff39d4e90d20d365c89f11, type: 2}
-  - {fileID: 11400000, guid: 41b8dfd85e389ad449c63b80cd6c60a8, type: 2}
-  - {fileID: 11400000, guid: 0826430c29ca1f444911fbd55b56e3e7, type: 2}
-  - {fileID: 11400000, guid: 18f38648608f89e4cae49e0041fec954, type: 2}
-  - {fileID: 11400000, guid: c578bdfef682c014d92f50d83e2c11ad, type: 2}
+  progressReticle: {fileID: 0}
+  availableSpells: []
   maxMana: 30
   manaRegenRate: 2
   castTransform: {fileID: 4134036378000974924}

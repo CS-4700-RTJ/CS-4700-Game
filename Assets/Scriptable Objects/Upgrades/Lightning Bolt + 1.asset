@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 461c04cf0c1ab86489abbab166c8cbfd, type: 3}
+  m_Name: Lightning Bolt + 1
+  m_EditorClassIdentifier: 
+  requiredTier: 1
+  requiredUpgrade: {fileID: 11400000, guid: 9a531cfd11f6e884fbfa988e182e17df, type: 2}
+  upgradeName: Lightning Bolt+
+  upgradeDescription: Increases damage of Lightning Bolt
+  upgradeIcon: {fileID: 21300000, guid: ff42a689ad961fd4b9da0a00643acce7, type: 3}
+  upgradeType: 0
+  spellToRemove: {fileID: 11400000, guid: f07b5516eb7dffb46a152f26745272f9, type: 2}
+  spellToGain: {fileID: 11400000, guid: 61cda760b775e7f4db0ee22f6d2680dd, type: 2}
+  maxHealthIncrease: 0
+  maxManaIncrease: 0
+  moveSpeedMultiplier: 1

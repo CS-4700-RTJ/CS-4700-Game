@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -9,12 +10,6 @@ using UnityEngine.UI;
 
 public class SpellHandler : MonoBehaviour
 {
-    
-    [Header("Spell UI")]
-    public Image currentSpellImage;
-    public Slider manaSlider;
-    public Color disabledColor;
-
     public Spell[] availableSpells;
 
     [Header("Mana")] 
@@ -51,6 +46,7 @@ public class SpellHandler : MonoBehaviour
     private static readonly int AnimatorIsCharging = Animator.StringToHash("IsCharging");
     private static readonly int AnimatorChargeFinished = Animator.StringToHash("ChargeFinished");
 
+    private HUD _hud;
     
     private void Awake()
     {
@@ -58,7 +54,7 @@ public class SpellHandler : MonoBehaviour
         playerInput.actions.Enable(); // Make sure player can move at the start      
 
         castSpellAction = playerInput.actions["Cast Spell"];
-        cycleSpellAction = playerInput.actions["Cycle Spell"];
+        cycleSpellAction = playerInput.actions["Cycle Spell"];        
     }
 
     private void OnDisable()
@@ -75,9 +71,10 @@ public class SpellHandler : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
+        _hud = GameManager.GetHUD();
 
         currentMana = maxMana;
-        manaSlider.value = 1;
+        _hud.SetManaSliderPercent(1);
 
         currentSpellIndex = 0;
         currentCast = null;
@@ -85,27 +82,44 @@ public class SpellHandler : MonoBehaviour
         castingDisabled = false;
 
         _mainCamera = Camera.main;
-        
+
         spellChargeVfx.SetActive(false);
+        _hud.SetReticleFillPercent(0);
     }
     
     private void Update()
     {
         currentMana = Math.Min(currentMana + manaRegenRate * Time.deltaTime, maxMana);
-        manaSlider.value = currentMana / maxMana;
+        _hud.SetManaSliderPercent(currentMana / maxMana);
         
         canCastSpell = availableSpells[currentSpellIndex].manaCost <= currentMana;
-        currentSpellImage.color = canCastSpell ? Color.white : disabledColor;
+        _hud.SetSpellColor(canCastSpell);
+    }
 
-        // Vector3 eulerAngles = wandTransform.localRotation.eulerAngles;
-        // wandTransform.localRotation = Quaternion.Euler(WandCameraOffset + _mainCamera.transform.rotation.eulerAngles.x, eulerAngles.y, eulerAngles.z);
+    public void IncreaseMaxMana(int increase)
+    {
+        maxMana += increase;
+        currentMana += increase;
+        _hud.SetManaSliderPercent(currentMana / maxMana);
+    }
+    
+    /// <summary>
+    /// Selects the very first spell in the list of available spells, so that the UI matches
+    /// </summary>
+    public void SelectStartingSpell() 
+    {
+        _hud = GameManager.GetHUD();
+    
+        SetSelectedSpell(0);
     }
 
     private void SetSelectedSpell(int spellIndex)
     {
         currentSpellIndex = spellIndex;
+        
+        _hud.SetCurrentSpellImage(availableSpells[currentSpellIndex].spellIcon);
 
-        currentSpellImage.sprite = availableSpells[currentSpellIndex].spellIcon;
+        _hud.SetSpellNameText(availableSpells[currentSpellIndex].spellName);
     }
 
     private void OnCycleSpell(InputAction.CallbackContext context)
@@ -136,18 +150,19 @@ public class SpellHandler : MonoBehaviour
         {
             // Pay mana
             currentMana -= spellBeingCast.manaCost;
-            manaSlider.value = currentMana / maxMana;
+            _hud.SetManaSliderPercent(currentMana / maxMana);
 
             if (currentMana < spellBeingCast.manaCost)
             {
-                currentSpellImage.color = disabledColor;
+                _hud.SetSpellColor(false);
                 canCastSpell = false;
             }
 
             // Play SFX
-            if (spellBeingCast.castSfx)
+            if (spellBeingCast.castSfx[0])
             {
-                audioSource.PlayOneShot(spellBeingCast.castSfx);
+                var clipToPlay = spellBeingCast.castSfx[UnityEngine.Random.Range(0, spellBeingCast.castSfx.Length)];
+                audioSource.PlayOneShot(clipToPlay);
             }
                 
             // Create spell projectile
@@ -172,6 +187,7 @@ public class SpellHandler : MonoBehaviour
         wandAudioSource.Stop();
         animator.SetBool(AnimatorIsCharging, false);
         animator.speed = 1;
+        _hud.SetReticleFillPercent(0);
     }
 
     private void CastSpellStarted(InputAction.CallbackContext context)
@@ -198,7 +214,17 @@ public class SpellHandler : MonoBehaviour
 
         wandAudioSource.pitch = pitch;
 
-        yield return new WaitForSeconds(spell.castTime);
+        float timer = 0f;
+        while (timer < spell.castTime)
+        {
+            yield return null;
+            
+            timer += Time.deltaTime;
+            _hud.SetReticleFillPercent(timer / spell.castTime);
+        }
+
+        _hud.SetReticleFillPercent(1);
+        // yield return new WaitForSeconds(spell.castTime);
         wandAudioSource.Stop();
         
         // Destroy the charging Vfx to signify that the spell can be cast
@@ -211,13 +237,11 @@ public class SpellHandler : MonoBehaviour
     private void DisableCasting()
     {
         castingDisabled = true;
-        print("disabled casting");
     }
 
     private void EnableCasting()
     {
         castingDisabled = false;
-        print("enabled casting");
     } 
 
     public IEnumerator DisableCastingForTime(float time)

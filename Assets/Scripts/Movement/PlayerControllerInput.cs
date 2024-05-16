@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,7 @@ public class PlayerControllerInput : MonoBehaviour
     public Vector2 look { get; private set; }
     public bool jump { get; set; }
     public bool sprint { get; private set; }
+    public bool interact { get; set; }
 
     public bool analogMovement;
     
@@ -17,6 +19,8 @@ public class PlayerControllerInput : MonoBehaviour
     private InputAction lookAction;
     private InputAction jumpAction;
     private InputAction sprintAction;
+    private InputAction interactAction;
+    private InputAction pauseAction;
     
     private void Awake()
     {
@@ -25,6 +29,8 @@ public class PlayerControllerInput : MonoBehaviour
         lookAction = playerInput.actions["Look"];
         jumpAction = playerInput.actions["Jump"];
         sprintAction = playerInput.actions["Sprint"];
+        interactAction = playerInput.actions["Interact"];
+        pauseAction = playerInput.actions["Pause"];
     }
 
     private void OnDisable()
@@ -37,6 +43,8 @@ public class PlayerControllerInput : MonoBehaviour
         jumpAction.canceled -= OnJump;
         sprintAction.performed -= OnSprint;
         sprintAction.canceled -= OnSprint;
+        interactAction.performed -= OnInteract;
+        pauseAction.performed -= OnPause;
     }
 
     private void Start()
@@ -49,6 +57,18 @@ public class PlayerControllerInput : MonoBehaviour
         jumpAction.canceled += OnJump;
         sprintAction.performed += OnSprint;
         sprintAction.canceled += OnSprint;
+        interactAction.performed += OnInteract;
+        pauseAction.performed += OnPause;
+    }
+    
+    public void DisableInput()
+    {
+        playerInput.actions.Disable();
+    }
+
+    public void EnableInput()
+    {
+        playerInput.actions.Enable();
     }
 
     public bool IsCurrentDeviceMouse()
@@ -67,7 +87,8 @@ public class PlayerControllerInput : MonoBehaviour
     
     private void OnApplicationFocus(bool hasFocus)
     {
-        Cursor.lockState = hasFocus ? CursorLockMode.Locked : CursorLockMode.None;
+        // If the application has focus, then confine the mouse if time is paused for an upgrade, or lock it otherwise
+        Cursor.lockState = hasFocus ? (Time.timeScale < 0.1 ? CursorLockMode.Confined : CursorLockMode.Locked) : CursorLockMode.None;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -88,5 +109,15 @@ public class PlayerControllerInput : MonoBehaviour
     private void OnSprint(InputAction.CallbackContext context)
     {
         sprint = context.ReadValueAsButton();
+    }
+
+    private void OnInteract(InputAction.CallbackContext context)
+    {
+        interact = context.ReadValueAsButton();
+    }
+
+    private void OnPause(InputAction.CallbackContext context)
+    {
+        GameManager.TogglePause();
     }
 }

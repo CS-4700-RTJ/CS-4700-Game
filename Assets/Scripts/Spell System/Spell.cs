@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "ScriptableObjects/Spell", order = 1)]
 public class Spell : ScriptableObject
 {
     [Tooltip("What is the spell's name?")]
@@ -13,7 +13,7 @@ public class Spell : ScriptableObject
     public float manaCost;
 
     [Tooltip("Sound Effect to play when casting the spell")]
-    public AudioClip castSfx;
+    public AudioClip[] castSfx;
     [Tooltip("The image to display in the UI")]
     public Sprite spellIcon;
     [Tooltip("A description of what this spell does")]
