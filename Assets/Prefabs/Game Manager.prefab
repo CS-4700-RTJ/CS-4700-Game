@@ -3775,7 +3775,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f503621a34af679468b0c3b2008cd926, type: 2}
   startingSpellUpgrades:
   - {fileID: 11400000, guid: e57f466e4a5c24c46b063fe4853f6320, type: 2}
-  timeBetweenUpgrades: 60
+  timeBetweenUpgrades: 30
   upgradePanel: {fileID: 4612996535592202933}
   newSpellUpgradeElement: {fileID: 2613273835264274017}
   spellEnhancementUpgradeElement: {fileID: 402320309621266190}
