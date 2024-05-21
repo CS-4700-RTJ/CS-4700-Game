@@ -12,7 +12,7 @@ public class UpgradeManager : MonoBehaviour
     public UpgradeSO[] allUpgrades;
     public UpgradeSO[] startingSpellUpgrades;
 
-    public float timeBetweenUpgrades = 60f;
+    private float _timeBetweenUpgrades = 60f;
 
     [Header("UI")] public GameObject upgradePanel;
     public UpgradeUIElement newSpellUpgradeElement;
@@ -62,6 +62,8 @@ public class UpgradeManager : MonoBehaviour
         _spellHandler.availableSpells = startingSpells.ToArray();
         _spellHandler.SelectStartingSpell();
         upgradePanel.SetActive(false);
+
+        _timeBetweenUpgrades = GameManager.GetDifficulty().timeBetweenUpgrades;
 
         StartCoroutine(WaitForUpgrade());
 
@@ -224,7 +226,7 @@ public class UpgradeManager : MonoBehaviour
    {
        while (true)
        {
-           yield return new WaitForSeconds(timeBetweenUpgrades);
+           yield return new WaitForSeconds(_timeBetweenUpgrades);
 
             readyForUpgrade = false;
             TriggerUpgrade();

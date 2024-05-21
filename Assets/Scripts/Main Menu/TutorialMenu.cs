@@ -34,8 +34,11 @@ public class TutorialMenu : MonoBehaviour
         tutorialImage.sprite = tutorials[0].tutorialImage;
         tutorialText.text = tutorials[0].tutorialText;
         
-        previousButton.gameObject.SetActive(false);
-        nextButton.gameObject.SetActive(true);
+        // previousButton.gameObject.SetActive(false);
+        // nextButton.gameObject.SetActive(true);
+
+        previousButton.interactable = true;
+        nextButton.interactable = true;
     }
     
     public void NextTutorial()
@@ -47,10 +50,12 @@ public class TutorialMenu : MonoBehaviour
         // At the last tutorial
         if (_currentTutorial == tutorials.Length - 1)
         {
-            nextButton.gameObject.SetActive(false);
+            // nextButton.gameObject.SetActive(false);
+            nextButton.interactable = false;
         }
         
-        previousButton.gameObject.SetActive(true);
+        // previousButton.gameObject.SetActive(true);
+        previousButton.interactable = true;
     }
 
     public void PreviousTutorial()
@@ -62,9 +67,11 @@ public class TutorialMenu : MonoBehaviour
         // At the last tutorial
         if (_currentTutorial == 0)
         {
-            previousButton.gameObject.SetActive(false);
+            // previousButton.gameObject.SetActive(false);
+            previousButton.interactable = false;
         }
         
-        nextButton.gameObject.SetActive(true);
+        // nextButton.gameObject.SetActive(true);
+        nextButton.interactable = true;
     }
 }
