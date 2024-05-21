@@ -13,10 +13,10 @@ public class EnemySpawner : MonoBehaviour
     public Transform[] spawnLocations;
     public int roundsPerTier = 3;
     public int pointsGainedPerRound = 1;
-    public int initialPoints = 3;
+    private int _initialPoints = 3;
 
-    [Header("Spawn Timer")] 
-    public float timeBetweenRounds = 30f;
+    [Header("Spawn Timer")]
+    private float _timeBetweenRounds = 30f;
     
     private int roundsToNextTier;
 
@@ -24,6 +24,10 @@ public class EnemySpawner : MonoBehaviour
     {
         roundsToNextTier = roundsPerTier;
 
+        var difficutly = GameManager.GetDifficulty();
+        _initialPoints = difficutly.startingSpawnPoints;
+        _timeBetweenRounds = difficutly.timeBetweenSpawns;
+        
         StartCoroutine(HandleSpawns());
 
         EventManager.OnPlayerDeath += StopSpawner;
@@ -52,7 +56,7 @@ public class EnemySpawner : MonoBehaviour
         }
         
         // choose which enemies to spawn (random)
-        int points = initialPoints;
+        int points = _initialPoints;
         var enemiesToSpawn = new List<GameObject>();
 
         while (points > 0)
@@ -83,7 +87,7 @@ public class EnemySpawner : MonoBehaviour
         }
         
         // Increase round counter, tier counter, and available point counter
-        initialPoints += pointsGainedPerRound;
+        _initialPoints += pointsGainedPerRound;
         roundsToNextTier--;
 
         if (roundsToNextTier == 0)
@@ -99,7 +103,7 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnEnemies();
 
-            yield return new WaitForSeconds(timeBetweenRounds);
+            yield return new WaitForSeconds(_timeBetweenRounds);
         }
     }
 }

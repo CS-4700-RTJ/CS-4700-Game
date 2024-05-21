@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public TMP_Text difficultyText;
-    
     // Load Game Scene
     public void Play()
     {
@@ -23,15 +21,5 @@ public class MainMenu : MonoBehaviour
 #else
         Application.Quit();
 #endif
-    }
-    
-    public void SetDifficulty(DifficultyOptionSO difficulty) 
-    {
-        GameManager.SetDifficulty(difficulty);
-
-        difficultyText.text = String.Format("Spawn Rate: {0} seconds\n" +
-                                            "Upgrade Rate: {1} seconds\n" +
-                                            "Point Multiplier: {2}x",
-                                            difficulty.timeBetweenSpawns, difficulty.timeBetweenUpgrades, difficulty.pointMultiplier);
     }
 }
