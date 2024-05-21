@@ -42,6 +42,9 @@ public class GameManager : MonoBehaviour
     
     // Round information
     private int _currentTier;
+    
+    // Difficulty information
+    private static DifficultyOptionSO _difficultyOption;
 
     private Coroutine _scoreUpdateRoutine;
     private bool _isDelayed;
@@ -151,6 +154,9 @@ public class GameManager : MonoBehaviour
             _instance.StopCoroutine(_instance._scoreUpdateRoutine);
         }
         
+        // modify points by the current difficulty's multiplier
+        if (_difficultyOption) points = (int)(points * _difficultyOption.pointMultiplier);
+        
         //Increase the player's score
         PlayerScore += points;
         _instance._remainingScoreChange += points;
@@ -170,6 +176,16 @@ public class GameManager : MonoBehaviour
         return _instance._currentTier;
     }
 
+    public static void SetDifficulty(DifficultyOptionSO difficulty)
+    { 
+        _difficultyOption = difficulty;
+    }
+
+    public static DifficultyOptionSO GetDifficulty()
+    {
+        return _difficultyOption;
+    }
+    
     public static void OpenUpgradeMenu()
     {
         _instance._upgradeManager.OpenUpgradeMenu();
